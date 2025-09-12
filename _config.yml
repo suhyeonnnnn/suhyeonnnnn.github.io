@@ -23,6 +23,11 @@ markdown: kramdown
 highlighter: rouge
 permalink: /:year/:month/:day/:title/
 
+# Sass settings
+sass:
+  style: compressed
+  sass_dir: _sass
+
 # Plugins
 plugins:
   - jekyll-feed
