@@ -1,0 +1,90 @@
+title: "Suhyeon Lee - Digital Marketing Researcher"
+description: "KAIST M.S. student researching Digital Marketing, Social Media, and AI applications in human behavior"
+url: "https://suhyeonnnnn.github.io"
+baseurl: ""
+
+# Author information
+author:
+  name: "Suhyeon Lee"
+  email: "suhyeonlee@kaist.ac.kr"
+  github: "suhyeonnnnn"
+  university: "KAIST"
+  department: "Management Engineering"
+  degree: "M.S. Student"
+  location: "Seoul, Republic of Korea"
+
+# Site settings
+language: en
+timezone: Asia/Seoul
+encoding: utf-8
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: /:year/:month/:day/:title/
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-paginate
+
+# Pagination
+paginate: 5
+paginate_path: "/posts/page:num/"
+
+# Collections
+collections:
+  publications:
+    output: true
+    permalink: /:collection/:name/
+  projects:
+    output: true
+    permalink: /:collection/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Suhyeon Lee"
+  - scope:
+      path: ""
+      type: "publications"
+    values:
+      layout: "publication"
+
+# SEO settings
+lang: en_US
+logo: /assets/images/logo.png
+social:
+  name: Suhyeon Lee
+  links:
+    - https://github.com/suhyeonnnnn
+
+# Research Areas
+research:
+  substantive:
+    - "Digital Marketing"
+    - "Social Media"
+    - "User-Generated Content"
+    - "User Behavior"
+  methodological:
+    - "Generative AI"
+    - "LLM"
+    - "Computer Vision"
+    - "Video Analysis"
+
+# Exclude files
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor/
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - node_modules/

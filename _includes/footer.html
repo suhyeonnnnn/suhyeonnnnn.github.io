@@ -1,0 +1,24 @@
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>📧 <a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a></p>
+                <p>🏫 {{ site.author.university }} {{ site.author.department }}</p>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <div class="social-links">
+                    {% if site.author.github %}
+                        <a href="https://github.com/{{ site.author.github }}" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; {{ 'now' | date: '%Y' }} {{ site.author.name }}. All rights reserved.</p>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,64 @@
+---
+layout: default
+---
+
+<article class="post">
+    <header class="post-header">
+        <div class="container">
+            <h1 class="post-title">{{ page.title }}</h1>
+            <div class="post-meta">
+                <time datetime="{{ page.date | date_to_xmlschema }}">
+                    {{ page.date | date: "%Y년 %m월 %d일" }}
+                </time>
+                {% if page.author %}
+                    <span class="post-author">by {{ page.author }}</span>
+                {% endif %}
+                {% if page.categories %}
+                    <span class="post-categories">
+                        {% for category in page.categories %}
+                            <span class="category">{{ category }}</span>
+                        {% endfor %}
+                    </span>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+    
+    <div class="post-content">
+        <div class="container">
+            {{ content }}
+        </div>
+    </div>
+    
+    {% if page.tags %}
+    <footer class="post-footer">
+        <div class="container">
+            <div class="post-tags">
+                <h4>Tags:</h4>
+                {% for tag in page.tags %}
+                    <span class="tag">{{ tag }}</span>
+                {% endfor %}
+            </div>
+        </div>
+    </footer>
+    {% endif %}
+</article>
+
+<!-- Navigation to other posts -->
+<nav class="post-navigation">
+    <div class="container">
+        {% if page.previous.url %}
+            <a href="{{ page.previous.url | relative_url }}" class="nav-previous">
+                <span class="nav-label">← Previous</span>
+                <span class="nav-title">{{ page.previous.title }}</span>
+            </a>
+        {% endif %}
+        
+        {% if page.next.url %}
+            <a href="{{ page.next.url | relative_url }}" class="nav-next">
+                <span class="nav-label">Next →</span>
+                <span class="nav-title">{{ page.next.title }}</span>
+            </a>
+        {% endif %}
+    </div>
+</nav>
