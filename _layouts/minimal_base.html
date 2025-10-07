@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title | default: site.title }}</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+    <div class="main-container">
+        <!-- 헤더 네비게이션 -->
+        <header class="header">
+            <a href="/" class="logo">{{ site.author.name | default: "Suhyeon (Sue) Lee" }}</a>
+            
+            <nav class="nav">
+                <a href="/" {% if page.url == '/' %}class="active"{% endif %}>Home</a>
+                <a href="/cv" {% if page.url contains 'cv' %}class="active"{% endif %}>CV</a>
+                <a href="/research" {% if page.url contains 'research' %}class="active"{% endif %}>Research</a>
+                <a href="/projects" {% if page.url contains 'projects' %}class="active"{% endif %}>Project</a>
+                <a href="/fun" {% if page.url contains 'fun' %}class="active"{% endif %}>Fun</a>
+            </nav>
+        </header>
+        
+        <!-- 메인 콘텐츠 -->
+        <main>
+            {{ content }}
+        </main>
+        
+        <!-- 푸터 -->
+        <footer class="footer">
+            © Copyright {{ 'now' | date: "%Y" }} {{ site.author.name | default: "Suhyeon Lee" }}.
+        </footer>
+    </div>
+    
+    <script>
+        // 페이지 로드 애니메이션
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.fade-in, .fade-in-delay');
+            elements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    el.style.transition = 'all 0.6s ease-out';
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>

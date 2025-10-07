@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title | default: site.title }}</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    
+    <!-- Sebastian 스타일 전용 스타일 -->
+    <style>
+        /* Sebastian 스타일에 맞는 추가 스타일링 */
+        .text-center { text-align: center; }
+        
+        /* 네비게이션 간소화 */
+        .simple-nav {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            box-shadow: var(--shadow-soft);
+        }
+        
+        .simple-nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            margin: 0;
+        }
+        
+        .simple-nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: var(--transition-fast);
+        }
+        
+        .simple-nav-links a:hover {
+            color: var(--text-primary);
+        }
+        
+        /* 모바일에서 네비게이션 조정 */
+        @media (max-width: 768px) {
+            .simple-nav {
+                top: 1rem;
+                right: 1rem;
+                left: 1rem;
+                text-align: center;
+            }
+            
+            .simple-nav-links {
+                justify-content: center;
+                gap: 1rem;
+            }
+        }
+        
+        /* 페이지별 스타일 조정 */
+        .page-content {
+            padding-top: 6rem;
+        }
+        
+        .page-hero {
+            text-align: center;
+            padding: 4rem 0 2rem;
+        }
+        
+        .page-hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+        
+        .page-hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sebastian 스타일 간단한 네비게이션 -->
+    <nav class="simple-nav">
+        <ul class="simple-nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/cv">CV</a></li>
+            <li><a href="/projects">Projects</a></li>
+            <li><a href="/publications">Publications</a></li>
+            <li><a href="/fun">Fun</a></li>
+        </ul>
+    </nav>
+    
+    <main class="main-content">
+        {% if page.layout != 'home' %}
+            <div class="page-content">
+                <div class="container">
+                    {% if page.title and page.layout != 'post' %}
+                        <div class="page-hero">
+                            <h1>{{ page.title }}</h1>
+                            {% if page.description %}
+                                <p>{{ page.description }}</p>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        {% endif %}
+        
+        {{ content }}
+    </main>
+    
+    <!-- Footer (선택사항) -->
+    <footer style="background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); padding: 2rem 0; text-align: center; margin-top: 4rem; border-top: 1px solid var(--border-light);">
+        <div class="container">
+            <p style="color: var(--text-secondary);">
+                © {{ 'now' | date: "%Y" }} {{ site.author.name }}. Made with 💙
+            </p>
+        </div>
+    </footer>
+    
+    <script>
+        // 간단한 스크롤 효과
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.simple-nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+            } else {
+                nav.style.background = 'rgba(255, 255, 255, 0.9)';
+            }
+        });
+
+        // 페이지 로드 애니메이션
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.fade-in, .fade-in-delay');
+            elements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                
+                setTimeout(() => {
+                    el.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>

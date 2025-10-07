@@ -1,90 +1,99 @@
 ---
-layout: default
+layout: minimal_base
 ---
 
-<!-- Hero Section -->
-<section class="hero">
-    <div class="hero-content">
-        <h1>Hello! 👋</h1>
-        <p class="hero-subtitle">I'm <strong>{{ site.author.name }}</strong></p>
-        <p class="hero-description">
-            M.S. student at {{ site.author.university }} studying {{ site.author.department }}, 
-            researching Digital Marketing, Social Media, and AI applications in human behavior.
-        </p>
-        <div class="cta-buttons">
-            <a href="#about" class="btn btn-primary">Learn More</a>
-            <a href="/assets/files/Suhyeon_Lee_CV.pdf" class="btn btn-primary">📄 Download CV</a>
-        </div>
-    </div>
-</section>
-
-<!-- About Section -->
-<section id="about" class="section">
-    <div class="container">
-        <div class="section-header">
-            <h2 class="section-title">About Me</h2>
-            <p class="section-subtitle">My background and research interests</p>
-        </div>
-        {{ content }}
-    </div>
-</section>
-
-<!-- Research Interests -->
-<section class="section">
-    <div class="container">
-        <div class="section-header">
-            <h2 class="section-title">Research Interests</h2>
-        </div>
-        <div class="research-interests">
-            <div class="research-category">
-                <h3><i class="fas fa-bullseye"></i> Substantive Areas</h3>
-                <div class="research-tags">
-                    {% for area in site.research.substantive %}
-                        <span class="research-tag">{{ area }}</span>
-                    {% endfor %}
-                </div>
-            </div>
-            <div class="research-category">
-                <h3><i class="fas fa-tools"></i> Methodological Areas</h3>
-                <div class="research-tags">
-                    {% for method in site.research.methodological %}
-                        <span class="research-tag methodology">{{ method }}</span>
-                    {% endfor %}
-                </div>
+<div class="content">
+    <!-- 프로필 섹션 -->
+    <section class="profile-section fade-in">
+        <div class="profile-image-area">
+            <div class="profile-image">
+                👨‍💻
             </div>
         </div>
-    </div>
-</section>
-
-<!-- Latest News -->
-<section class="section">
-    <div class="container">
-        <div class="section-header">
-            <h2 class="section-title">Latest Updates 🎉</h2>
+        
+        <div class="profile-info">
+            <h1>{{ site.author.name }}</h1>
+            <p class="subtitle">{{ site.author.degree }} @{{ site.author.university }}</p>
+            
+            <div class="profile-description">
+                <p><strong>[간단한 내 소개]</strong></p>
+                <p>
+                    디지털 마케팅과 사용자 행동 연구에 열정을 가진 KAIST 석사과정생입니다. 
+                    현재 Carnegie Mellon University에서 AI Intensive Program에 참여 중이며, 
+                    Generative AI와 LLM을 활용한 인간 행동 시뮬레이션 연구를 진행하고 있습니다.
+                </p>
+            </div>
+            
+            <div class="contact-links">
+                <a href="https://github.com/{{ site.author.github }}" target="_blank">Github</a>
+                <a href="#" target="_blank">LinkedIn</a>
+                <a href="/assets/files/SuhyeonLee_CV_250912.pdf" target="_blank">CV</a>
+                <a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a>
+            </div>
         </div>
-        <div class="news-grid">
-            <div class="news-item fade-in">
-                <div class="news-date">Nov 2025</div>
-                <h3 class="news-title">🏆 Paper Accepted at CIKM 2025</h3>
-                <p class="news-description">
+    </section>
+    
+    <!-- Education 섹션 -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Education</h2>
+        <div class="section-content">
+            <ul>
+                <li><strong>M.S. in Management Engineering</strong> - KAIST (2024-2026)</li>
+                <li><strong>Visiting Student</strong> - Carnegie Mellon University (2024-2025)</li>
+                <li><strong>B.S. in Business Administration</strong> - [Previous University] (2020-2024)</li>
+            </ul>
+        </div>
+    </section>
+    
+    <!-- Recent News 섹션 -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Recent News!</h2>
+        <div class="section-content">
+            <div class="news-item">
+                <div class="news-date">November 2025</div>
+                <div class="news-title">🏆 Paper Accepted at CIKM 2025</div>
+                <div class="news-description">
                     Our paper "PlaceSim: An LLM-based Interactive Platform for Human Behavior Simulation" 
                     has been accepted at CIKM 2025 in Seoul!
-                </p>
+                </div>
             </div>
-            <div class="news-item fade-in">
-                <div class="news-date">Jul 2025</div>
-                <h3 class="news-title">📢 ISMS Marketing Science Conference Presentation</h3>
-                <p class="news-description">
+            
+            <div class="news-item">
+                <div class="news-date">July 2025</div>
+                <div class="news-title">📢 ISMS Marketing Science Conference Presentation</div>
+                <div class="news-description">
                     Presented research on "Dynamics of Online WOM and Performance" at the ISMS Conference.
-                </p>
+                </div>
             </div>
-            <div class="news-item fade-in">
-                <div class="news-date">Dec 2024 - Jul 2025</div>
-                <h3 class="news-title">🇺🇸 Visiting Student at Carnegie Mellon University</h3>
-                <p class="news-description">
+            
+            <div class="news-item">
+                <div class="news-date">December 2024 - July 2025</div>
+                <div class="news-title">🇺🇸 Visiting Student at Carnegie Mellon University</div>
+                <div class="news-description">
                     Participating in the AI Intensive Program at CMU, Pittsburgh.
-                </p>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+    
+    <!-- Research Interests 섹션 (선택사항) -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Research Interests</h2>
+        <div class="section-content">
+            <p><strong>Substantive Areas:</strong> 
+                {% if site.research.substantive %}
+                    {{ site.research.substantive | join: ', ' }}
+                {% else %}
+                    Digital Marketing, Social Media, User Behavior, AI Applications
+                {% endif %}
+            </p>
+            <p><strong>Methodological Areas:</strong> 
+                {% if site.research.methodological %}
+                    {{ site.research.methodological | join: ', ' }}
+                {% else %}
+                    Generative AI, LLM, Computer Vision, Machine Learning
+                {% endif %}
+            </p>
+        </div>
+    </section>
+</div>

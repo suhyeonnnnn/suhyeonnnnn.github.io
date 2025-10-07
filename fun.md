@@ -1,135 +1,247 @@
 ---
-layout: default
-title: Fun
-permalink: /fun/
+layout: minimal_base
+title: "Fun"
 ---
 
-<section class="section">
-    <div class="container">
-        <div class="section-header">
-            <h1 class="section-title">Fun Stuff 🎉</h1>
-            <p class="section-subtitle">Beyond research - hobbies, interests, and life moments</p>
-        </div>
-
-        <!-- Fun Facts -->
-        <div class="subsection">
-            <h2>🌟 Fun Facts About Me</h2>
-            <div class="fun-facts-grid">
-                <div class="fun-fact-card">
-                    <div class="fun-icon">🎮</div>
-                    <h4>Gaming Enthusiast</h4>
-                    <p>I research gaming behavior and I also love playing games! Currently exploring the psychology behind game design and player engagement.</p>
-                </div>
-                
-                <div class="fun-fact-card">
-                    <div class="fun-icon">🤖</div>
-                    <h4>AI Art Explorer</h4>
-                    <p>Fascinated by generative AI not just for research but also for creating digital art. I experiment with different models to create unique visuals.</p>
-                </div>
-                
-                <div class="fun-fact-card">
-                    <div class="fun-icon">🌍</div>
-                    <h4>International Student</h4>
-                    <p>Studied in 3 countries (Korea, USA, soon CMU)! Love experiencing different cultures and academic environments.</p>
-                </div>
-                
-                <div class="fun-fact-card">
-                    <div class="fun-icon">📊</div>
-                    <h4>Data Visualization Nerd</h4>
-                    <p>I find beauty in data! Love creating stunning visualizations that tell compelling stories from complex datasets.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Current Interests -->
-        <div class="subsection">
-            <h2>🎯 Current Interests</h2>
-            <div class="interests-grid">
-                <div class="interest-item">
-                    <h4>🎨 Creative Coding</h4>
-                    <p>Exploring the intersection of programming and art through generative algorithms and interactive visualizations.</p>
-                    <div class="interest-tags">
-                        <span class="tag">p5.js</span>
-                        <span class="tag">Processing</span>
-                        <span class="tag">Creative AI</span>
-                    </div>
-                </div>
-                
-                <div class="interest-item">
-                    <h4>🎵 Music & Tech</h4>
-                    <p>Interested in how AI can be used for music generation and recommendation systems.</p>
-                    <div class="interest-tags">
-                        <span class="tag">Music AI</span>
-                        <span class="tag">Recommendation Systems</span>
-                    </div>
-                </div>
-                
-                <div class="interest-item">
-                    <h4>📱 Mobile UX Research</h4>
-                    <p>Analyzing how mobile app designs influence user behavior and engagement patterns.</p>
-                    <div class="interest-tags">
-                        <span class="tag">Mobile UX</span>
-                        <span class="tag">User Behavior</span>
-                    </div>
-                </div>
-                
-                <div class="interest-item">
-                    <h4>🧠 Cognitive Science</h4>
-                    <p>Understanding the psychological mechanisms behind digital platform addiction and engagement.</p>
-                    <div class="interest-tags">
-                        <span class="tag">Cognitive Psychology</span>
-                        <span class="tag">Digital Wellness</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Life Updates -->
-        <div class="subsection">
-            <h2>📸 Life Updates</h2>
-            <div class="life-updates">
-                <div class="update-item">
-                    <div class="update-date">Dec 2024</div>
-                    <div class="update-content">
-                        <h4>🇺🇸 Starting CMU Journey</h4>
-                        <p>Excited to begin my visiting student program at Carnegie Mellon University! Looking forward to diving deep into AI research.</p>
-                        <div class="update-tags">
-                            <span class="tag">CMU</span>
-                            <span class="tag">Pittsburgh</span>
-                            <span class="tag">AI Program</span>
+<div class="content">
+    <!-- 사진첩 갤러리 -->
+    <section class="section fade-in">
+        <h2 class="section-title">📸 Life in Pictures</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 3rem; text-align: center;">
+            Hover over the photos to read the stories behind them
+        </p>
+        
+        <div class="photo-gallery">
+            <!-- 연구 관련 사진들 -->
+            <div class="photo-card large">
+                <div class="photo-container">
+                    <div class="photo-placeholder research">
+                        <div class="placeholder-content">
+                            <div class="placeholder-icon">🤖</div>
+                            <div class="placeholder-label">Research Life</div>
                         </div>
                     </div>
-                </div>
-                
-                <div class="update-item">
-                    <div class="update-date">Nov 2024</div>
-                    <div class="update-content">
-                        <h4>🏆 Paper Accepted!</h4>
-                        <p>Thrilled that our PlaceSim paper got accepted at CIKM 2025! It will be especially meaningful presenting this in Seoul, my home city.</p>
-                        <div class="update-tags">
-                            <span class="tag">Research Win</span>
-                            <span class="tag">CIKM 2025</span>
+                    <div class="photo-overlay">
+                        <div class="photo-story">
+                            <h4>Late Night Coding at KAIST</h4>
+                            <p>
+                                Working on the PlaceSim project until 3AM in the lab. There's something magical about debugging code 
+                                when the campus is quiet and you can finally think clearly. This particular night, I had a breakthrough 
+                                in the LLM behavior simulation algorithm that became the core of our CIKM paper.
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Connect -->
-        <div class="subsection">
-            <h2>🤝 Let's Connect!</h2>
-            <div class="connect-section">
-                <p>I love connecting with fellow researchers, students, and anyone interested in the intersection of AI and human behavior!</p>
-                <div class="connect-options">
-                    <a href="mailto:suhyeonlee@kaist.ac.kr" class="connect-btn">
-                        <i class="fas fa-envelope"></i> Drop me an email
-                    </a>
-                    <a href="https://github.com/suhyeonnnnn" class="connect-btn">
-                        <i class="fab fa-github"></i> Check out my code
-                    </a>
+            <!-- CMU 관련 사진 -->
+            <div class="photo-card medium">
+                <div class="photo-container">
+                    <div class="photo-placeholder travel">
+                        <div class="placeholder-content">
+                            <div class="placeholder-icon">🇺🇸</div>
+                            <div class="placeholder-label">CMU Adventure</div>
+                        </div>
+                    </div>
+                    <div class="photo-overlay">
+                        <div class="photo-story">
+                            <h4>First Day at Carnegie Mellon</h4>
+                            <p>
+                                The moment I walked into the Gates Building for the AI Intensive Program. 
+                                Pittsburgh's winter was harsh, but the warmth of the AI community here 
+                                made everything worth it. This photo was taken right before my first 
+                                seminar presentation.
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <p class="connect-note">💡 Always open to collaboration opportunities, research discussions, or just a friendly chat about AI and digital marketing!</p>
+            </div>
+
+            <!-- 취미 관련 사진 -->
+            <div class="photo-card small">
+                <div class="photo-container">
+                    <div class="photo-placeholder hobby">
+                        <div class="placeholder-content">
+                            <div class="placeholder-icon">🎮</div>
+                            <div class="placeholder-label">Gaming</div>
+                        </div>
+                    </div>
+                    <div class="photo-overlay">
+                        <div class="photo-story">
+                            <h4>Research Break Gaming</h4>
+                            <p>
+                                My favorite way to unwind after intense coding sessions. 
+                                Playing games actually helps my research - I often get 
+                                insights about user behavior and engagement patterns 
+                                while playing.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 컨퍼런스 사진 -->
+            <div class="photo-card medium">
+                <div class="photo-container">
+                    <div class="photo-placeholder conference">
+                        <div class="placeholder-content">
+                            <div class="placeholder-icon">🎤</div>
+                            <div class="placeholder-label">Conference</div>
+                        </div>
+                    </div>
+                    <div class="photo-overlay">
+                        <div class="photo-story">
+                            <h4>ISMS Marketing Science Conference</h4>
+                            <p>
+                                Presenting our research on online WOM dynamics. The nervous energy 
+                                before the presentation, the engaging Q&A session, and the valuable 
+                                feedback from fellow researchers made this conference unforgettable.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 팀워크 사진 -->
+            <div class="photo-card large">
+                <div class="photo-container">
+                    <div class="photo-placeholder team">
+                        <div class="placeholder-content">
+                            <div class="placeholder-icon">👥</div>
+                            <div class="placeholder-label">Team Work</div>
+                        </div>
+                    </div>
+                    <div class="photo-overlay">
+                        <div class="photo-story">
+                            <h4>Collaboration at its Best</h4>
+                            <p>
+                                Brainstorming session with my research team. These whiteboard sessions 
+                                are where the magic happens - combining different perspectives to tackle 
+                                complex problems in AI and human behavior. Everyone bringing their unique 
+                                insights to create something bigger than the sum of parts.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 여행 사진 -->
+            <div class="photo-card small">
+                <div class="photo-container">
+                    <div class="photo-placeholder travel">
+                        <div class="placeholder-content">
+                            <div class="placeholder-icon">✈️</div>
+                            <div class="placeholder-label">Travel</div>
+                        </div>
+                    </div>
+                    <div class="photo-overlay">
+                        <div class="photo-story">
+                            <h4>Seoul to Pittsburgh Journey</h4>
+                            <p>
+                                The view from the plane window as I left Seoul for my CMU program. 
+                                Mixed feelings of excitement and nervousness about the new adventure 
+                                ahead, but mostly grateful for the opportunity to expand my horizons.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 성취 사진 -->
+            <div class="photo-card medium">
+                <div class="photo-container">
+                    <div class="photo-placeholder achievement">
+                        <div class="placeholder-content">
+                            <div class="placeholder-icon">🏆</div>
+                            <div class="placeholder-label">Achievement</div>
+                        </div>
+                    </div>
+                    <div class="photo-overlay">
+                        <div class="photo-story">
+                            <h4>Bigcontest Winner Moment</h4>
+                            <p>
+                                The moment we won 1st place at Korea Big Data Institute Bigcontest! 
+                                Months of hard work on data analysis and machine learning models 
+                                finally paid off. The celebration dinner with the team that night 
+                                was absolutely unforgettable.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 일상 사진 -->
+            <div class="photo-card small">
+                <div class="photo-container">
+                    <div class="photo-placeholder daily">
+                        <div class="placeholder-content">
+                            <div class="placeholder-icon">☕</div>
+                            <div class="placeholder-label">Daily Life</div>
+                        </div>
+                    </div>
+                    <div class="photo-overlay">
+                        <div class="photo-story">
+                            <h4>Morning Coffee Ritual</h4>
+                            <p>
+                                My essential morning routine - coffee and catching up on the latest 
+                                AI research papers. This quiet moment before the day gets busy 
+                                is when I do my best thinking and planning.
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
+    <!-- 재미있는 사실들 -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">🌟 Fun Facts About Me</h2>
+        <div class="fun-facts-grid">
+            <div class="fun-fact-item">
+                <div class="fun-icon">🎮</div>
+                <h4>Gaming Researcher</h4>
+                <p>I study gaming behavior for research AND I'm also an avid gamer. Currently exploring how game design psychology applies to digital marketing!</p>
+            </div>
+            
+            <div class="fun-fact-item">
+                <div class="fun-icon">🤖</div>
+                <h4>AI Art Explorer</h4>
+                <p>When I'm not using AI for research, I experiment with it for digital art creation. There's something fascinating about training models to be creative.</p>
+            </div>
+            
+            <div class="fun-fact-item">
+                <div class="fun-icon">🌍</div>
+                <h4>Globe Trotter</h4>
+                <p>Studied in 3 countries so far (Korea, USA, and now CMU)! Each place has given me unique perspectives on technology and human behavior.</p>
+            </div>
+            
+            <div class="fun-fact-item">
+                <div class="fun-icon">📊</div>
+                <h4>Visualization Nerd</h4>
+                <p>I find genuine joy in creating beautiful data visualizations. A good chart can tell a story better than a thousand words!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 연락하기 -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">🤝 Let's Connect!</h2>
+        <div class="connect-section">
+            <p style="text-align: center; margin-bottom: 2rem; color: var(--text-secondary); font-size: 1.1rem;">
+                I love connecting with fellow researchers, students, and anyone interested in AI and human behavior!
+            </p>
+            <div class="connect-buttons">
+                <a href="mailto:{{ site.author.email }}" class="connect-btn">
+                    📧 Drop me an email
+                </a>
+                <a href="https://github.com/{{ site.author.github }}" target="_blank" class="connect-btn">
+                    💻 Check out my code
+                </a>
+            </div>
+            <p style="text-align: center; margin-top: 2rem; color: var(--text-muted); font-style: italic;">
+                💡 Always open to collaboration, research discussions, or just a friendly chat about AI and digital marketing!
+            </p>
+        </div>
+    </section>
+</div>
