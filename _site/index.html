@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Home | Suhyeon Lee</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/logo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/logo.png">
+    <link rel="shortcut icon" href="/assets/images/logo.png">
     
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -15,7 +21,10 @@
     <div class="main-container">
         <!-- 헤더 네비게이션 -->
         <header class="header">
-            <a href="/" class="logo">Suhyeon Lee</a>
+            <a href="/" class="logo">
+                <img src="/assets/images/logo.png" alt="Logo" class="logo-image">
+                Suhyeon Lee
+            </a>
             
             <nav class="nav">
                 <a href="/" class="active">Home</a>
@@ -33,7 +42,7 @@
     <section class="profile-section fade-in">
         <div class="profile-image-area">
             <div class="profile-image">
-                👨‍💻
+                <img src="/assets/images/main.png" alt="Suhyeon Lee" class="profile-photo">
             </div>
         </div>
         
@@ -42,11 +51,12 @@
             <p class="subtitle">M.S. Student @KAIST</p>
             
             <div class="profile-description">
-                <p><strong>[간단한 내 소개]</strong></p>
                 <p>
-                    디지털 마케팅과 사용자 행동 연구에 열정을 가진 KAIST 석사과정생입니다. 
-                    현재 Carnegie Mellon University에서 AI Intensive Program에 참여 중이며, 
-                    Generative AI와 LLM을 활용한 인간 행동 시뮬레이션 연구를 진행하고 있습니다.
+                    I'm a master's student in Management Engineering at <strong>KAIST</strong>, advised by Prof. Donghyuk Shin, 
+                    with research interests at the intersection of AI and human behavior. I recently completed a 
+                    visiting program at <strong>Carnegie Mellon University's AI Intensive Program</strong>. My work focuses 
+                    on understanding how humans interact with and adapt to emerging technologies, particularly through 
+                    <strong>LLM-based social simulation</strong> and <strong>AI regulation</strong> research.
                 </p>
             </div>
             
@@ -58,19 +68,42 @@
             </div>
         </div>
     </section>
+
     
     <!-- Education 섹션 -->
     <section class="section fade-in-delay">
         <h2 class="section-title">Education</h2>
         <div class="section-content">
             <ul>
-                <li><strong>M.S. in Management Engineering</strong> - KAIST (2024-2026)</li>
-                <li><strong>Visiting Student</strong> - Carnegie Mellon University (2024-2025)</li>
-                <li><strong>B.S. in Business Administration</strong> - [Previous University] (2020-2024)</li>
+                <li><strong>Korea Advanced Institute of Science and Technology (KAIST)</strong> - Daejeon, South Korea <span style="float: right;">(exp.) Feb. 2026</span><br>
+                    <em>M.S. in Management Engineering, Advisor: Prof. Donghyuk Shin</em></li>
+                <li><strong>Carnegie Mellon University</strong> - Pittsburgh, United States <span style="float: right;">Dec. 2024 - Jul. 2025</span><br>
+                    <em>Visiting Student (AI Intensive Program)</em></li>
+                <li><strong>Hankuk University of Foreign Studies</strong> - Seoul, Korea <span style="float: right;">Feb. 2024</span><br>
+                    <em>B.B.A.; B.S. in Computer & Electronic System Engineering</em></li>
+                <li><strong>Eastern New Mexico University</strong> - Portales, United States <span style="float: right;">Jan. 2022 - Jun. 2022</span><br>
+                    <em>Exchange Student</em></li>
             </ul>
         </div>
     </section>
-    
+
+            <!-- Research Interests 섹션 -->
+            <section class="section fade-in-delay">
+                <h2 class="section-title">Research Interests</h2>
+                <div class="section-content">
+                    <p><strong>Substantive Areas:</strong> 
+                        
+                            Digital Marketing, Social Media, User-Generated Content, User Behavior
+                        
+                    </p>
+                    <p><strong>Methodological Areas:</strong> 
+                        
+                            Generative AI, LLM, Computer Vision, Video Analysis
+                        
+                    </p>
+                </div>
+            </section>
+            
     <!-- Recent News 섹션 -->
     <section class="section fade-in-delay">
         <h2 class="section-title">Recent News!</h2>
@@ -101,23 +134,8 @@
             </div>
         </div>
     </section>
-    
-    <!-- Research Interests 섹션 (선택사항) -->
-    <section class="section fade-in-delay">
-        <h2 class="section-title">Research Interests</h2>
-        <div class="section-content">
-            <p><strong>Substantive Areas:</strong> 
-                
-                    Digital Marketing, Social Media, User-Generated Content, User Behavior
-                
-            </p>
-            <p><strong>Methodological Areas:</strong> 
-                
-                    Generative AI, LLM, Computer Vision, Video Analysis
-                
-            </p>
-        </div>
-    </section>
+
+
 </div>
 
         </main>

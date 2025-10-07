@@ -8,8 +8,8 @@
 
 // 미니멀 디자인 색상 팔레트
 :root {
-    // 파스텔 그라디언트 배경
-    --gradient-bg: linear-gradient(135deg, #e0f2fe 0%, #fce4ec 100%);
+    // 파스텔 그라디언트 배경 (Sebastian 스타일에 맞게 조정)
+    --gradient-bg: linear-gradient(135deg, #BDD9EE 0%, #D2E9F1 25%, #FCBBCB 50%, #EA79A7 75%, #EFB6AB 100%);
     
     // 메인 색상
     --primary-color: #1a1a1a;
@@ -92,10 +92,26 @@ body {
 }
 
 .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     font-size: 1.5rem;
     font-weight: 600;
     color: var(--text-primary);
     text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+.logo:hover {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.logo-image {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    border-radius: 6px;
 }
 
 .nav {
@@ -140,8 +156,8 @@ body {
 }
 
 .profile-image {
-    width: 200px;
-    height: 200px;
+    width: 280px;
+    height: 280px;
     background: #d1d5db;
     border-radius: var(--border-radius);
     margin-bottom: 1.5rem;
@@ -149,6 +165,14 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 4rem;
+    overflow: hidden;
+}
+
+.profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
 .profile-info h1 {
@@ -165,9 +189,6 @@ body {
 }
 
 .profile-description {
-    background: rgba(0, 0, 0, 0.02);
-    padding: 1.5rem;
-    border-radius: 10px;
     margin-bottom: 1.5rem;
 }
 
@@ -286,8 +307,8 @@ body {
     }
     
     .profile-image {
-        width: 150px;
-        height: 150px;
+        width: 210px;
+        height: 210px;
         font-size: 3rem;
     }
     
@@ -597,17 +618,18 @@ body {
     box-shadow: var(--shadow-medium);
 }
 
-.photo-card.large {
-    grid-column: span 2;
-    min-height: 400px;
+.photo-card.small {
+    min-height: 400px !important;
+    height: 400px !important;
 }
 
 .photo-card.medium {
     min-height: 300px;
 }
 
-.photo-card.small {
-    min-height: 250px;
+.photo-card.large {
+    grid-column: span 2;
+    min-height: 400px;
 }
 
 .photo-container {
@@ -625,6 +647,15 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
+    transition: var(--transition);
+}
+
+.photo-image {
+    width: 100%;
+    height: 100%;
+    min-height: 50px;
+    object-fit: cover;
+    object-position: center;
     transition: var(--transition);
 }
 
@@ -680,7 +711,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.6);
     color: white;
     opacity: 0;
     display: flex;
@@ -688,7 +719,7 @@ body {
     justify-content: center;
     padding: 2rem;
     transition: opacity 0.4s ease;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(4px);
 }
 
 .photo-container:hover .photo-overlay {
@@ -796,9 +827,14 @@ body {
     }
     
     .photo-card.large,
-    .photo-card.medium,
-    .photo-card.small {
+    .photo-card.medium {
         min-height: 250px;
+        grid-column: span 1;
+    }
+    
+    .photo-card.small {
+        min-height: 1000px !important;
+        height: 1000px !important;
         grid-column: span 1;
     }
     

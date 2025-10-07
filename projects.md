@@ -4,52 +4,45 @@ title: "Project"
 ---
 
 <div class="content">
-    <!-- Featured Projects -->
-    <section class="section fade-in">
-        <h2 class="section-title">🌟 Featured Projects</h2>
-        <div class="section-content">
-            <!-- PlaceSim Project Card -->
-            <div class="project-gif-card" style="margin-bottom: 3rem;">
-                <div class="project-gif-container">
-                    <div class="project-gif-placeholder">
-                        <!-- GIF will go here -->
-                        <div class="gif-placeholder-content">
-                            <div class="placeholder-icon">🤖</div>
-                            <div class="placeholder-text">PlaceSim Demo GIF</div>
-                        </div>
-                    </div>
-                    <div class="project-gif-overlay">
-                        <div class="project-status published">Published</div>
-                        <div class="project-category">Research Project</div>
-                    </div>
-                </div>
-                <div class="project-gif-info">
-                    <h3>PlaceSim: LLM-based Human Behavior Simulation</h3>
-                    <p class="project-authors">with Y. Yu, D. Shin, & R. Singh</p>
-                    <p class="project-description">
-                        An innovative interactive platform that leverages Large Language Models to simulate 
-                        human behavior in physical facilities. This project combines AI, spatial analytics, 
-                        and behavioral modeling to create realistic simulations for urban planning and facility design.
-                    </p>
-                    <div class="project-highlights">
-                        <div class="highlight-badge">🏆 Accepted at CIKM 2025</div>
-                        <div class="highlight-badge">👥 Multi-institutional</div>
-                    </div>
-                    <div class="tech-stack">
-                        <span class="tech-tag featured">Large Language Models</span>
-                        <span class="tech-tag featured">Simulation Modeling</span>
-                        <span class="tech-tag featured">Spatial Analytics</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- AI & Machine Learning Projects -->
     <section class="section fade-in-delay">
         <h2 class="section-title">🤖 AI & Machine Learning Projects</h2>
         <div class="section-content">
             <div class="projects-gif-grid">
+                <!-- PlaceSim Project Card -->
+                <div class="project-gif-card small">
+                    <div class="project-gif-container">
+                        <div class="project-gif-placeholder small">
+                            <!-- GIF will go here -->
+                            <div class="gif-placeholder-content">
+                                <div class="placeholder-icon">🤖</div>
+                                <div class="placeholder-text">PlaceSim Demo GIF</div>
+                            </div>
+                        </div>
+                        <div class="project-gif-overlay">
+                            <div class="project-status published">Published</div>
+                            <div class="project-category">Research Project</div>
+                        </div>
+                    </div>
+                    <div class="project-gif-info">
+                        <h4>PlaceSim: LLM-based Human Behavior Simulation</h4>
+                        <p class="project-authors">with Y. Yu, D. Shin, & R. Singh</p>
+                        <p class="project-description">
+                            An innovative interactive platform that leverages Large Language Models to simulate 
+                            human behavior in physical facilities. This project combines AI, spatial analytics, 
+                            and behavioral modeling to create realistic simulations for urban planning and facility design.
+                        </p>
+                        <div class="project-highlights">
+                            <div class="highlight-badge">🏆 Accepted at CIKM 2025</div>
+                            <div class="highlight-badge">👥 Multi-institutional</div>
+                        </div>
+                        <div class="tech-stack">
+                            <span class="tech-tag featured">Large Language Models</span>
+                            <span class="tech-tag featured">Simulation Modeling</span>
+                            <span class="tech-tag featured">Spatial Analytics</span>
+                        </div>
+                    </div>
+                </div>
                 <!-- Safety Zone AI Project -->
                 <div class="project-gif-card small">
                     <div class="project-gif-container">

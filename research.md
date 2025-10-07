@@ -4,89 +4,141 @@ title: "Research"
 ---
 
 <div class="content">
+    <!-- Publications Section -->
     <section class="section fade-in">
-        <h2 class="section-title">Research Interests</h2>
-        <div class="section-content">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
-                <div style="background: rgba(0, 0, 0, 0.02); padding: 2rem; border-radius: 15px;">
-                    <h3 style="color: var(--primary-color); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
-                        🎯 Substantive Areas
-                    </h3>
-                    <ul style="list-style: none; padding: 0;">
-                        {% if site.research.substantive %}
-                            {% for area in site.research.substantive %}
-                                <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(0,0,0,0.05);">{{ area }}</li>
-                            {% endfor %}
-                        {% else %}
-                            <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(0,0,0,0.05);">Digital Marketing</li>
-                            <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(0,0,0,0.05);">Social Media</li>
-                            <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(0,0,0,0.05);">User Behavior</li>
-                            <li style="padding: 0.5rem 0;">AI Applications</li>
-                        {% endif %}
-                    </ul>
-                </div>
-                
-                <div style="background: rgba(0, 0, 0, 0.02); padding: 2rem; border-radius: 15px;">
-                    <h3 style="color: var(--primary-color); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
-                        🔧 Methodological Areas
-                    </h3>
-                    <ul style="list-style: none; padding: 0;">
-                        {% if site.research.methodological %}
-                            {% for method in site.research.methodological %}
-                                <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(0,0,0,0.05);">{{ method }}</li>
-                            {% endfor %}
-                        {% else %}
-                            <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(0,0,0,0.05);">Generative AI</li>
-                            <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(0,0,0,0.05);">Large Language Models</li>
-                            <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(0,0,0,0.05);">Computer Vision</li>
-                            <li style="padding: 0.5rem 0;">Machine Learning</li>
-                        {% endif %}
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section fade-in-delay">
         <h2 class="section-title">Publications</h2>
         <div class="section-content">
             <div class="news-item">
-                <div class="news-date">2025</div>
-                <div class="news-title">PlaceSim: An LLM-based Interactive Platform for Human Behavior Simulation</div>
+                <div class="news-date">[1] 2025</div>
+                <div class="news-title">PlaceSim: An LLM-based Interactive Platform for Human Behavior Simulation in Physical Facilities</div>
                 <div class="news-description">
-                    <strong>CIKM 2025</strong> - Conference on Information and Knowledge Management, Seoul, Korea
+                    <strong>Lee, S.</strong>, Y. Yu, D. Shin, & R. Singh<br>
+                    <em>Proceedings of the 34th ACM International Conference on Information and Knowledge Management (CIKM '25)</em><br>
+                    November 10-14, 2025, Seoul, Republic of Korea. <strong>(Forthcoming)</strong>
                 </div>
             </div>
             
             <div class="news-item">
-                <div class="news-date">2025</div>
-                <div class="news-title">Dynamics of Online WOM and Performance</div>
+                <div class="news-date">[2] 2022</div>
+                <div class="news-title">Machine Learning based Optimal Location Modeling for Children's Smart Pedestrian Crosswalk: A Case Study of Changwon-si</div>
                 <div class="news-description">
-                    <strong>ISMS Marketing Science Conference</strong> - Presented research findings
+                    <strong>Lee, S.</strong>, Y. Suh, S. Kim, J. Lee, & W. Yun<br>
+                    <em>KIBIM Magazine</em>, 12(2), 1-11. (indexed in the Korea Citation Index)
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-date">[3] 2021</div>
+                <div class="news-title">The Impact of Healthfulness on Firm Performance: The Case of Food Companies in South Korea</div>
+                <div class="news-description">
+                    Suh, Y., <strong>S. Lee</strong>, S. Jung, D. Jung, & W. Yun<br>
+                    <em>Journal of Product Research</em>, 39(4), 57-65. (indexed in the Korea Citation Index)
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Research Experience Section -->
     <section class="section fade-in-delay">
-        <h2 class="section-title">Research Experience</h2>
+        <h2 class="section-title">Work in Progress</h2>
         <div class="section-content">
             <div class="news-item">
-                <div class="news-date">2024 - Present</div>
-                <div class="news-title">Graduate Research Assistant</div>
+                <div class="news-date">Current</div>
+                <div class="news-title">An LLM-Driven Simulation Framework for Environmental Human Behavior</div>
                 <div class="news-description">
-                    KAIST, Management Engineering<br>
-                    Advisor: Prof. Donghyuk Shin
+                    <em>with Y. Yoo & D. Shin</em><br>
+                    • Developed Person-Environment-Situation (P.E.S.) framework extending Lewin's behavioral theory for LLM-based spatial choice prediction<br>
+                    • Validated framework against 789K real usage records achieving 83% accuracy improvement over existing methods<br>
+                    • Implemented multi-agent system for Cold-Start prediction where historical behavioral data is unavailable
                 </div>
             </div>
             
             <div class="news-item">
-                <div class="news-date">Dec 2024 - Jul 2025</div>
-                <div class="news-title">Visiting Student Researcher</div>
+                <div class="news-date">Current</div>
+                <div class="news-title">Regulating AI-Generated Content: When Do Restrictions Spark or Stifle Community Dynamics</div>
                 <div class="news-description">
-                    Carnegie Mellon University<br>
-                    AI Intensive Program, Pittsburgh, PA
+                    <em>with J. Shin, D. Shin, & W. Oh</em><br>
+                    • Examined AI content bans across 743 Reddit communities using difference-in-differences methodology<br>
+                    • Found opposing effects by community type: decreased participation in information-focused vs increased engagement in creativity-focused communities<br>
+                    • Established that AI restrictions function as authenticity signals in creative spaces
                 </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-date">Ongoing</div>
+                <div class="news-title">AI Summarization's Impact on Creator Multimodal Content Strategies</div>
+                <div class="news-description">
+                    <em>with D. Shin</em><br>
+                    • Investigating creator adaptation to text-only AI summarization using Google Maps and Amazon platforms<br>
+                    • Analyzing how asymmetric AI processing influences multimodal content creation strategies
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conference Presentations Section -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Conference Presentations</h2>
+        <div class="section-content">
+            <div class="news-item">
+                <div class="news-date">2025</div>
+                <div class="news-title">Dynamics of Online WOM and Performance: The Differential Role of Social Media Platforms</div>
+                <div class="news-description">
+                    <em>(equal contribution)</em><br>
+                    • ISMS Marketing Science Conference, July 2025<br>
+                    • AMA Winter Academic Conference, February 2022
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-date">2022</div>
+                <div class="news-title">The Impact of e-Sports on Sport Clubs Online Brand Awareness and Home Game Attendance</div>
+                <div class="news-description">
+                    <em>(first author)</em><br>
+                    • GSOK Forum, November 2022
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-date">2022</div>
+                <div class="news-title">Does Regulation Work as Intended? Impact of COVID-19 on Online Game Consumption</div>
+                <div class="news-description">
+                    <em>(first author)</em><br>
+                    • International Conference of Asian Marketing Associations, September 2022
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-date">2021</div>
+                <div class="news-title">The Impact of Healthfulness and Front-of-Package (FOP) on Brand Performance</div>
+                <div class="news-description">
+                    <em>(second author)</em><br>
+                    • AMA Marketing and Public Policy Conference, June 2021<br>
+                    • DMAC Conference, January 2021
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Interests Section -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Research Interests</h2>
+        <div class="section-content">
+            <div class="profile-description">
+                <p><strong>Substantive Areas:</strong> 
+                    {% if site.research.substantive %}
+                        {{ site.research.substantive | join: ', ' }}
+                    {% else %}
+                        Digital Marketing, Social Media, User Behavior, AI Applications
+                    {% endif %}
+                </p>
+                <p><strong>Methodological Areas:</strong> 
+                    {% if site.research.methodological %}
+                        {{ site.research.methodological | join: ', ' }}
+                    {% else %}
+                        Generative AI, LLM, Computer Vision, Machine Learning
+                    {% endif %}
+                </p>
             </div>
         </div>
     </section>

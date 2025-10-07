@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fun</title>
+    <title>Fun | Suhyeon Lee</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/logo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/logo.png">
+    <link rel="shortcut icon" href="/assets/images/logo.png">
     
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -15,7 +21,10 @@
     <div class="main-container">
         <!-- 헤더 네비게이션 -->
         <header class="header">
-            <a href="/" class="logo">Suhyeon Lee</a>
+            <a href="/" class="logo">
+                <img src="/assets/images/logo.png" alt="Logo" class="logo-image">
+                Suhyeon Lee
+            </a>
             
             <nav class="nav">
                 <a href="/" >Home</a>
@@ -29,12 +38,50 @@
         <!-- 메인 콘텐츠 -->
         <main>
             <div class="content">
+    <!-- 실제 사진들 섹션 -->
+    <section class="section fade-in">
+        <h2 class="section-title">Conference &amp; Research Moments</h2>
+        
+        <div class="photo-gallery">
+            <!-- ISMS Conference 사진 -->
+            <div class="photo-card small">
+                <div class="photo-container">
+                    <img src="/assets/images/ISMS_presentation.jpeg" alt="ISMS Conference Presentation" class="photo-image" />
+                    <div class="photo-overlay">
+                        <div class="photo-story">
+                            <h4>ISMS Marketing Science Conference</h4>
+                            <p>
+                                Presenting our research on "Dynamics of Online WOM and Performance" at the ISMS Conference in July 2025. 
+                                The nervous energy before the presentation, the engaging Q&amp;A session, and the valuable 
+                                feedback from fellow researchers made this conference unforgettable.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KOICA 사진 -->
+            <div class="photo-card small">
+                <div class="photo-container">
+                    <img src="/assets/images/koica.jpeg" alt="KOICA Taekwondo Experience" class="photo-image" />
+                    <div class="photo-overlay">
+                        <div class="photo-story">
+                            <h4>KOICA Cultural Exchange Program</h4>
+                            <p>
+                                As a teaching assistant, I had the wonderful opportunity to take international friends 
+                                to experience traditional Korean Taekwondo. Sharing Korean culture with people from 
+                                different countries and seeing their excitement was incredibly rewarding.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- 사진첩 갤러리 -->
     <section class="section fade-in">
-        <h2 class="section-title">📸 Life in Pictures</h2>
-        <p style="color: var(--text-secondary); margin-bottom: 3rem; text-align: center;">
-            Hover over the photos to read the stories behind them
-        </p>
+        <h2 class="section-title">Life in Pictures</h2>
         
         <div class="photo-gallery">
             <!-- 연구 관련 사진들 -->
@@ -219,56 +266,7 @@
         </div>
     </section>
 
-    <!-- 재미있는 사실들 -->
-    <section class="section fade-in-delay">
-        <h2 class="section-title">🌟 Fun Facts About Me</h2>
-        <div class="fun-facts-grid">
-            <div class="fun-fact-item">
-                <div class="fun-icon">🎮</div>
-                <h4>Gaming Researcher</h4>
-                <p>I study gaming behavior for research AND I'm also an avid gamer. Currently exploring how game design psychology applies to digital marketing!</p>
-            </div>
-            
-            <div class="fun-fact-item">
-                <div class="fun-icon">🤖</div>
-                <h4>AI Art Explorer</h4>
-                <p>When I'm not using AI for research, I experiment with it for digital art creation. There's something fascinating about training models to be creative.</p>
-            </div>
-            
-            <div class="fun-fact-item">
-                <div class="fun-icon">🌍</div>
-                <h4>Globe Trotter</h4>
-                <p>Studied in 3 countries so far (Korea, USA, and now CMU)! Each place has given me unique perspectives on technology and human behavior.</p>
-            </div>
-            
-            <div class="fun-fact-item">
-                <div class="fun-icon">📊</div>
-                <h4>Visualization Nerd</h4>
-                <p>I find genuine joy in creating beautiful data visualizations. A good chart can tell a story better than a thousand words!</p>
-            </div>
-        </div>
-    </section>
 
-    <!-- 연락하기 -->
-    <section class="section fade-in-delay">
-        <h2 class="section-title">🤝 Let's Connect!</h2>
-        <div class="connect-section">
-            <p style="text-align: center; margin-bottom: 2rem; color: var(--text-secondary); font-size: 1.1rem;">
-                I love connecting with fellow researchers, students, and anyone interested in AI and human behavior!
-            </p>
-            <div class="connect-buttons">
-                <a href="mailto:suhyeonlee@kaist.ac.kr" class="connect-btn">
-                    📧 Drop me an email
-                </a>
-                <a href="https://github.com/suhyeonnnnn" target="_blank" class="connect-btn">
-                    💻 Check out my code
-                </a>
-            </div>
-            <p style="text-align: center; margin-top: 2rem; color: var(--text-muted); font-style: italic;">
-                💡 Always open to collaboration, research discussions, or just a friendly chat about AI and digital marketing!
-            </p>
-        </div>
-    </section>
 </div>
 
         </main>

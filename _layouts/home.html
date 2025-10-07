@@ -7,7 +7,7 @@ layout: minimal_base
     <section class="profile-section fade-in">
         <div class="profile-image-area">
             <div class="profile-image">
-                👨‍💻
+                <img src="{{ '/assets/images/main.png' | relative_url }}" alt="Suhyeon Lee" class="profile-photo">
             </div>
         </div>
         
@@ -16,11 +16,12 @@ layout: minimal_base
             <p class="subtitle">{{ site.author.degree }} @{{ site.author.university }}</p>
             
             <div class="profile-description">
-                <p><strong>[간단한 내 소개]</strong></p>
                 <p>
-                    디지털 마케팅과 사용자 행동 연구에 열정을 가진 KAIST 석사과정생입니다. 
-                    현재 Carnegie Mellon University에서 AI Intensive Program에 참여 중이며, 
-                    Generative AI와 LLM을 활용한 인간 행동 시뮬레이션 연구를 진행하고 있습니다.
+                    I'm a master's student in Management Engineering at <strong>KAIST</strong>, advised by Prof. Donghyuk Shin, 
+                    with research interests at the intersection of AI and human behavior. I recently completed a 
+                    visiting program at <strong>Carnegie Mellon University's AI Intensive Program</strong>. My work focuses 
+                    on understanding how humans interact with and adapt to emerging technologies, particularly through 
+                    <strong>LLM-based social simulation</strong> and <strong>AI regulation</strong> research.
                 </p>
             </div>
             
@@ -32,19 +33,46 @@ layout: minimal_base
             </div>
         </div>
     </section>
+
     
     <!-- Education 섹션 -->
     <section class="section fade-in-delay">
         <h2 class="section-title">Education</h2>
         <div class="section-content">
             <ul>
-                <li><strong>M.S. in Management Engineering</strong> - KAIST (2024-2026)</li>
-                <li><strong>Visiting Student</strong> - Carnegie Mellon University (2024-2025)</li>
-                <li><strong>B.S. in Business Administration</strong> - [Previous University] (2020-2024)</li>
+                <li><strong>Korea Advanced Institute of Science and Technology (KAIST)</strong> - Daejeon, South Korea <span style="float: right;">(exp.) Feb. 2026</span><br>
+                    <em>M.S. in Management Engineering, Advisor: Prof. Donghyuk Shin</em></li>
+                <li><strong>Carnegie Mellon University</strong> - Pittsburgh, United States <span style="float: right;">Dec. 2024 - Jul. 2025</span><br>
+                    <em>Visiting Student (AI Intensive Program)</em></li>
+                <li><strong>Hankuk University of Foreign Studies</strong> - Seoul, Korea <span style="float: right;">Feb. 2024</span><br>
+                    <em>B.B.A.; B.S. in Computer & Electronic System Engineering</em></li>
+                <li><strong>Eastern New Mexico University</strong> - Portales, United States <span style="float: right;">Jan. 2022 - Jun. 2022</span><br>
+                    <em>Exchange Student</em></li>
             </ul>
         </div>
     </section>
-    
+
+            <!-- Research Interests 섹션 -->
+            <section class="section fade-in-delay">
+                <h2 class="section-title">Research Interests</h2>
+                <div class="section-content">
+                    <p><strong>Substantive Areas:</strong> 
+                        {% if site.research.substantive %}
+                            {{ site.research.substantive | join: ', ' }}
+                        {% else %}
+                            Digital Marketing, Social Media, User Behavior, AI Applications
+                        {% endif %}
+                    </p>
+                    <p><strong>Methodological Areas:</strong> 
+                        {% if site.research.methodological %}
+                            {{ site.research.methodological | join: ', ' }}
+                        {% else %}
+                            Generative AI, LLM, Computer Vision, Machine Learning
+                        {% endif %}
+                    </p>
+                </div>
+            </section>
+            
     <!-- Recent News 섹션 -->
     <section class="section fade-in-delay">
         <h2 class="section-title">Recent News!</h2>
@@ -75,25 +103,6 @@ layout: minimal_base
             </div>
         </div>
     </section>
-    
-    <!-- Research Interests 섹션 (선택사항) -->
-    <section class="section fade-in-delay">
-        <h2 class="section-title">Research Interests</h2>
-        <div class="section-content">
-            <p><strong>Substantive Areas:</strong> 
-                {% if site.research.substantive %}
-                    {{ site.research.substantive | join: ', ' }}
-                {% else %}
-                    Digital Marketing, Social Media, User Behavior, AI Applications
-                {% endif %}
-            </p>
-            <p><strong>Methodological Areas:</strong> 
-                {% if site.research.methodological %}
-                    {{ site.research.methodological | join: ', ' }}
-                {% else %}
-                    Generative AI, LLM, Computer Vision, Machine Learning
-                {% endif %}
-            </p>
-        </div>
-    </section>
+
+
 </div>
