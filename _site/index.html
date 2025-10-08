@@ -42,8 +42,11 @@
     <section class="profile-section fade-in">
         <div class="profile-image-area">
             <div class="profile-image">
-                <img src="/assets/images/main.png" alt="Suhyeon Lee" class="profile-photo">
+                <img id="profile-photo-1" src="/assets/images/main.png" alt="Suhyeon Lee" class="profile-photo active">
+                <img id="profile-photo-2" src="/assets/images/main2.jpeg" alt="Suhyeon Lee" class="profile-photo">
+                <img id="profile-photo-3" src="/assets/images/main3.jpeg" alt="Suhyeon Lee" class="profile-photo">
             </div>
+            <div class="photo-note">Some photos are AI-generated!!</div>
         </div>
         
         <div class="profile-info">
@@ -62,7 +65,7 @@
             
             <div class="contact-links">
                 <a href="https://github.com/suhyeonnnnn" target="_blank">Github</a>
-                <a href="#" target="_blank">LinkedIn</a>
+                <a href="www.linkedin.com/in/suhyeon-lee-0ba270210" target="_blank">LinkedIn</a>
                 <a href="/assets/files/SuhyeonLee_CV_250912.pdf" target="_blank">CV</a>
                 <a href="mailto:suhyeonlee@kaist.ac.kr">suhyeonlee@kaist.ac.kr</a>
             </div>
@@ -75,12 +78,13 @@
         <h2 class="section-title">Education</h2>
         <div class="section-content">
             <ul>
-                <li><strong>Korea Advanced Institute of Science and Technology (KAIST)</strong> - Daejeon, South Korea <span style="float: right;">(exp.) Feb. 2026</span><br>
+                <li><strong>Korea Advanced Institute of Science and Technology (KAIST)</strong> - Seoul, South Korea <span style="float: right;">(exp.) Feb. 2026</span><br>
                     <em>M.S. in Management Engineering, Advisor: Prof. Donghyuk Shin</em></li>
                 <li><strong>Carnegie Mellon University</strong> - Pittsburgh, United States <span style="float: right;">Dec. 2024 - Jul. 2025</span><br>
                     <em>Visiting Student (AI Intensive Program)</em></li>
                 <li><strong>Hankuk University of Foreign Studies</strong> - Seoul, Korea <span style="float: right;">Feb. 2024</span><br>
-                    <em>B.B.A.; B.S. in Computer & Electronic System Engineering</em></li>
+                    <em>Bachelor of Business Administration (B.B.A.)</em> <br>
+                    <em>Bachelor of Engineering (B.Eng.) in Computer and Electronic Systems Engineering</em></li>
                 <li><strong>Eastern New Mexico University</strong> - Portales, United States <span style="float: right;">Jan. 2022 - Jun. 2022</span><br>
                     <em>Exchange Student</em></li>
             </ul>
@@ -137,6 +141,32 @@
 
 
 </div>
+
+<script>
+// 프로필 사진 cross-fade 효과 (3개 이미지)
+(function() {
+    const photos = [
+        document.getElementById('profile-photo-1'),
+        document.getElementById('profile-photo-2'),
+        document.getElementById('profile-photo-3')
+    ];
+    let currentIndex = 0;
+    
+    function crossFade() {
+        // 현재 활성 이미지 비활성면
+        photos[currentIndex].classList.remove('active');
+        
+        // 다음 이미지로 이동
+        currentIndex = (currentIndex + 1) % photos.length;
+        
+        // 다음 이미지 활성화
+        photos[currentIndex].classList.add('active');
+    }
+    
+    // 3초마다 사진 변경
+    setInterval(crossFade, 3000);
+})();
+</script>
 
         </main>
         

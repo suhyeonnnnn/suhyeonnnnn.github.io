@@ -1,0 +1,382 @@
+---
+layout: minimal_base
+title: "AI Summarization Impact Research"
+---
+
+<div class="content">
+    <!-- Back Button -->
+    <div style="margin-bottom: 2rem;">
+        <a href="research.html" style="color: var(--text-secondary); text-decoration: none; font-weight: 500;">
+            ← Back to Research
+        </a>
+    </div>
+
+    <!-- Paper Header -->
+    <section class="section fade-in">
+        <div class="research-header">
+            <h1 class="research-title">AI Summarization's Impact on Creator Multimodal Content Strategies</h1>
+            <div class="research-meta">
+                <div class="authors"><em>with D. Shin</em></div>
+                <div class="status"><span class="status-badge ongoing">Ongoing</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Abstract -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Abstract</h2>
+        <div class="section-content">
+            <p>
+                This research investigates how creators adapt their multimodal content strategies in response to text-only AI 
+                summarization systems. Using data from Google Maps and Amazon platforms, we analyze the asymmetric impact of 
+                AI processing capabilities on creator content decisions. Our findings reveal strategic shifts toward visual 
+                and experiential content as creators attempt to maintain engagement in an AI-mediated information environment.
+            </p>
+        </div>
+    </section>
+
+    <!-- Research Motivation -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Research Motivation</h2>
+        <div class="section-content">
+            <div class="motivation-card">
+                <h4>🤖 AI Summarization Proliferation</h4>
+                <p>
+                    AI systems increasingly summarize user-generated content across platforms:
+                </p>
+                <ul>
+                    <li>Search engines provide AI-generated summaries of reviews and content</li>
+                    <li>E-commerce platforms use AI to highlight key product features</li>
+                    <li>Social platforms auto-generate content previews and insights</li>
+                    <li>Voice assistants synthesize information from multiple sources</li>
+                </ul>
+            </div>
+
+            <div class="motivation-card">
+                <h4>⚖️ Asymmetric Processing</h4>
+                <p>
+                    Current AI systems have uneven multimodal capabilities:
+                </p>
+                <ul>
+                    <li>Highly sophisticated text processing and summarization</li>
+                    <li>Limited image understanding and synthesis capabilities</li>
+                    <li>Minimal audio and video content integration</li>
+                    <li>Poor handling of experiential and contextual information</li>
+                </ul>
+            </div>
+
+            <div class="motivation-card">
+                <h4>📈 Creator Response Strategies</h4>
+                <p>
+                    Content creators face new challenges and opportunities:
+                </p>
+                <ul>
+                    <li>How to maintain visibility when text content is summarized?</li>
+                    <li>Should creators shift toward non-text modalities?</li>
+                    <li>What content formats resist AI compression?</li>
+                    <li>How do platform algorithms influence creator behavior?</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Theoretical Framework -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Theoretical Framework</h2>
+        <div class="section-content">
+            <div class="theory-card">
+                <h4>📊 Information Processing Theory</h4>
+                <p>
+                    AI summarization creates information compression that may lose nuanced creator messages, 
+                    incentivizing creators to use modalities that resist summarization.
+                </p>
+            </div>
+
+            <div class="theory-card">
+                <h4>🎯 Strategic Communication Theory</h4>
+                <p>
+                    Creators strategically adapt their communication approaches to maintain audience reach 
+                    and engagement in AI-mediated environments.
+                </p>
+            </div>
+
+            <div class="theory-card">
+                <h4>💰 Platform Economics Theory</h4>
+                <p>
+                    Creator revenue and visibility depend on audience engagement, creating economic 
+                    incentives to adapt content strategies to AI processing limitations.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Methodology</h2>
+        <div class="section-content">
+            <div class="method-card">
+                <h4>📊 Data Collection</h4>
+                <p>Multi-platform longitudinal analysis:</p>
+                <ul>
+                    <li><strong>Google Maps:</strong> Business reviews, photos, and creator profiles</li>
+                    <li><strong>Amazon:</strong> Product reviews, images, videos, and seller content</li>
+                    <li><strong>Time Period:</strong> 36 months (18 months pre/post AI summarization rollout)</li>
+                    <li><strong>Creator Sample:</strong> 50,000+ active content creators across platforms</li>
+                    <li><strong>Content Types:</strong> Text, images, videos, audio, interactive elements</li>
+                </ul>
+            </div>
+
+            <div class="method-card">
+                <h4>🔬 Research Design</h4>
+                <ul>
+                    <li><strong>Natural Experiment:</strong> Platform rollout of AI summarization features</li>
+                    <li><strong>Difference-in-Differences:</strong> Comparing affected vs. unaffected creator segments</li>
+                    <li><strong>Content Analysis:</strong> Multimodal content classification and trend analysis</li>
+                    <li><strong>Creator Interviews:</strong> Qualitative insights into strategic decision-making</li>
+                </ul>
+            </div>
+
+            <div class="method-card">
+                <h4>📏 Key Measures</h4>
+                <p><strong>Content Strategy Variables:</strong></p>
+                <ul>
+                    <li>Text vs. visual content ratios</li>
+                    <li>Content complexity and information density</li>
+                    <li>Multimodal integration patterns</li>
+                    <li>Content length and format choices</li>
+                </ul>
+                
+                <p><strong>Outcome Variables:</strong></p>
+                <ul>
+                    <li>Audience engagement metrics (views, likes, shares)</li>
+                    <li>Creator visibility and reach</li>
+                    <li>Revenue and monetization outcomes</li>
+                    <li>Content consumption patterns</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Preliminary Findings -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Preliminary Findings</h2>
+        <div class="section-content">
+            <div class="findings-grid">
+                <div class="finding-card">
+                    <div class="finding-icon">📸</div>
+                    <h4>Visual Content Shift</h4>
+                    <p>42% increase in image and video content creation following AI summarization rollout across platforms.</p>
+                </div>
+
+                <div class="finding-card">
+                    <div class="finding-icon">📖</div>
+                    <h4>Text Complexity Increase</h4>
+                    <p>Remaining text content became 28% more complex and nuanced, harder for AI systems to summarize effectively.</p>
+                </div>
+
+                <div class="finding-card">
+                    <div class="finding-icon">🎭</div>
+                    <h4>Experiential Content Growth</h4>
+                    <p>35% rise in storytelling, personal anecdotes, and experiential descriptions that resist AI compression.</p>
+                </div>
+
+                <div class="finding-card">
+                    <div class="finding-icon">🔄</div>
+                    <h4>Platform Divergence</h4>
+                    <p>Creator strategies vary by platform AI capabilities, with more visual adaptation on text-heavy platforms.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platform-Specific Analysis -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Platform-Specific Analysis</h2>
+        <div class="section-content">
+            <div class="results-grid">
+                <div class="result-card">
+                    <h4>🗺️ Google Maps Creators</h4>
+                    <div class="metric-row">
+                        <span class="metric-label">Photo Upload Increase:</span>
+                        <span class="metric-value positive">+47.3%</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Video Reviews:</span>
+                        <span class="metric-value positive">+63.8%</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Text Review Length:</span>
+                        <span class="metric-value positive">+22.1%</span>
+                    </div>
+                </div>
+
+                <div class="result-card">
+                    <h4>🛒 Amazon Creators</h4>
+                    <div class="metric-row">
+                        <span class="metric-label">Visual Content:</span>
+                        <span class="metric-value positive">+38.7%</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Storytelling Reviews:</span>
+                        <span class="metric-value positive">+41.2%</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Technical Detail Depth:</span>
+                        <span class="metric-value positive">+29.4%</span>
+                    </div>
+                </div>
+
+                <div class="result-card">
+                    <h4>📈 Engagement Impact</h4>
+                    <div class="metric-row">
+                        <span class="metric-label">Visual Content Engagement:</span>
+                        <span class="metric-value positive">+33.9%</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Complex Text Engagement:</span>
+                        <span class="metric-value positive">+18.5%</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Simple Text Engagement:</span>
+                        <span class="metric-value negative">-12.7%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategic Adaptation Patterns -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Strategic Adaptation Patterns</h2>
+        <div class="section-content">
+            <div class="adaptation-card">
+                <h4>🎨 Visual Storytelling Strategy</h4>
+                <p>Creators increasingly embed narrative information in images and videos:</p>
+                <ul>
+                    <li>Infographic-style images containing key information</li>
+                    <li>Before/after visual comparisons instead of text descriptions</li>
+                    <li>Video demonstrations replacing written instructions</li>
+                    <li>Visual mood and context setting that AI cannot capture</li>
+                </ul>
+            </div>
+
+            <div class="adaptation-card">
+                <h4>🧩 Complexity Escalation Strategy</h4>
+                <p>Text content becomes more sophisticated to resist summarization:</p>
+                <ul>
+                    <li>Nuanced language with cultural references and context</li>
+                    <li>Embedded personal experiences and emotional narratives</li>
+                    <li>Technical jargon and domain-specific terminology</li>
+                    <li>Interconnected ideas that lose meaning when fragmented</li>
+                </ul>
+            </div>
+
+            <div class="adaptation-card">
+                <h4>🔄 Multimodal Integration Strategy</h4>
+                <p>Coordinated content across modalities creates unified experiences:</p>
+                <ul>
+                    <li>Text references to visual elements not visible in summaries</li>
+                    <li>Audio cues and soundtracks that enhance written content</li>
+                    <li>Interactive elements requiring user engagement beyond reading</li>
+                    <li>Cross-modal redundancy for important information</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Economic Implications -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Economic Implications</h2>
+        <div class="section-content">
+            <div class="implications-grid">
+                <div class="implication-card">
+                    <h4>💰 Creator Economics</h4>
+                    <p>Visual content creation requires higher investment in equipment, skills, and time, potentially creating barriers for smaller creators.</p>
+                </div>
+
+                <div class="implication-card">
+                    <h4>🏢 Platform Strategy</h4>
+                    <p>Platforms must balance AI efficiency gains with creator satisfaction and content quality maintenance.</p>
+                </div>
+
+                <div class="implication-card">
+                    <h4>👥 Consumer Experience</h4>
+                    <p>Shifts toward visual content may improve engagement but reduce information accessibility for some user groups.</p>
+                </div>
+
+                <div class="implication-card">
+                    <h4>🔧 Technology Development</h4>
+                    <p>Creator adaptations reveal limitations in current AI systems, guiding future multimodal AI development priorities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Future Research -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Future Research Directions</h2>
+        <div class="section-content">
+            <div class="future-card">
+                <h4>🔮 Research Extensions</h4>
+                <ul>
+                    <li>Cross-platform analysis including social media and professional networks</li>
+                    <li>Long-term effects on content quality and information completeness</li>
+                    <li>Impact on accessibility and information equity across user demographics</li>
+                    <li>Creator tool development and platform support ecosystem evolution</li>
+                </ul>
+            </div>
+
+            <div class="future-card">
+                <h4>🛠️ Methodological Improvements</h4>
+                <ul>
+                    <li>AI-assisted content classification for large-scale multimodal analysis</li>
+                    <li>Natural language processing of creator intent and strategy documentation</li>
+                    <li>Eye-tracking and user behavior studies of content consumption patterns</li>
+                    <li>Economic modeling of creator revenue optimization under AI constraints</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Specifications -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Technical Specifications</h2>
+        <div class="section-content">
+            <div class="tech-specs">
+                <div class="tech-stack">
+                    <span class="tech-tag featured">Multimodal Content Analysis</span>
+                    <span class="tech-tag featured">Creator Economics</span>
+                    <span class="tech-tag featured">Platform Strategy</span>
+                    <span class="tech-tag">AI Summarization</span>
+                    <span class="tech-tag">Content Strategy</span>
+                    <span class="tech-tag">Visual Communication</span>
+                    <span class="tech-tag">Information Theory</span>
+                    <span class="tech-tag">Digital Marketing</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<style>
+.adaptation-card {
+    background: var(--bg-card);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow-light);
+    border-left: 4px solid #06b6d4;
+}
+
+.adaptation-card h4 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.status-badge.ongoing {
+    background: rgba(59, 130, 246, 0.1);
+    color: rgb(29, 78, 216);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+}
+</style>

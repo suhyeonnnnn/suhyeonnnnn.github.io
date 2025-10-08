@@ -1,0 +1,399 @@
+---
+layout: minimal_base
+title: "Healthfulness Research"
+---
+
+<div class="content">
+    <!-- Back Button -->
+    <div style="margin-bottom: 2rem;">
+        <a href="research.html" style="color: var(--text-secondary); text-decoration: none; font-weight: 500;">
+            ← Back to Research
+        </a>
+    </div>
+
+    <!-- Paper Header -->
+    <section class="section fade-in">
+        <div class="research-header">
+            <h1 class="research-title">The Impact of Healthfulness on Firm Performance</h1>
+            <div class="research-subtitle">The Case of Food Companies in South Korea</div>
+            <div class="research-meta">
+                <div class="authors">Suh, Y., <strong>S. Lee</strong>, S. Jung, D. Jung, & W. Yun</div>
+                <div class="venue">Journal of Product Research, 39(4), 57-65</div>
+                <div class="date">2021</div>
+                <div class="status"><span class="status-badge published">Published (KCI Indexed)</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Abstract -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Abstract</h2>
+        <div class="section-content">
+            <p>
+                This study examines the relationship between product healthfulness and firm performance in the South Korean food industry. 
+                Using a comprehensive dataset of food companies and their product portfolios, we investigate how health-oriented product 
+                strategies impact various dimensions of firm performance, including financial metrics, market positioning, and consumer 
+                perception. Our findings provide insights into the business value of health-focused product development strategies.
+            </p>
+        </div>
+    </section>
+
+    <!-- Research Motivation -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Research Motivation</h2>
+        <div class="section-content">
+            <div class="motivation-card">
+                <h4>🏥 Growing Health Consciousness</h4>
+                <p>
+                    The global trend toward health-conscious consumption has fundamentally transformed the food industry landscape:
+                </p>
+                <ul>
+                    <li>Increasing consumer demand for healthier food options</li>
+                    <li>Rising awareness of diet-related health issues</li>
+                    <li>Government initiatives promoting public health through nutrition</li>
+                    <li>Growing premium placed on functional and organic foods</li>
+                </ul>
+            </div>
+
+            <div class="motivation-card">
+                <h4>📈 Business Strategy Question</h4>
+                <p>
+                    Despite the apparent consumer preference for healthy foods, the business implications remain unclear:
+                </p>
+                <ul>
+                    <li>Mixed evidence on whether health-focused strategies improve financial performance</li>
+                    <li>Potential trade-offs between healthfulness and profitability</li>
+                    <li>Limited understanding of market positioning benefits</li>
+                    <li>Need for empirical evidence in the Korean market context</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Theoretical Framework -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Theoretical Framework</h2>
+        <div class="section-content">
+            <div class="theory-card">
+                <h4>🎯 Resource-Based View</h4>
+                <p>
+                    Health-oriented capabilities as strategic resources that can provide sustainable competitive advantage 
+                    through differentiation and value creation.
+                </p>
+            </div>
+
+            <div class="theory-card">
+                <h4>📊 Signaling Theory</h4>
+                <p>
+                    Healthfulness as a quality signal that reduces information asymmetry between firms and consumers, 
+                    potentially commanding premium prices.
+                </p>
+            </div>
+
+            <div class="theory-card">
+                <h4>🌱 Stakeholder Theory</h4>
+                <p>
+                    Health-focused strategies as means to satisfy multiple stakeholders including consumers, regulators, 
+                    and health-conscious investors.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Methodology</h2>
+        <div class="section-content">
+            <div class="method-card">
+                <h4>🗂️ Data Collection</h4>
+                <p>Comprehensive analysis of South Korean food industry:</p>
+                <ul>
+                    <li><strong>Sample:</strong> 156 publicly listed food companies (2015-2019)</li>
+                    <li><strong>Product Data:</strong> Nutritional information and health claims from product portfolios</li>
+                    <li><strong>Financial Data:</strong> Revenue, profitability, market share, and stock performance</li>
+                    <li><strong>Market Data:</strong> Consumer perception surveys and brand positioning metrics</li>
+                </ul>
+            </div>
+
+            <div class="method-card">
+                <h4>📏 Key Measures</h4>
+                <p><strong>Healthfulness Index:</strong></p>
+                <ul>
+                    <li>Nutritional profile scoring (calories, sugar, sodium, fiber content)</li>
+                    <li>Functional ingredient presence (probiotics, omega-3, vitamins)</li>
+                    <li>Health certification and claims (organic, low-fat, sugar-free)</li>
+                    <li>Portfolio composition (proportion of healthy vs. conventional products)</li>
+                </ul>
+                
+                <p><strong>Performance Metrics:</strong></p>
+                <ul>
+                    <li>Financial: ROA, ROE, Revenue Growth, Profit Margins</li>
+                    <li>Market: Market Share, Brand Equity, Customer Loyalty</li>
+                    <li>Innovation: R&D Investment, New Product Success Rate</li>
+                </ul>
+            </div>
+
+            <div class="method-card">
+                <h4>🔬 Analytical Approach</h4>
+                <ul>
+                    <li><strong>Panel Data Regression:</strong> Fixed effects models controlling for firm heterogeneity</li>
+                    <li><strong>Instrumental Variables:</strong> Addressing endogeneity concerns in strategy-performance relationship</li>
+                    <li><strong>Mediation Analysis:</strong> Understanding mechanisms linking healthfulness to performance</li>
+                    <li><strong>Robustness Checks:</strong> Alternative specifications and sensitivity analyses</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Findings -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Key Findings</h2>
+        <div class="section-content">
+            <div class="findings-grid">
+                <div class="finding-card">
+                    <div class="finding-icon">💰</div>
+                    <h4>Positive Financial Impact</h4>
+                    <p>1-standard deviation increase in healthfulness index associated with 12% higher ROA and 8% revenue growth.</p>
+                </div>
+
+                <div class="finding-card">
+                    <div class="finding-icon">🏆</div>
+                    <h4>Market Premium</h4>
+                    <p>Health-focused companies command 15-20% price premiums and achieve 25% higher brand equity scores.</p>
+                </div>
+
+                <div class="finding-card">
+                    <div class="finding-icon">📈</div>
+                    <h4>Long-term Benefits</h4>
+                    <p>Healthfulness effects strengthen over time, with cumulative benefits emerging after 2-3 years of consistent strategy.</p>
+                </div>
+
+                <div class="finding-card">
+                    <div class="finding-icon">🎯</div>
+                    <h4>Moderation Effects</h4>
+                    <p>Benefits are stronger for smaller firms and in competitive market segments with high health awareness.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Results -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Detailed Results</h2>
+        <div class="section-content">
+            <div class="results-grid">
+                <div class="result-card">
+                    <h4>📊 Financial Performance</h4>
+                    <div class="metric-row">
+                        <span class="metric-label">Return on Assets (ROA):</span>
+                        <span class="metric-value positive">+12.3%</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Revenue Growth:</span>
+                        <span class="metric-value positive">+8.7%</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Profit Margins:</span>
+                        <span class="metric-value positive">+5.2%</span>
+                    </div>
+                </div>
+
+                <div class="result-card">
+                    <h4>🎯 Market Performance</h4>
+                    <div class="metric-row">
+                        <span class="metric-label">Brand Equity:</span>
+                        <span class="metric-value positive">+25.1%</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Price Premium:</span>
+                        <span class="metric-value positive">+18.4%</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Customer Loyalty:</span>
+                        <span class="metric-value positive">+14.6%</span>
+                    </div>
+                </div>
+
+                <div class="result-card">
+                    <h4>🔬 Innovation Metrics</h4>
+                    <div class="metric-row">
+                        <span class="metric-label">R&D Investment:</span>
+                        <span class="metric-value positive">+22.8%</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">New Product Success:</span>
+                        <span class="metric-value positive">+16.3%</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Patent Applications:</span>
+                        <span class="metric-value positive">+19.7%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Managerial Implications -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Managerial Implications</h2>
+        <div class="section-content">
+            <div class="implications-grid">
+                <div class="implication-card">
+                    <h4>🎯 Strategic Planning</h4>
+                    <p>Health-oriented product strategies should be viewed as long-term investments that require sustained commitment and integration across business functions.</p>
+                </div>
+
+                <div class="implication-card">
+                    <h4>💼 Product Development</h4>
+                    <p>Invest in R&D capabilities for functional ingredients and nutritional enhancement while maintaining taste and affordability.</p>
+                </div>
+
+                <div class="implication-card">
+                    <h4>📢 Marketing Strategy</h4>
+                    <p>Develop authentic health positioning backed by credible certifications and transparent communication about nutritional benefits.</p>
+                </div>
+
+                <div class="implication-card">
+                    <h4>🏢 Organizational Capability</h4>
+                    <p>Build cross-functional teams spanning R&D, marketing, and operations to ensure coherent health-focused value proposition.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Policy Implications -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Policy Implications</h2>
+        <div class="section-content">
+            <div class="policy-card">
+                <h4>🏛️ Public Health Policy</h4>
+                <p>
+                    Results suggest that market-based incentives can effectively promote healthier food production. 
+                    Policymakers should consider:
+                </p>
+                <ul>
+                    <li>Supporting health-focused innovation through R&D tax incentives</li>
+                    <li>Strengthening nutritional labeling requirements for transparency</li>
+                    <li>Promoting public-private partnerships for health education</li>
+                </ul>
+            </div>
+
+            <div class="policy-card">
+                <h4>⚖️ Regulatory Framework</h4>
+                <p>
+                    Balanced regulation that promotes innovation while ensuring consumer protection:
+                </p>
+                <ul>
+                    <li>Clear guidelines for health claims and functional food classification</li>
+                    <li>Streamlined approval processes for genuinely beneficial health innovations</li>
+                    <li>International harmonization of health standards for trade facilitation</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Specifications -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Technical Specifications</h2>
+        <div class="section-content">
+            <div class="tech-specs">
+                <div class="tech-stack">
+                    <span class="tech-tag featured">Panel Data Analysis</span>
+                    <span class="tech-tag featured">Strategic Management</span>
+                    <span class="tech-tag featured">Food Industry</span>
+                    <span class="tech-tag">Health Economics</span>
+                    <span class="tech-tag">Brand Performance</span>
+                    <span class="tech-tag">Consumer Behavior</span>
+                    <span class="tech-tag">Nutritional Analysis</span>
+                    <span class="tech-tag">Corporate Strategy</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<style>
+.theory-card {
+    background: var(--bg-card);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+    box-shadow: var(--shadow-light);
+    border-left: 4px solid var(--accent-color);
+}
+
+.theory-card h4 {
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.result-card {
+    background: var(--bg-card);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+}
+
+.result-card h4 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 0.5rem;
+}
+
+.metric-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.metric-row:last-child {
+    border-bottom: none;
+}
+
+.metric-label {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.metric-value {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.metric-value.positive {
+    color: #059669;
+}
+
+.policy-card {
+    background: var(--bg-card);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow-light);
+    border-left: 4px solid #f59e0b;
+}
+
+.policy-card h4 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    .results-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>

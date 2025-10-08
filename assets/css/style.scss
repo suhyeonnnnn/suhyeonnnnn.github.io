@@ -21,7 +21,7 @@
     --bg-nav-active: rgba(255, 193, 7, 0.2);
     --shadow-light: 0 2px 20px rgba(0, 0, 0, 0.1);
     --shadow-card: 0 4px 30px rgba(0, 0, 0, 0.08);
-    --border-radius: 20px;
+    --border-radius: 15px;
     --border-radius-full: 50%;
     --border-light: rgba(0, 0, 0, 0.1);
     --transition: all 0.3s ease;
@@ -146,6 +146,7 @@ body {
     justify-content: center;
     font-size: 4rem;
     overflow: hidden;
+    position: relative;
 }
 
 .profile-photo {
@@ -153,6 +154,25 @@ body {
     height: 100%;
     object-fit: cover;
     object-position: center;
+    transition: opacity 0.6s ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.profile-photo.active {
+    opacity: 1;
+}
+
+.photo-note {
+    font-size: 0.8rem;
+    color: #9ca3af;
+    text-align: center;
+    font-style: italic;
+    opacity: 0.6;
+    margin-top: -1rem;
+    line-height: 1;
 }
 
 .profile-info h1 {
@@ -243,17 +263,39 @@ body {
     margin-bottom: 0.25rem;
 }
 
+.news-title .read-more {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin-left: 0.75rem;
+    transition: var(--transition-fast);
+    border-bottom: 1px solid transparent;
+}
+
+.news-title .read-more:hover {
+    color: var(--accent-color);
+    border-bottom: 1px solid var(--accent-color);
+}
+
+.news-title .read-more::before {
+    content: "→";
+    margin-right: 0.25rem;
+    font-size: 0.8rem;
+}
+
 .news-description {
     color: var(--text-secondary);
     font-size: 0.95rem;
+    margin-bottom: 0.75rem;
 }
 
 // Photo gallery
 .photo-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
+    gap: 1rem;
+    margin-top: 1rem;
 }
 
 .photo-card {
@@ -269,16 +311,16 @@ body {
 }
 
 .photo-card.small {
-    min-height: 200px;
+    height: 300px;
 }
 
 .photo-card.medium {
-    min-height: 300px;
+    height:300px;
 }
 
 .photo-card.large {
     grid-column: span 2;
-    min-height: 400px;
+    height: 300px;
 }
 
 .photo-container {
@@ -291,7 +333,7 @@ body {
 .photo-image {
     width: 100%;
     height: 100%;
-    min-height: 200px;
+    min-height: 50px;
     object-fit: cover;
     object-position: center;
     transition: var(--transition);
@@ -360,7 +402,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.5);
     color: white;
     opacity: 0;
     display: flex;
@@ -400,6 +442,245 @@ body {
     text-align: right;
     color: var(--text-muted);
     font-size: 0.9rem;
+}
+
+// Project Cards
+.projects-gif-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.project-gif-card {
+    background: var(--bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    min-height: 400px;
+}
+
+.project-gif-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
+}
+
+.project-gif-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.project-gif-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    position: relative;
+}
+
+.gif-placeholder-content {
+    text-align: center;
+    color: white;
+    z-index: 1;
+}
+
+.placeholder-icon {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    opacity: 0.9;
+}
+
+.placeholder-text {
+    font-size: 1rem;
+    font-weight: 500;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.project-gif-overlay {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: 2;
+}
+
+.project-status, .project-category {
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-align: center;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.project-status.published {
+    background: rgba(34, 197, 94, 0.9);
+}
+
+.project-category {
+    background: rgba(59, 130, 246, 0.9);
+}
+
+.project-category.ai {
+    background: rgba(168, 85, 247, 0.9);
+}
+
+.project-category.web {
+    background: rgba(239, 68, 68, 0.9);
+}
+
+.project-category.funded {
+    background: rgba(245, 158, 11, 0.9);
+}
+
+.project-gif-info {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-gif-info h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+.project-authors {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    font-style: italic;
+}
+
+.project-date {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+}
+
+.project-description {
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    flex: 1;
+}
+
+.project-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.highlight-badge {
+    padding: 0.25rem 0.75rem;
+    background: rgba(34, 197, 94, 0.1);
+    color: rgb(21, 128, 61);
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: auto;
+}
+
+.tech-tag {
+    padding: 0.25rem 0.75rem;
+    background: rgba(59, 130, 246, 0.1);
+    color: rgb(29, 78, 216);
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    transition: var(--transition-fast);
+}
+
+.tech-tag.featured {
+    background: rgba(168, 85, 247, 0.1);
+    color: rgb(124, 58, 237);
+    border-color: rgba(168, 85, 247, 0.2);
+}
+
+.tech-tag:hover {
+    background: rgba(59, 130, 246, 0.2);
+    transform: translateY(-1px);
+}
+
+.tech-tag.featured:hover {
+    background: rgba(168, 85, 247, 0.2);
+}
+
+// Award Cards
+.award-gif-card {
+    background: var(--bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-card);
+    padding: 2rem;
+    text-align: center;
+    transition: var(--transition);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.award-gif-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
+}
+
+.award-gif-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.award-icon-large {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.award-amount {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+}
+
+.award-gif-card h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+.award-position {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 0.25rem;
+}
+
+.award-date {
+    font-size: 0.9rem;
+    color: var(--text-muted);
 }
 
 // Animations
@@ -469,7 +750,7 @@ body {
     .photo-card.large,
     .photo-card.medium,
     .photo-card.small {
-        min-height: 200px;
+        min-height: 50px;
         grid-column: span 1;
     }
     
@@ -488,6 +769,20 @@ body {
     .footer {
         text-align: center;
         padding: 2rem;
+    }
+    
+    // Project cards responsive
+    .projects-gif-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .project-gif-card {
+        min-height: auto;
+    }
+    
+    .project-gif-container {
+        height: 180px;
     }
 }
 
@@ -509,5 +804,22 @@ body {
     
     .section-title {
         font-size: 1.25rem;
+    }
+    
+    // Project cards for small screens
+    .projects-gif-grid {
+        gap: 1rem;
+    }
+    
+    .project-gif-info {
+        padding: 1rem;
+    }
+    
+    .project-gif-container {
+        height: 150px;
+    }
+    
+    .project-gif-info h4 {
+        font-size: 1.1rem;
     }
 }

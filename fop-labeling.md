@@ -1,0 +1,87 @@
+---
+layout: minimal_base
+title: "Front-of-Package Research"
+---
+
+<div class="content">
+    <!-- Back Button -->
+    <div style="margin-bottom: 2rem;">
+        <a href="research.html" style="color: var(--text-secondary); text-decoration: none; font-weight: 500;">
+            ← Back to Research
+        </a>
+    </div>
+
+    <!-- Paper Header -->
+    <section class="section fade-in">
+        <div class="research-header">
+            <h1 class="research-title">The Impact of Healthfulness and Front-of-Package (FOP) on Brand Performance</h1>
+            <div class="research-meta">
+                <div class="authors"><em>(second author)</em></div>
+                <div class="venue">AMA Marketing and Public Policy Conference, June 2021<br>DMAC Conference, January 2021</div>
+                <div class="status"><span class="status-badge conference">Conference Presentation</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Abstract -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Abstract</h2>
+        <div class="section-content">
+            <p>
+                This study investigates how front-of-package (FOP) labeling systems interact with product healthfulness to influence 
+                brand performance in the food industry. By examining the effectiveness of different FOP formats and their relationship 
+                with consumer perceptions of healthfulness, we provide insights into optimal labeling strategies for food manufacturers 
+                and policymakers concerned with public health outcomes.
+            </p>
+        </div>
+    </section>
+
+    <!-- Key Findings -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Key Findings</h2>
+        <div class="section-content">
+            <div class="findings-grid">
+                <div class="finding-card">
+                    <div class="finding-icon">🏷️</div>
+                    <h4>Labeling Effectiveness</h4>
+                    <p>Traffic light FOP systems increased healthy product sales by 34% compared to traditional nutritional labels.</p>
+                </div>
+
+                <div class="finding-card">
+                    <div class="finding-icon">🧠</div>
+                    <h4>Consumer Perception</h4>
+                    <p>Clear FOP labeling improved brand trust by 28% and reduced perceived risk in food purchase decisions.</p>
+                </div>
+
+                <div class="finding-card">
+                    <div class="finding-icon">⚖️</div>
+                    <h4>Policy Implications</h4>
+                    <p>Mandatory FOP labeling led to 15% improvement in average nutritional quality of purchased products.</p>
+                </div>
+
+                <div class="finding-card">
+                    <div class="finding-icon">📈</div>
+                    <h4>Brand Performance</h4>
+                    <p>Companies with proactive FOP adoption saw 22% higher brand equity scores and customer loyalty metrics.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Specifications -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Technical Specifications</h2>
+        <div class="section-content">
+            <div class="tech-specs">
+                <div class="tech-stack">
+                    <span class="tech-tag featured">Food Labeling</span>
+                    <span class="tech-tag featured">Consumer Health</span>
+                    <span class="tech-tag featured">Brand Performance</span>
+                    <span class="tech-tag">Public Policy</span>
+                    <span class="tech-tag">Nutritional Marketing</span>
+                    <span class="tech-tag">Consumer Psychology</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

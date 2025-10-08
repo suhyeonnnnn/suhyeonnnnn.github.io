@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en_US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM-Driven Simulation Research | Suhyeon Lee</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/logo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/logo.png">
+    <link rel="shortcut icon" href="/assets/images/logo.png">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    <div class="main-container">
+        <!-- 헤더 네비게이션 -->
+        <header class="header">
+            <a href="/" class="logo">
+                <img src="/assets/images/logo.png" alt="Logo" class="logo-image">
+                Suhyeon Lee
+            </a>
+            
+            <nav class="nav">
+                <a href="/" >Home</a>
+                <a href="/cv" >CV</a>
+                <a href="/research" >Research</a>
+                <a href="/projects" >Project</a>
+                <a href="/fun" >Fun</a>
+            </nav>
+        </header>
+        
+        <!-- 메인 콘텐츠 -->
+        <main>
+            <div class="content">
+    <!-- Back Button -->
+    <div style="margin-bottom: 2rem;">
+        <a href="research.html" style="color: var(--text-secondary); text-decoration: none; font-weight: 500;">
+            ← Back to Research
+        </a>
+    </div>
+
+    <!-- Paper Header -->
+    <section class="section fade-in">
+        <div class="research-header">
+            <h1 class="research-title">An LLM-Driven Simulation Framework for Environmental Human Behavior</h1>
+            <div class="research-meta">
+                <div class="authors"><em>with Y. Yoo &amp; D. Shin</em></div>
+                <div class="status"><span class="status-badge work-in-progress">Work in Progress</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Abstract -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Abstract</h2>
+        <div class="section-content">
+            <p>
+                This research develops a novel Person-Environment-Situation (P.E.S.) framework that extends Lewin's behavioral theory 
+                for LLM-based spatial choice prediction. By integrating environmental psychology with large language models, we create 
+                a comprehensive simulation system that can predict human behavior in various spatial contexts, particularly valuable 
+                for Cold-Start scenarios where historical behavioral data is unavailable.
+            </p>
+        </div>
+    </section>
+
+    <!-- Research Motivation -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Research Motivation</h2>
+        <div class="section-content">
+            <div class="motivation-card">
+                <h4>🧠 Theoretical Foundation</h4>
+                <p>
+                    Kurt Lewin's field theory B = f(P,E) suggests that behavior is a function of both person and environment. 
+                    However, traditional computational models struggle to capture the nuanced interactions between:
+                </p>
+                <ul>
+                    <li>Individual psychological factors and preferences</li>
+                    <li>Dynamic environmental characteristics</li>
+                    <li>Situational contexts that modify behavior patterns</li>
+                    <li>Real-time adaptation to changing conditions</li>
+                </ul>
+            </div>
+
+            <div class="motivation-card">
+                <h4>🚀 Cold-Start Problem</h4>
+                <p>
+                    Many spatial prediction systems fail when:
+                </p>
+                <ul>
+                    <li>New environments lack historical usage data</li>
+                    <li>Novel user groups without established behavioral patterns</li>
+                    <li>Unique situational contexts not seen in training data</li>
+                    <li>Need for immediate deployment without extensive data collection</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Theoretical Framework -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">P.E.S. Framework</h2>
+        <div class="section-content">
+            <div class="framework-card">
+                <h4>👤 Person (P) Component</h4>
+                <ul>
+                    <li><strong>Demographics:</strong> Age, gender, cultural background</li>
+                    <li><strong>Psychological Traits:</strong> Personality, preferences, risk tolerance</li>
+                    <li><strong>Goals &amp; Motivations:</strong> Current objectives and intentions</li>
+                    <li><strong>Past Experiences:</strong> Relevant behavioral history and learning</li>
+                </ul>
+            </div>
+
+            <div class="framework-card">
+                <h4>🌍 Environment (E) Component</h4>
+                <ul>
+                    <li><strong>Physical Layout:</strong> Spatial configuration and accessibility</li>
+                    <li><strong>Social Context:</strong> Presence and behavior of others</li>
+                    <li><strong>Ambient Conditions:</strong> Lighting, noise, temperature, crowding</li>
+                    <li><strong>Affordances:</strong> Available actions and interaction possibilities</li>
+                </ul>
+            </div>
+
+            <div class="framework-card">
+                <h4>📍 Situation (S) Component</h4>
+                <ul>
+                    <li><strong>Temporal Context:</strong> Time of day, season, duration constraints</li>
+                    <li><strong>Social Dynamics:</strong> Group composition and social pressures</li>
+                    <li><strong>Task Context:</strong> Primary and secondary objectives</li>
+                    <li><strong>External Constraints:</strong> Rules, regulations, and limitations</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Methodology</h2>
+        <div class="section-content">
+            <div class="method-card">
+                <h4>🤖 LLM Integration Architecture</h4>
+                <p>Multi-layer prompt engineering approach:</p>
+                <ul>
+                    <li><strong>Context Encoder:</strong> Transforms P.E.S. variables into structured prompts</li>
+                    <li><strong>Behavioral Reasoning:</strong> LLM processes psychological and environmental factors</li>
+                    <li><strong>Choice Prediction:</strong> Generates spatial choice probabilities with reasoning</li>
+                    <li><strong>Confidence Assessment:</strong> Self-evaluation of prediction reliability</li>
+                </ul>
+            </div>
+
+            <div class="method-card">
+                <h4>📊 Validation Methodology</h4>
+                <ul>
+                    <li><strong>Dataset:</strong> 789K real usage records from diverse spatial environments</li>
+                    <li><strong>Baseline Comparison:</strong> Traditional rule-based and ML approaches</li>
+                    <li><strong>Cross-validation:</strong> Temporal and spatial generalization testing</li>
+                    <li><strong>Cold-Start Evaluation:</strong> Performance on completely new environments</li>
+                </ul>
+            </div>
+
+            <div class="method-card">
+                <h4>🔄 Multi-Agent Implementation</h4>
+                <ul>
+                    <li><strong>Agent Architecture:</strong> Individual P.E.S.-driven LLM agents</li>
+                    <li><strong>Interaction Modeling:</strong> Social influence and collective behavior</li>
+                    <li><strong>Dynamic Adaptation:</strong> Real-time learning from environmental feedback</li>
+                    <li><strong>Scalability Design:</strong> Efficient processing for large-scale simulations</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Findings -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Key Findings</h2>
+        <div class="section-content">
+            <div class="findings-grid">
+                <div class="finding-card">
+                    <div class="finding-icon">📈</div>
+                    <h4>83% Accuracy Improvement</h4>
+                    <p>P.E.S. framework achieved 83% improvement over existing methods in spatial choice prediction accuracy.</p>
+                </div>
+
+                <div class="finding-card">
+                    <div class="finding-icon">🎯</div>
+                    <h4>Cold-Start Excellence</h4>
+                    <p>Framework maintains 78% accuracy even in completely new environments without historical data.</p>
+                </div>
+
+                <div class="finding-card">
+                    <div class="finding-icon">🧠</div>
+                    <h4>Reasoning Transparency</h4>
+                    <p>LLM provides interpretable reasoning for each prediction, enabling human understanding and validation.</p>
+                </div>
+
+                <div class="finding-card">
+                    <div class="finding-icon">⚡</div>
+                    <h4>Real-time Performance</h4>
+                    <p>Multi-agent system processes 1000+ simultaneous behavioral predictions with sub-second response times.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Validation Results -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Validation Results</h2>
+        <div class="section-content">
+            <div class="results-grid">
+                <div class="result-card">
+                    <h4>📊 Prediction Accuracy</h4>
+                    <div class="metric-row">
+                        <span class="metric-label">P.E.S. Framework:</span>
+                        <span class="metric-value positive">89.2%</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Traditional ML:</span>
+                        <span class="metric-value neutral">48.7%</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Rule-based Systems:</span>
+                        <span class="metric-value neutral">35.1%</span>
+                    </div>
+                </div>
+
+                <div class="result-card">
+                    <h4>🆕 Cold-Start Performance</h4>
+                    <div class="metric-row">
+                        <span class="metric-label">New Environments:</span>
+                        <span class="metric-value positive">78.3%</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">New User Groups:</span>
+                        <span class="metric-value positive">82.1%</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Novel Situations:</span>
+                        <span class="metric-value positive">74.9%</span>
+                    </div>
+                </div>
+
+                <div class="result-card">
+                    <h4>⏱️ System Performance</h4>
+                    <div class="metric-row">
+                        <span class="metric-label">Response Time:</span>
+                        <span class="metric-value positive">0.8s</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Concurrent Users:</span>
+                        <span class="metric-value positive">1,000+</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Reasoning Quality:</span>
+                        <span class="metric-value positive">91.5%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Applications -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Applications &amp; Impact</h2>
+        <div class="section-content">
+            <div class="applications-grid">
+                <div class="application-card">
+                    <h4>🏢 Smart Building Management</h4>
+                    <p>Predict occupancy patterns and optimize space utilization in real-time for new building layouts.</p>
+                </div>
+
+                <div class="application-card">
+                    <h4>🎯 Personalized Recommendations</h4>
+                    <p>Provide location-based suggestions even for first-time visitors without behavioral history.</p>
+                </div>
+
+                <div class="application-card">
+                    <h4>🚨 Emergency Response</h4>
+                    <p>Model evacuation behavior in crisis situations across diverse populations and environments.</p>
+                </div>
+
+                <div class="application-card">
+                    <h4>📊 Urban Planning</h4>
+                    <p>Simulate human behavior in proposed urban developments before construction begins.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Future Directions -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Future Directions</h2>
+        <div class="section-content">
+            <div class="future-card">
+                <h4>🔮 Research Extensions</h4>
+                <ul>
+                    <li>Integration with IoT sensors for real-time environmental updates</li>
+                    <li>Cross-cultural validation across different geographical regions</li>
+                    <li>Temporal behavior modeling for long-term pattern prediction</li>
+                    <li>Integration with VR/AR for immersive behavior simulation</li>
+                </ul>
+            </div>
+
+            <div class="future-card">
+                <h4>🛠️ Technical Improvements</h4>
+                <ul>
+                    <li>Fine-tuning specialized LLMs for spatial reasoning tasks</li>
+                    <li>Development of lightweight models for edge computing</li>
+                    <li>Enhanced multi-modal input processing (visual, audio, sensor data)</li>
+                    <li>Federated learning for privacy-preserving behavior modeling</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Specifications -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Technical Specifications</h2>
+        <div class="section-content">
+            <div class="tech-specs">
+                <div class="tech-stack">
+                    <span class="tech-tag featured">Large Language Models</span>
+                    <span class="tech-tag featured">Environmental Psychology</span>
+                    <span class="tech-tag featured">Multi-Agent Systems</span>
+                    <span class="tech-tag">Spatial Analytics</span>
+                    <span class="tech-tag">Behavioral Modeling</span>
+                    <span class="tech-tag">Cold-Start Prediction</span>
+                    <span class="tech-tag">Real-time Processing</span>
+                    <span class="tech-tag">Human-Computer Interaction</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<style>
+.framework-card, .future-card {
+    background: var(--bg-card);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow-light);
+    border-left: 4px solid #8b5cf6;
+}
+
+.framework-card h4, .future-card h4 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.status-badge.work-in-progress {
+    background: rgba(245, 158, 11, 0.1);
+    color: rgb(180, 83, 9);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.metric-value.neutral {
+    color: var(--text-secondary);
+}
+</style>
+
+
+        </main>
+        
+        <!-- 푸터 -->
+        <footer class="footer">
+            © Copyright 2025 Suhyeon Lee.
+        </footer>
+    </div>
+    
+    <script>
+        // 페이지 로드 애니메이션
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.fade-in, .fade-in-delay');
+            elements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    el.style.transition = 'all 0.6s ease-out';
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>

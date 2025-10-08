@@ -1,0 +1,295 @@
+---
+layout: minimal_base
+title: "PlaceSim Research"
+---
+
+<div class="content">
+    <!-- Back Button -->
+    <div style="margin-bottom: 2rem;">
+        <a href="research.html" style="color: var(--text-secondary); text-decoration: none; font-weight: 500;">
+            ← Back to Research
+        </a>
+    </div>
+
+    <!-- Paper Header -->
+    <section class="section fade-in">
+        <div class="research-header">
+            <h1 class="research-title">PlaceSim: An LLM-based Interactive Platform for Human Behavior Simulation in Physical Facilities</h1>
+            <div class="research-meta">
+                <div class="authors"><strong>Lee, S.</strong>, Y. Yu, D. Shin, & R. Singh</div>
+                <div class="venue">Proceedings of the 34th ACM International Conference on Information and Knowledge Management (CIKM '25)</div>
+                <div class="date">November 10-14, 2025, Seoul, Republic of Korea</div>
+                <div class="status"><span class="status-badge forthcoming">Forthcoming</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Abstract -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Abstract</h2>
+        <div class="section-content">
+            <p>
+                An innovative interactive platform that leverages Large Language Models to simulate human behavior in physical facilities. 
+                This project combines AI, spatial analytics, and behavioral modeling to create realistic simulations for urban planning 
+                and facility design. The platform enables researchers and practitioners to understand and predict human movement patterns 
+                and spatial interactions in various built environments.
+            </p>
+        </div>
+    </section>
+
+    <!-- Research Motivation -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Research Motivation</h2>
+        <div class="section-content">
+            <div class="motivation-card">
+                <h4>🎯 Problem Statement</h4>
+                <p>
+                    Traditional human behavior simulation in physical spaces relies on simplified agent-based models that fail to capture 
+                    the complexity of real human decision-making processes. Current approaches struggle with:
+                </p>
+                <ul>
+                    <li>Limited contextual understanding of spatial environments</li>
+                    <li>Inability to model complex social interactions and preferences</li>
+                    <li>Lack of adaptability to diverse facility types and user demographics</li>
+                </ul>
+            </div>
+
+            <div class="motivation-card">
+                <h4>🚀 Research Opportunity</h4>
+                <p>
+                    Large Language Models present an unprecedented opportunity to create more realistic and nuanced simulations by:
+                </p>
+                <ul>
+                    <li>Leveraging natural language understanding for complex behavioral reasoning</li>
+                    <li>Incorporating rich contextual information about spaces and user intentions</li>
+                    <li>Enabling dynamic adaptation to different scenarios and environments</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Methodology</h2>
+        <div class="section-content">
+            <div class="method-card">
+                <h4>🏗️ Platform Architecture</h4>
+                <p>
+                    PlaceSim integrates multiple components to create a comprehensive simulation environment:
+                </p>
+                <ul>
+                    <li><strong>LLM-based Reasoning Engine:</strong> Core decision-making component for agent behavior</li>
+                    <li><strong>Spatial Analytics Module:</strong> Processing and understanding of physical facility layouts</li>
+                    <li><strong>Behavioral Modeling Framework:</strong> Integration of psychological and sociological factors</li>
+                    <li><strong>Interactive Visualization:</strong> Real-time simulation display and control interface</li>
+                </ul>
+            </div>
+
+            <div class="method-card">
+                <h4>🔬 Technical Implementation</h4>
+                <ul>
+                    <li><strong>Multi-Agent System:</strong> Each simulated person as an independent LLM-powered agent</li>
+                    <li><strong>Prompt Engineering:</strong> Specialized prompts for spatial reasoning and behavior prediction</li>
+                    <li><strong>Environmental Context Integration:</strong> Real-time facility information processing</li>
+                    <li><strong>Validation Framework:</strong> Comparison with real-world behavioral data</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Findings -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Key Findings</h2>
+        <div class="section-content">
+            <div class="findings-grid">
+                <div class="finding-card">
+                    <div class="finding-icon">📊</div>
+                    <h4>Enhanced Realism</h4>
+                    <p>LLM-based agents demonstrate significantly more realistic behavior patterns compared to traditional rule-based simulations.</p>
+                </div>
+
+                <div class="finding-card">
+                    <div class="finding-icon">🎯</div>
+                    <h4>Contextual Adaptability</h4>
+                    <p>The platform successfully adapts to different facility types (offices, malls, museums) with minimal parameter adjustments.</p>
+                </div>
+
+                <div class="finding-card">
+                    <div class="finding-icon">⚡</div>
+                    <h4>Interactive Insights</h4>
+                    <p>Real-time simulation enables immediate feedback for facility design decisions and urban planning scenarios.</p>
+                </div>
+
+                <div class="finding-card">
+                    <div class="finding-icon">🔄</div>
+                    <h4>Scalable Framework</h4>
+                    <p>The modular architecture allows for easy extension to new environments and behavioral factors.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Applications & Impact -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Applications & Impact</h2>
+        <div class="section-content">
+            <div class="applications-grid">
+                <div class="application-card">
+                    <h4>🏢 Urban Planning</h4>
+                    <p>Optimize building layouts and public space design based on predicted human flow patterns.</p>
+                </div>
+
+                <div class="application-card">
+                    <h4>🏪 Retail Design</h4>
+                    <p>Improve store layouts and customer experience through behavior simulation.</p>
+                </div>
+
+                <div class="application-card">
+                    <h4>🚨 Emergency Planning</h4>
+                    <p>Test evacuation procedures and safety protocols in virtual environments.</p>
+                </div>
+
+                <div class="application-card">
+                    <h4>📚 Research Tool</h4>
+                    <p>Enable researchers to study human-space interactions at scale.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Specifications -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Technical Specifications</h2>
+        <div class="section-content">
+            <div class="tech-specs">
+                <div class="tech-stack">
+                    <span class="tech-tag featured">Large Language Models</span>
+                    <span class="tech-tag featured">Simulation Modeling</span>
+                    <span class="tech-tag featured">Spatial Analytics</span>
+                    <span class="tech-tag">Multi-Agent Systems</span>
+                    <span class="tech-tag">Interactive Visualization</span>
+                    <span class="tech-tag">Behavioral Psychology</span>
+                    <span class="tech-tag">Urban Planning</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<style>
+.research-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: var(--bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-card);
+}
+
+.research-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+}
+
+.research-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+}
+
+.authors {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.venue {
+    font-style: italic;
+    font-size: 1rem;
+}
+
+.date {
+    font-size: 0.95rem;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 0.25rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-top: 1rem;
+}
+
+.status-badge.forthcoming {
+    background: rgba(34, 197, 94, 0.1);
+    color: rgb(21, 128, 61);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.motivation-card, .method-card {
+    background: var(--bg-card);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow-light);
+}
+
+.motivation-card h4, .method-card h4 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.findings-grid, .applications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.finding-card, .application-card {
+    background: var(--bg-card);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.finding-card:hover, .application-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-card);
+}
+
+.finding-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.finding-card h4, .application-card h4 {
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.tech-specs {
+    background: var(--bg-card);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+}
+
+@media (max-width: 768px) {
+    .research-title {
+        font-size: 1.8rem;
+    }
+    
+    .findings-grid, .applications-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>

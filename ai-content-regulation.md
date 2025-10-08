@@ -1,0 +1,366 @@
+---
+layout: minimal_base
+title: "AI Content Regulation Research"
+---
+
+<div class="content">
+    <!-- Back Button -->
+    <div style="margin-bottom: 2rem;">
+        <a href="research.html" style="color: var(--text-secondary); text-decoration: none; font-weight: 500;">
+            ← Back to Research
+        </a>
+    </div>
+
+    <!-- Paper Header -->
+    <section class="section fade-in">
+        <div class="research-header">
+            <h1 class="research-title">Regulating AI-Generated Content: When Do Restrictions Spark or Stifle Community Dynamics</h1>
+            <div class="research-meta">
+                <div class="authors"><em>with J. Shin, D. Shin, & W. Oh</em></div>
+                <div class="status"><span class="status-badge work-in-progress">Work in Progress</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Abstract -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Abstract</h2>
+        <div class="section-content">
+            <p>
+                This study examines the paradoxical effects of AI content restrictions across 743 Reddit communities using a 
+                difference-in-differences methodology. We investigate how AI content bans create opposing outcomes: decreased 
+                participation in information-focused communities versus increased engagement in creativity-focused communities. 
+                Our findings reveal that AI restrictions function as authenticity signals in creative spaces, fundamentally 
+                altering community dynamics and member behavior.
+            </p>
+        </div>
+    </section>
+
+    <!-- Research Motivation -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Research Motivation</h2>
+        <div class="section-content">
+            <div class="motivation-card">
+                <h4>🤖 AI Content Proliferation</h4>
+                <p>
+                    The rapid adoption of generative AI has created new challenges for online communities:
+                </p>
+                <ul>
+                    <li>Exponential increase in AI-generated posts across platforms</li>
+                    <li>Blurred lines between human and AI-created content</li>
+                    <li>Community concerns about authenticity and value</li>
+                    <li>Platform struggles with content moderation and policy enforcement</li>
+                </ul>
+            </div>
+
+            <div class="motivation-card">
+                <h4>⚖️ Regulatory Responses</h4>
+                <p>
+                    Communities have implemented various AI content restrictions:
+                </p>
+                <ul>
+                    <li>Complete bans on AI-generated content</li>
+                    <li>Mandatory disclosure requirements</li>
+                    <li>Quality-based filtering systems</li>
+                    <li>Human verification processes</li>
+                </ul>
+            </div>
+
+            <div class="motivation-card">
+                <h4>❓ Unintended Consequences</h4>
+                <p>
+                    The effects of these regulations remain poorly understood:
+                </p>
+                <ul>
+                    <li>Do restrictions improve or harm community engagement?</li>
+                    <li>How do different community types respond to AI bans?</li>
+                    <li>What role do authenticity perceptions play?</li>
+                    <li>Are there differential effects across user demographics?</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Theoretical Framework -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Theoretical Framework</h2>
+        <div class="section-content">
+            <div class="theory-card">
+                <h4>🏷️ Signaling Theory</h4>
+                <p>
+                    AI content restrictions serve as signals that communities value human creativity and authenticity, 
+                    potentially attracting members who share these values while deterring those who prefer efficiency.
+                </p>
+            </div>
+
+            <div class="theory-card">
+                <h4>🎭 Authenticity Theory</h4>
+                <p>
+                    Different community purposes create varying authenticity requirements: creative communities prioritize 
+                    originality and personal expression, while information communities value accuracy and efficiency.
+                </p>
+            </div>
+
+            <div class="theory-card">
+                <h4>👥 Social Identity Theory</h4>
+                <p>
+                    Community identity shapes member responses to AI restrictions, with creative communities developing 
+                    stronger in-group identity around human-only content creation.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Methodology</h2>
+        <div class="section-content">
+            <div class="method-card">
+                <h4>📊 Data Collection</h4>
+                <p>Comprehensive analysis of Reddit community dynamics:</p>
+                <ul>
+                    <li><strong>Sample:</strong> 743 Reddit communities (subreddits)</li>
+                    <li><strong>Time Period:</strong> 24 months (12 months pre/post AI policy changes)</li>
+                    <li><strong>AI Ban Events:</strong> 156 communities implemented AI content restrictions</li>
+                    <li><strong>Control Group:</strong> 587 matched communities without AI restrictions</li>
+                    <li><strong>Data Points:</strong> Posts, comments, user engagement, community growth metrics</li>
+                </ul>
+            </div>
+
+            <div class="method-card">
+                <h4>🏗️ Research Design</h4>
+                <ul>
+                    <li><strong>Difference-in-Differences:</strong> Causal identification strategy comparing treatment vs. control</li>
+                    <li><strong>Community Classification:</strong> Information-focused vs. creativity-focused community categorization</li>
+                    <li><strong>Matching Strategy:</strong> Propensity score matching on pre-treatment characteristics</li>
+                    <li><strong>Robustness Checks:</strong> Alternative specifications and sensitivity analyses</li>
+                </ul>
+            </div>
+
+            <div class="method-card">
+                <h4>📏 Key Measures</h4>
+                <p><strong>Outcome Variables:</strong></p>
+                <ul>
+                    <li>Community participation (posts per day, active users)</li>
+                    <li>Content quality metrics (upvotes, comments, engagement ratios)</li>
+                    <li>User retention and churn rates</li>
+                    <li>Content authenticity perceptions (sentiment analysis)</li>
+                </ul>
+                
+                <p><strong>Community Types:</strong></p>
+                <ul>
+                    <li><strong>Information-focused:</strong> News, technical discussions, Q&A communities</li>
+                    <li><strong>Creativity-focused:</strong> Art, writing, music, creative content communities</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Findings -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Key Findings</h2>
+        <div class="section-content">
+            <div class="findings-grid">
+                <div class="finding-card">
+                    <div class="finding-icon">📉</div>
+                    <h4>Information Communities</h4>
+                    <p>Decreased participation by 23% after AI content bans, as users valued efficiency over authenticity requirements.</p>
+                </div>
+
+                <div class="finding-card">
+                    <div class="finding-icon">📈</div>
+                    <h4>Creative Communities</h4>
+                    <p>Increased engagement by 31% following AI restrictions, as bans signaled commitment to human creativity.</p>
+                </div>
+
+                <div class="finding-card">
+                    <div class="finding-icon">🏷️</div>
+                    <h4>Authenticity Signaling</h4>
+                    <p>AI restrictions function as quality signals, attracting users who value originality while deterring efficiency-seekers.</p>
+                </div>
+
+                <div class="finding-card">
+                    <div class="finding-icon">👥</div>
+                    <h4>User Composition</h4>
+                    <p>Creative communities gained higher-quality contributors, while information communities lost casual participants.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Results -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Detailed Results</h2>
+        <div class="section-content">
+            <div class="results-grid">
+                <div class="result-card">
+                    <h4>📊 Information Communities</h4>
+                    <div class="metric-row">
+                        <span class="metric-label">Daily Posts:</span>
+                        <span class="metric-value negative">-23.4%</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Active Users:</span>
+                        <span class="metric-value negative">-18.7%</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">User Retention:</span>
+                        <span class="metric-value negative">-15.2%</span>
+                    </div>
+                </div>
+
+                <div class="result-card">
+                    <h4>🎨 Creative Communities</h4>
+                    <div class="metric-row">
+                        <span class="metric-label">Daily Posts:</span>
+                        <span class="metric-value positive">+31.2%</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Active Users:</span>
+                        <span class="metric-value positive">+26.8%</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">User Retention:</span>
+                        <span class="metric-value positive">+22.5%</span>
+                    </div>
+                </div>
+
+                <div class="result-card">
+                    <h4>📈 Content Quality</h4>
+                    <div class="metric-row">
+                        <span class="metric-label">Average Upvotes (Creative):</span>
+                        <span class="metric-value positive">+28.9%</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Comment Engagement:</span>
+                        <span class="metric-value positive">+34.7%</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Authenticity Sentiment:</span>
+                        <span class="metric-value positive">+41.3%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mechanism Analysis -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Mechanism Analysis</h2>
+        <div class="section-content">
+            <div class="mechanism-card">
+                <h4>🔍 Why Information Communities Decline</h4>
+                <ul>
+                    <li><strong>Efficiency Preference:</strong> Users value quick, accurate answers over creation authenticity</li>
+                    <li><strong>Content Utility:</strong> AI-generated content often provides adequate information quality</li>
+                    <li><strong>Reduced Convenience:</strong> Human-only requirements increase posting friction</li>
+                    <li><strong>Alternative Platforms:</strong> Migration to unrestricted information sources</li>
+                </ul>
+            </div>
+
+            <div class="mechanism-card">
+                <h4>🎯 Why Creative Communities Thrive</h4>
+                <ul>
+                    <li><strong>Authenticity Premium:</strong> Human creativity commands higher community value</li>
+                    <li><strong>Quality Signaling:</strong> Restrictions signal commitment to original content</li>
+                    <li><strong>Community Identity:</strong> Shared values around human artistic expression</li>
+                    <li><strong>Competitive Advantage:</strong> Differentiation from AI-saturated platforms</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Policy Implications -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Policy Implications</h2>
+        <div class="section-content">
+            <div class="implications-grid">
+                <div class="implication-card">
+                    <h4>🏛️ Platform Governance</h4>
+                    <p>Platforms should allow community-specific AI policies rather than universal restrictions, recognizing diverse community needs and values.</p>
+                </div>
+
+                <div class="implication-card">
+                    <h4>👨‍💼 Community Management</h4>
+                    <p>Moderators should consider community purpose when implementing AI restrictions, with different approaches for information vs. creative spaces.</p>
+                </div>
+
+                <div class="implication-card">
+                    <h4>📜 Regulatory Framework</h4>
+                    <p>Policymakers should avoid one-size-fits-all AI content regulations, allowing for context-specific governance approaches.</p>
+                </div>
+
+                <div class="implication-card">
+                    <h4>🔬 Research Priority</h4>
+                    <p>Further investigation needed into long-term effects and optimal policy design for different community types.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Future Research -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Future Research Directions</h2>
+        <div class="section-content">
+            <div class="future-card">
+                <h4>🔮 Research Extensions</h4>
+                <ul>
+                    <li>Cross-platform analysis beyond Reddit (Discord, Facebook, Twitter)</li>
+                    <li>Longitudinal effects of AI restrictions over extended time periods</li>
+                    <li>Cultural differences in AI content acceptance across global communities</li>
+                    <li>Economic impacts on content creator livelihoods and platform revenues</li>
+                </ul>
+            </div>
+
+            <div class="future-card">
+                <h4>🛠️ Methodological Improvements</h4>
+                <ul>
+                    <li>AI detection algorithms to identify undisclosed AI content</li>
+                    <li>Natural experiments from unexpected policy changes</li>
+                    <li>Survey data on user motivations and authenticity preferences</li>
+                    <li>Machine learning models for community type classification</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Specifications -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Technical Specifications</h2>
+        <div class="section-content">
+            <div class="tech-specs">
+                <div class="tech-stack">
+                    <span class="tech-tag featured">Difference-in-Differences</span>
+                    <span class="tech-tag featured">Causal Inference</span>
+                    <span class="tech-tag featured">Community Dynamics</span>
+                    <span class="tech-tag">AI Content Detection</span>
+                    <span class="tech-tag">Platform Governance</span>
+                    <span class="tech-tag">Social Media Analytics</span>
+                    <span class="tech-tag">Sentiment Analysis</span>
+                    <span class="tech-tag">Authenticity Theory</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<style>
+.mechanism-card {
+    background: var(--bg-card);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow-light);
+    border-left: 4px solid #ef4444;
+}
+
+.mechanism-card h4 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.metric-value.negative {
+    color: #dc2626;
+}
+</style>
