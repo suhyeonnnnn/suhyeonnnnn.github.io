@@ -32,7 +32,7 @@ title: "Fun"
                         <div class="photo-story">
                             <h4>CMU visiting 🇺🇸</h4>
                             <p>
-                                어쩌고 저쩌고 
+                                An incredible experience visiting Carnegie Mellon University and exploring the beautiful campus in Pittsburgh.
                             </p>
                         </div>
                     </div>
@@ -80,7 +80,7 @@ title: "Fun"
                         <div class="photo-story">
                             <h4>Korea Mountain Hiking</h4>
                             <p>
-                                어쩌고 저쩌고 
+                                Exploring Korea's stunning mountain trails with international friends and enjoying breathtaking views together.
                             </p>
                         </div>
                     </div>
@@ -96,7 +96,7 @@ title: "Fun"
                         <div class="photo-story">
                             <h4>3rd Prize KMAC Thesis competition</h4>
                             <p>
-                                어쩌고 저쩌고 
+                                Proud to receive recognition for my research work at the KMAC thesis competition.
                             </p>
                         </div>
                     </div>
@@ -111,7 +111,7 @@ title: "Fun"
                         <div class="photo-story">
                             <h4>2nd Prize Nexon Thesis competition</h4>
                             <p>
-                                어쩌고 저쩌고 
+                                An exciting achievement winning second place in the Nexon thesis competition.
                             </p>
                         </div>
                     </div>
@@ -125,7 +125,7 @@ title: "Fun"
                         <div class="photo-story">
                             <h4>Life at Pittsburgh!</h4>
                             <p>
-                                어쩌고 저쩌고 
+                                Enjoying the vibrant city life and making unforgettable memories during my time in Pittsburgh.
                             </p>
                         </div>
                     </div>
@@ -140,7 +140,7 @@ title: "Fun"
                         <div class="photo-story">
                             <h4>Ballyball Practice</h4>
                             <p>
-                                어쩌고 저쩌고 
+                                Training hard and having fun with the volleyball team!
                             </p>
                         </div>
                     </div>
@@ -156,7 +156,7 @@ title: "Fun"
                         <div class="photo-story">
                             <h4>1st Prize Asan Business case competition</h4>
                             <p>
-                                어쩌고 저쩌고 
+                                Thrilled to win first place in the Asan business case competition with my amazing team.
                             </p>
                         </div>
                     </div>
@@ -171,7 +171,7 @@ title: "Fun"
                         <div class="photo-story">
                             <h4>1st Prize Bigdata competition</h4>
                             <p>
-                                어쩌고 저쩌고 
+                                Celebrating our victory in the national big data competition!
                             </p>
                         </div>
                     </div>
@@ -186,7 +186,7 @@ title: "Fun"
                         <div class="photo-story">
                             <h4>3rd Prize Changwon Bigdata competition🏆</h4>
                             <p>
-                                어쩌고 저쩌고 
+                                Another successful competition experience in Changwon, proving our data analysis skills.
                             </p>
                         </div>
                     </div>
@@ -201,7 +201,7 @@ title: "Fun"
                         <div class="photo-story">
                             <h4>3rd Prize Changwon Bigdata competition🏆</h4>
                             <p>
-                                어쩌고 저쩌고 
+                                
                             </p>
                         </div>
                     </div>
