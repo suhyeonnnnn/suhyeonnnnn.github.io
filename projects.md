@@ -13,15 +13,9 @@ title: "Project"
                 <div class="project-gif-card small">
                     <div class="project-gif-container">
                         <div class="project-gif-placeholder small">
-                            <!-- GIF will go here -->
-                            <div class="gif-placeholder-content">
-                                <div class="placeholder-icon">🤖</div>
-                                <div class="placeholder-text">PlaceSim Demo GIF</div>
-                            </div>
+                            <img src="/assets/images/projects/placesim3.png" alt="PlaceSim Demo" class="project-gif-image" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
                         <div class="project-gif-overlay">
-                            <div class="project-status published">Published</div>
-                            <div class="project-category">Research Project</div>
                         </div>
                     </div>
                     <div class="project-gif-info">
@@ -47,10 +41,9 @@ title: "Project"
                 <div class="project-gif-card small">
                     <div class="project-gif-container">
                         <div class="project-gif-placeholder small">
-                            <div class="gif-placeholder-content">
-                                <div class="placeholder-icon">👶</div>
-                                <div class="placeholder-text">Safety AI Demo</div>
-                            </div>
+                            <div class="project-gif-placeholder small">
+                            <img src="/assets/images/projects/safe.png" alt="PlaceSim Demo" class="project-gif-image" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
                         </div>
                         <div class="project-gif-overlay">
                             <div class="project-category ai">AI Project</div>
@@ -71,15 +64,11 @@ title: "Project"
                         </div>
                     </div>
                 </div>
-
-                <!-- Anomaly Detection Project -->
+<!-- Anomaly Detection Project -->
                 <div class="project-gif-card small">
                     <div class="project-gif-container">
                         <div class="project-gif-placeholder small">
-                            <div class="gif-placeholder-content">
-                                <div class="placeholder-icon">🔍</div>
-                                <div class="placeholder-text">Anomaly Detection</div>
-                            </div>
+                            <img src="/assets/images/projects/abnormal.png" alt="PlaceSim Demo" class="project-gif-image" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
                         <div class="project-gif-overlay">
                             <div class="project-category ai">AI Project</div>
@@ -100,15 +89,11 @@ title: "Project"
                         </div>
                     </div>
                 </div>
-
-                <!-- PaperFlow Project -->
+<!-- PaperFlow Project -->
                 <div class="project-gif-card small">
                     <div class="project-gif-container">
                         <div class="project-gif-placeholder small">
-                            <div class="gif-placeholder-content">
-                                <div class="placeholder-icon">📄</div>
-                                <div class="placeholder-text">PaperFlow Demo</div>
-                            </div>
+                            <img src="/assets/images/projects/paperflow.png" alt="PaperFlow Demo" class="project-gif-image" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
                         <div class="project-gif-overlay">
                             <div class="project-category funded">$15K Funded</div>
@@ -132,8 +117,7 @@ title: "Project"
             </div>
         </div>
     </section>
-
-    <!-- Web Development Projects -->
+<!-- Web Development Projects -->
     <section class="section fade-in-delay">
         <h2 class="section-title">💻 Web Development Projects</h2>
         <div class="section-content">
@@ -142,10 +126,9 @@ title: "Project"
                 <div class="project-gif-card small">
                     <div class="project-gif-container">
                         <div class="project-gif-placeholder small">
-                            <div class="gif-placeholder-content">
-                                <div class="placeholder-icon">🌐</div>
-                                <div class="placeholder-text">Web Platform Demo</div>
-                            </div>
+                            <div class="project-gif-placeholder small">
+                            <img src="/assets/images/projects/web.png" alt="PlaceSim Demo" class="project-gif-image" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
                         </div>
                         <div class="project-gif-overlay">
                             <div class="project-category web">Web Project</div>
@@ -166,16 +149,10 @@ title: "Project"
                         </div>
                     </div>
                 </div>
-
-                <!-- Digital Twin WMS -->
+<!-- Digital Twin WMS -->
                 <div class="project-gif-card small">
                     <div class="project-gif-container">
-                        <div class="project-gif-placeholder small">
-                            <div class="gif-placeholder-content">
-                                <div class="placeholder-icon">📦</div>
-                                <div class="placeholder-text">Digital Twin Demo</div>
-                            </div>
-                        </div>
+                        <img src="/assets/images/projects/brat2.png" alt="Digital Twin Demo" class="project-gif-image" style="width: 100%; height: 100%; object-fit: cover;">>
                         <div class="project-gif-overlay">
                             <div class="project-category web">Backend Project</div>
                         </div>
@@ -198,8 +175,7 @@ title: "Project"
             </div>
         </div>
     </section>
-
-    <!-- Awards & Recognition -->
+<!-- Awards & Recognition -->
     <section class="section fade-in-delay">
         <h2 class="section-title">🏆 Project Awards & Recognition</h2>
         <div class="section-content">

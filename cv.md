@@ -9,7 +9,7 @@ title: "CV"
 
     <!-- PDF 뷰어 -->
     <div style="height: calc(100vh - 200px); min-height: 800px; background: #f5f5f5;">
-        <iframe src="/assets/files/SuhyeonLee_CV_250912.pdf" 
+        <iframe src="/assets/files/SuhyeonLee_CV.pdf" 
                 width="100%" 
                 height="100%" 
                 style="border: none; background: white;"
@@ -18,7 +18,7 @@ title: "CV"
                 <p style="margin-bottom: 1rem; color: var(--text-secondary);">
                     Your browser doesn't support PDF viewing. 
                 </p>
-                <a href="/assets/files/SuhyeonLee_CV_250912.pdf" 
+                <a href="/assets/files/SuhyeonLee_CV.pdf" 
                    download="SuhyeonLee_CV.pdf"
                    style="background: var(--accent-color); color: white; padding: 1rem 2rem; border-radius: 10px; text-decoration: none; font-weight: 500;">
                     📄 Download PDF instead
@@ -35,7 +35,7 @@ title: "CV"
             <p style="margin-bottom: 2rem; color: var(--text-secondary);">
                 View my complete curriculum vitae by downloading the PDF file below.
             </p>
-            <a href="/assets/files/SuhyeonLee_CV_250912.pdf" 
+            <a href="/assets/files/SuhyeonLee_CV.pdf" 
                download="SuhyeonLee_CV.pdf"
                style="background: var(--accent-color); color: white; padding: 1rem 2rem; border-radius: 10px; text-decoration: none; font-weight: 500; display: inline-block;">
                 📄 Download CV (PDF)

@@ -150,26 +150,5 @@ title: "Research"
         </div>
     </section>
 
-    <!-- Research Interests Section -->
-    <section class="section fade-in-delay">
-        <h2 class="section-title">Research Interests</h2>
-        <div class="section-content">
-            <div class="profile-description">
-                <p><strong>Substantive Areas:</strong> 
-                    {% if site.research.substantive %}
-                        {{ site.research.substantive | join: ', ' }}
-                    {% else %}
-                        Digital Marketing, Social Media, User Behavior, AI Applications
-                    {% endif %}
-                </p>
-                <p><strong>Methodological Areas:</strong> 
-                    {% if site.research.methodological %}
-                        {{ site.research.methodological | join: ', ' }}
-                    {% else %}
-                        Generative AI, LLM, Computer Vision, Machine Learning
-                    {% endif %}
-                </p>
-            </div>
-        </div>
-    </section>
+
 </div>
