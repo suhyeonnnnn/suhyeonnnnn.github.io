@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en_US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angrist Ch.2 - The Experimental Ideal | Suhyeon Lee</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/logo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/logo.png">
+    <link rel="shortcut icon" href="/assets/images/logo.png">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    <div class="main-container">
+        <!-- 헤더 네비게이션 -->
+        <header class="header">
+            <a href="/" class="logo">
+                <img src="/assets/images/logo.png" alt="Logo" class="logo-image">
+                Suhyeon Lee
+            </a>
+            
+            <nav class="nav">
+                <a href="/" >Home</a>
+                <a href="/cv" >CV</a>
+                <a href="/research" >Research</a>
+                <a href="/projects" >Project</a>
+                <a href="/study" class="active">Study</a>
+                <a href="/fun" >Fun</a>
+            </nav>
+        </header>
+        
+        <!-- 메인 콘텐츠 -->
+        <main>
+            <div class="content">
+    <section class="section fade-in">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h2 class="section-title">Chapter 2: The Experimental Ideal</h2>
+            <a href="/study/angrist-ch2-ko" style="background: #e5e7eb; color: #374151; padding: 0.4rem 0.8rem; border-radius: 4px; font-size: 0.85rem; text-decoration: none;">한국어</a>
+        </div>
+        <div class="section-content">
+            <p><em>Angrist &amp; Pischke, Mostly Harmless Econometrics</em></p>
+        </div>
+    </section>
+
+    <!-- Core Message -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Core Message</h2>
+        <div class="section-content">
+            <blockquote style="border-left: 4px solid #2563eb; padding-left: 1rem; margin: 1rem 0; color: #374151;">
+                The most credible and influential research designs use <strong>random assignment</strong>.
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- 2.1 Selection Problem -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">2.1 The Selection Problem</h2>
+        <div class="section-content">
+            
+            <h4>Motivating Example: Do hospitals make people healthier?</h4>
+            <p>Comparing health status by hospitalization using NHIS data:</p>
+            
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #f5f5f5;">
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Group</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Sample Size</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Mean Health Status</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Std. Error</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Hospitalized</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">7,774</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">2.79</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">0.014</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Not Hospitalized</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">90,049</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">2.07</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">0.003</td>
+                </tr>
+            </table>
+            <p><strong>Difference:</strong> 0.71 (t-stat = 58.9) → Hospitals appear to make people sicker!</p>
+            
+            <div style="background: #fee2e2; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <p><strong>Why this result?</strong> People who go to hospitals are sicker to begin with.</p>
+            </div>
+
+            <h4>The Potential Outcomes Framework</h4>
+            <p>Core concept of the <strong>Rubin Causal Model</strong> (Rubin, 1974, 1977; Holland, 1986)</p>
+            
+            <div style="background: #f0f9ff; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <p><strong>Notation:</strong></p>
+                <ul>
+                    <li>D<sub>i</sub> ∈ {0, 1}: Treatment status (e.g., hospitalization)</li>
+                    <li>Y<sub>i</sub>: Observed outcome</li>
+                    <li>Y<sub>1i</sub>: Potential outcome if treated</li>
+                    <li>Y<sub>0i</sub>: Potential outcome if not treated</li>
+                </ul>
+                <p><strong>Causal effect for individual i:</strong> Y<sub>1i</sub> − Y<sub>0i</sub></p>
+            </div>
+
+            <p><strong>Observed outcome:</strong></p>
+            <div style="background: #f9f9f9; padding: 1rem; border-radius: 8px; margin: 1rem 0; text-align: center; font-family: 'Times New Roman', serif; font-size: 1.1rem;">
+                Y<sub>i</sub> = Y<sub>0i</sub> + (Y<sub>1i</sub> − Y<sub>0i</sub>) · D<sub>i</sub>
+            </div>
+
+            <h4>Formal Decomposition of Selection Bias</h4>
+            <div style="background: #fef3c7; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <p style="text-align: center; font-family: 'Times New Roman', serif;">
+                    <span style="border-bottom: 2px solid #000;">E[Y<sub>i</sub>|D<sub>i</sub>=1] − E[Y<sub>i</sub>|D<sub>i</sub>=0]</span><br />
+                    <small>Observed difference in means</small>
+                </p>
+                <p style="text-align: center; font-size: 1.5rem;">=</p>
+                <p style="text-align: center; font-family: 'Times New Roman', serif;">
+                    <span style="color: #2563eb; border-bottom: 2px solid #2563eb;">E[Y<sub>1i</sub> − Y<sub>0i</sub> | D<sub>i</sub>=1]</span> + 
+                    <span style="color: #dc2626; border-bottom: 2px solid #dc2626;">E[Y<sub>0i</sub>|D<sub>i</sub>=1] − E[Y<sub>0i</sub>|D<sub>i</sub>=0]</span>
+                </p>
+                <p style="text-align: center;">
+                    <span style="color: #2563eb;">■ ATT (Average Treatment Effect on the Treated)</span><br />
+                    <span style="color: #dc2626;">■ Selection Bias</span>
+                </p>
+            </div>
+
+            <h4>What is Selection Bias?</h4>
+            <ul>
+                <li>Difference in <strong>Y<sub>0i</sub></strong> between treated and untreated groups</li>
+                <li>Hospital example: Sick people seek treatment → Selection bias is <strong>negative</strong></li>
+                <li>Can completely mask a positive treatment effect</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 2.2 Random Assignment -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">2.2 Random Assignment Solves the Selection Problem</h2>
+        <div class="section-content">
+            
+            <div style="background: #ecfdf5; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <p><strong>Key Principle:</strong> Random assignment makes D<sub>i</sub> <strong>independent</strong> of potential outcomes.</p>
+            </div>
+
+            <h4>Mathematical Derivation</h4>
+            <p>Under random assignment:</p>
+            <div style="background: #f9f9f9; padding: 1rem; border-radius: 8px; margin: 1rem 0; font-family: 'Times New Roman', serif;">
+                <p>E[Y<sub>i</sub>|D<sub>i</sub>=1] − E[Y<sub>i</sub>|D<sub>i</sub>=0]</p>
+                <p>= E[Y<sub>1i</sub>|D<sub>i</sub>=1] − E[Y<sub>0i</sub>|D<sub>i</sub>=0]</p>
+                <p>= E[Y<sub>1i</sub>|D<sub>i</sub>=1] − E[Y<sub>0i</sub>|D<sub>i</sub>=1] <span style="color: #666;">(by independence)</span></p>
+                <p>= E[Y<sub>1i</sub> − Y<sub>0i</sub>|D<sub>i</sub>=1]</p>
+                <p>= <strong>E[Y<sub>1i</sub> − Y<sub>0i</sub>]</strong> <span style="color: #2563eb;">(= ATE, Average Treatment Effect)</span></p>
+            </div>
+            <p>→ <strong>Selection bias disappears, and we can directly estimate the ATE!</strong></p>
+
+            <h4>Empirical Examples: Non-experimental vs. Randomized Studies</h4>
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #f5f5f5;">
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Research Area</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Non-experimental Finding</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Randomized Trial Result</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Hormone Replacement Therapy</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Nurses Health Study: HRT users healthier</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">WHI: Few benefits, serious side effects</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Job Training Programs</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Trainees earn less than non-trainees</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Mostly positive effects (Lalonde, 1986)</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <!-- 2.3 Tennessee STAR -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">2.3 The Tennessee STAR Experiment</h2>
+        <div class="section-content">
+            
+            <h4>Experiment Overview</h4>
+            <div style="background: #f0f9ff; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <ul>
+                    <li><strong>Purpose:</strong> Estimate effects of class size on student achievement</li>
+                    <li><strong>Duration:</strong> Started 1985/86, ran for 4 years (K through 3rd grade)</li>
+                    <li><strong>Scale:</strong> ~11,600 students, cost ~$12 million</li>
+                    <li><strong>Treatment Arms:</strong>
+                        <ol>
+                            <li>Small classes (13-17 students)</li>
+                            <li>Regular classes (22-25) with part-time aide</li>
+                            <li>Regular classes with full-time aide</li>
+                        </ol>
+                    </li>
+                </ul>
+            </div>
+
+            <h4>Balance Check: Verifying Random Assignment</h4>
+            <p>Compare pre-treatment characteristics across groups:</p>
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem;">
+                <tr style="background: #f5f5f5;">
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Variable</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Small</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Regular</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Reg/Aide</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">P-value</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Free lunch</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">.47</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">.48</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">.50</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">.09</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">White/Asian</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">.68</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">.67</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">.66</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">.26</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Age in 1985</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">5.44</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">5.43</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">5.42</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">.32</td>
+                </tr>
+                <tr style="background: #ecfdf5;">
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">K class size</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">15.10</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">22.40</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">22.80</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">.00</td>
+                </tr>
+                <tr style="background: #ecfdf5;">
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">K percentile score</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">54.70</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">48.90</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">50.00</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">.00</td>
+                </tr>
+            </table>
+            <p>✅ Student characteristics (free lunch, race, age) are balanced → <strong>Random assignment worked</strong></p>
+
+            <h4>Main Results</h4>
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #2563eb; color: white;">
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Variable</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">(1)</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">(2)</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">(3)</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">(4)</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong>Small class</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">4.82 (2.19)</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">5.37 (1.26)</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">5.36 (1.21)</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">5.37 (1.19)</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Regular/aide</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">.12 (2.23)</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">.29 (1.13)</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">.53 (1.09)</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">.31 (1.07)</td>
+                </tr>
+                <tr style="background: #f5f5f5;">
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">School FE</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">No</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Yes</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Yes</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Yes</td>
+                </tr>
+                <tr style="background: #f5f5f5;">
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Student controls</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">No</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">No</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Yes</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Yes</td>
+                </tr>
+            </table>
+            
+            <div style="background: #ecfdf5; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <p><strong>Key Findings:</strong></p>
+                <ul>
+                    <li><strong>Small class effect:</strong> ~5-6 percentile points improvement</li>
+                    <li><strong>Effect size:</strong> ~0.2 standard deviations (σ)</li>
+                    <li>Regular/aide effect: Small and statistically insignificant</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2.4 Regression Analysis -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">2.4 Regression Analysis of Experiments</h2>
+        <div class="section-content">
+            
+            <h4>Constant Treatment Effect Model</h4>
+            <p>Assume treatment effect is the same for everyone (Y<sub>1i</sub> − Y<sub>0i</sub> = ρ):</p>
+            
+            <div style="background: #f9f9f9; padding: 1rem; border-radius: 8px; margin: 1rem 0; text-align: center; font-family: 'Times New Roman', serif; font-size: 1.1rem;">
+                Y<sub>i</sub> = <span style="color: #2563eb;">α</span> + <span style="color: #dc2626;">ρ</span> D<sub>i</sub> + <span style="color: #059669;">η<sub>i</sub></span>
+            </div>
+            <p style="text-align: center;">
+                <span style="color: #2563eb;">α = E(Y<sub>0i</sub>)</span> &nbsp;&nbsp;
+                <span style="color: #dc2626;">ρ = treatment effect</span> &nbsp;&nbsp;
+                <span style="color: #059669;">η<sub>i</sub> = Y<sub>0i</sub> − E(Y<sub>0i</sub>)</span>
+            </p>
+
+            <h4>Selection Bias as Regression</h4>
+            <div style="background: #fef3c7; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <p style="font-family: 'Times New Roman', serif;">
+                    E[Y<sub>i</sub>|D<sub>i</sub>=1] − E[Y<sub>i</sub>|D<sub>i</sub>=0] = <span style="color: #dc2626;">ρ</span> + <span style="color: #7c3aed;">[E[η<sub>i</sub>|D<sub>i</sub>=1] − E[η<sub>i</sub>|D<sub>i</sub>=0]]</span>
+                </p>
+                <p>
+                    <span style="color: #dc2626;">■ ρ: Treatment effect</span><br />
+                    <span style="color: #7c3aed;">■ Selection bias: Correlation between error η<sub>i</sub> and regressor D<sub>i</sub></span>
+                </p>
+            </div>
+            <p><strong>With random assignment:</strong> Selection bias = 0 → Regression coefficient estimates causal effect</p>
+
+            <h4>Role of Covariates</h4>
+            <p><strong>Long regression:</strong></p>
+            <div style="background: #f9f9f9; padding: 1rem; border-radius: 8px; margin: 1rem 0; text-align: center; font-family: 'Times New Roman', serif;">
+                Y<sub>i</sub> = α + ρD<sub>i</sub> + X<sub>i</sub>'γ + η<sub>i</sub>
+            </div>
+
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #f5f5f5;">
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Role</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Explanation</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">STAR Example</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong>1. Control for conditional randomization</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">When randomization is within strata, control for stratification variable</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Randomized within schools → Include school fixed effects</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong>2. Improve precision</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Even if X<sub>i</sub> is uncorrelated with D<sub>i</sub>, explaining Y<sub>i</sub> variance reduces SE</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Race, age, free lunch → SE drops (1.26 → 1.21)</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <!-- Quasi-Experiment -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Quasi-Experimental Approach: Angrist &amp; Lavy (1999)</h2>
+        <div class="section-content">
+            <p>When randomized trials are impractical, use <strong>natural experiments</strong></p>
+            
+            <div style="background: #f0f9ff; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <p><strong>Setting:</strong> Israeli class size cap = 40 students (Maimonides' Rule)</p>
+                <ul>
+                    <li>5th grade cohort of 40 → class size = 40</li>
+                    <li>5th grade cohort of 41 → class splits → class size ≈ 20</li>
+                </ul>
+            </div>
+
+            <h4>Key Assumption</h4>
+            <p>Students in cohorts of 40 vs 41 are similar on other dimensions → <strong>"as good as randomly assigned"</strong></p>
+
+            <h4>Results Comparison</h4>
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #f5f5f5;">
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Analysis Method</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Result</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Naive comparison</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Small class students score <strong style="color: #dc2626;">lower</strong> (selection bias)</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Quasi-experimental (RDD)</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong style="color: #2563eb;">Strong positive</strong> relationship between class size and achievement</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <!-- Summary -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Chapter 2 Summary</h2>
+        <div class="section-content">
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #2563eb; color: white;">
+                    <th style="padding: 0.75rem; border: 1px solid #ddd;">Concept</th>
+                    <th style="padding: 0.75rem; border: 1px solid #ddd;">Description</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong>Potential Outcomes</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Y<sub>1i</sub>, Y<sub>0i</sub>: Hypothetical outcomes under each treatment state</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong>Causal Effect</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Y<sub>1i</sub> − Y<sub>0i</sub>: Individual treatment effect</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong>Selection Bias</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Difference in baseline characteristics between treated/untreated</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong>Random Assignment</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Makes D<sub>i</sub> independent of potential outcomes, eliminating selection bias</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong>Natural Experiment</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Uses exogenous variation to approximate random assignment</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <!-- References -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">References</h2>
+        <div class="section-content">
+            <ul style="font-size: 0.9rem;">
+                <li>Krueger, A. B. (1999). Experimental estimates of education production functions. <em>QJE</em>.</li>
+                <li>Angrist, J. D., &amp; Lavy, V. (1999). Using Maimonides' rule to estimate the effect of class size. <em>QJE</em>.</li>
+                <li>Rubin, D. B. (1974). Estimating causal effects of treatments. <em>Journal of Educational Psychology</em>.</li>
+                <li>Holland, P. W. (1986). Statistics and causal inference. <em>JASA</em>.</li>
+                <li>Lalonde, R. J. (1986). Evaluating the econometric evaluations of training programs. <em>AER</em>.</li>
+            </ul>
+        </div>
+    </section>
+
+    <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #eee; display: flex; justify-content: space-between;">
+        <a href="/study/angrist-ch1" style="color: #666;">← Chapter 1: Questions about Questions</a>
+        <a href="/study" style="color: #2563eb;">Back to Study Notes →</a>
+    </div>
+
+    <div style="margin-top: 2rem; padding: 1rem; background: #f9fafb; border-radius: 8px; font-size: 0.8rem; color: #6b7280;">
+        <em>This note was written with the assistance of LLM (Claude).</em>
+    </div>
+</div>
+
+        </main>
+        
+        <!-- 푸터 -->
+        <footer class="footer">
+            © Copyright 2025 Suhyeon Lee.
+        </footer>
+    </div>
+    
+    <script>
+        // 페이지 로드 애니메이션
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.fade-in, .fade-in-delay');
+            elements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    el.style.transition = 'all 0.6s ease-out';
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>

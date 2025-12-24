@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en_US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study | Suhyeon Lee</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/logo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/logo.png">
+    <link rel="shortcut icon" href="/assets/images/logo.png">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    <div class="main-container">
+        <!-- 헤더 네비게이션 -->
+        <header class="header">
+            <a href="/" class="logo">
+                <img src="/assets/images/logo.png" alt="Logo" class="logo-image">
+                Suhyeon Lee
+            </a>
+            
+            <nav class="nav">
+                <a href="/" >Home</a>
+                <a href="/cv" >CV</a>
+                <a href="/research" >Research</a>
+                <a href="/projects" >Project</a>
+                <a href="/study" class="active">Study</a>
+                <a href="/fun" >Fun</a>
+            </nav>
+        </header>
+        
+        <!-- 메인 콘텐츠 -->
+        <main>
+            <div class="content">
+    <!-- Study Notes Header -->
+    <section class="section fade-in">
+        <h2 class="section-title">📚 Study Notes</h2>
+    </section>
+
+    <!-- Causal Inference / Econometrics Section -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Causal Inference &amp; Econometrics</h2>
+        <div class="section-content">
+            
+            <!-- Angrist - Mostly Harmless Econometrics -->
+            <div style="background: #f8fafc; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                <h4 style="margin-top: 0; color: #1e40af;">📖 Mostly Harmless Econometrics</h4>
+                <p style="color: #64748b; font-size: 0.9rem; margin-bottom: 0.5rem;">Angrist &amp; Pischke</p>
+                
+                <div class="news-item" style="border-left: 3px solid #2563eb; padding-left: 1rem; margin: 0.75rem 0;">
+                    <div class="news-title" style="font-weight: 600;">
+                        Chapter 1: Questions about Questions
+                        <span style="color: #999; font-size: 0.8rem; font-weight: 400; margin-left: 0.5rem;">(Dec 24, 2025)</span>
+                        <a href="/study/angrist-ch1" class="read-more">Read more</a>
+                    </div>
+                </div>
+                
+                <div class="news-item" style="border-left: 3px solid #2563eb; padding-left: 1rem; margin: 0.75rem 0;">
+                    <div class="news-title" style="font-weight: 600;">
+                        Chapter 2: The Experimental Ideal
+                        <span style="color: #999; font-size: 0.8rem; font-weight: 400; margin-left: 0.5rem;">(Dec 24, 2025)</span>
+                        <a href="/study/angrist-ch2" class="read-more">Read more</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Machine Learning Section (Placeholder) -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Machine Learning &amp; AI</h2>
+        <div class="section-content">
+            <p style="color: #666; font-style: italic;">Coming soon...</p>
+        </div>
+    </section>
+
+    <!-- Statistics Section (Placeholder) -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Statistics &amp; Probability</h2>
+        <div class="section-content">
+            <p style="color: #666; font-style: italic;">Coming soon...</p>
+        </div>
+    </section>
+
+</div>
+
+        </main>
+        
+        <!-- 푸터 -->
+        <footer class="footer">
+            © Copyright 2025 Suhyeon Lee.
+        </footer>
+    </div>
+    
+    <script>
+        // 페이지 로드 애니메이션
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.fade-in, .fade-in-delay');
+            elements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    el.style.transition = 'all 0.6s ease-out';
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>

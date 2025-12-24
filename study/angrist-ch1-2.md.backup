@@ -1,0 +1,232 @@
+---
+layout: minimal_base
+title: "Mostly Harmless Econometrics Ch.1-2"
+---
+
+<div class="content">
+    <section class="section fade-in">
+        <h2 class="section-title">Mostly Harmless Econometrics - Chapter 1 & 2 요약</h2>
+        <div class="section-content">
+            <p><em>Angrist & Pischke의 Mostly Harmless Econometrics 1-2장 핵심 내용 정리</em></p>
+        </div>
+    </section>
+
+    <!-- Chapter 1 -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Chapter 1: Questions about Questions</h2>
+        <div class="section-content">
+            <h3>연구 아젠다의 4가지 핵심 질문 (FAQs)</h3>
+            <p>좋은 계량경제학 연구는 탄탄한 연구 아젠다 위에 구축된다. 모든 연구 프로젝트는 다음 네 가지 질문에 답해야 한다.</p>
+            
+            <h4>1️⃣ 관심 있는 인과관계는 무엇인가?</h4>
+            <ul>
+                <li>사회과학에서 가장 흥미로운 연구는 <strong>인과관계(cause and effect)</strong>에 관한 것</li>
+                <li>인과관계는 <strong>반사실적(counterfactual)</strong> 세계에서 무슨 일이 일어날지 예측하는 데 유용</li>
+                <li>예시: 교육이 임금에 미치는 인과효과 → 대학 학위의 인과효과 ≈ 평균 40% 더 높은 임금</li>
+            </ul>
+            <p><strong>분석 단위는 다양할 수 있다:</strong> 개인, 기업, 국가 (예: Acemoglu, Johnson, Robinson(2001)의 식민지 제도와 경제성장 연구)</p>
+
+            <h4>2️⃣ 이상적인 실험은 무엇인가?</h4>
+            <ul>
+                <li>인과효과를 포착하기 위해 <strong>가상의 이상적 실험</strong>을 구상해보라</li>
+                <li>이상적 실험은 대부분 가설적이지만, 유용한 연구 주제를 선택하는 데 도움</li>
+            </ul>
+            <blockquote>
+                "아무 제약 없는 세상에서도 실험을 설계할 수 없다면, 그 질문은 답하기 어렵다."
+            </blockquote>
+
+            <h4>🚫 FUQ'd: Fundamentally Unidentified Questions</h4>
+            <p><strong>어떤 실험으로도 답할 수 없는 질문</strong>을 FUQ'd라고 부른다.</p>
+            <p><strong>예시: 학교 입학 연령이 1학년 시험 성적에 미치는 영향</strong></p>
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #f5f5f5;">
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">비교 방식</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">문제점</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">같은 학년에서 비교</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">늦게 입학한 학생이 더 나이가 많음 → 성숙 효과</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">같은 나이에서 비교</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">일찍 입학한 학생이 학교에 더 오래 다님 → 재학 기간 효과</td>
+                </tr>
+            </table>
+            <p><strong>입학 연령 = 현재 나이 - 재학 기간</strong>이라는 결정론적 관계 때문에 분리 불가능</p>
+
+            <h4>3️⃣ 식별 전략(Identification Strategy)은 무엇인가?</h4>
+            <ul>
+                <li><strong>관측 데이터를 사용하여 실제 실험을 근사하는 방법</strong></li>
+                <li>예시: Angrist & Krueger(1991) - 의무교육법과 출생 계절의 상호작용을 자연실험으로 활용</li>
+            </ul>
+            <p><strong>Haavelmo(1944)의 통찰:</strong> 실험은 (1) 우리가 하고 싶은 실험과 (2) 자연이 수행하고 우리가 관찰하는 실험으로 구분된다.</p>
+
+            <h4>4️⃣ 통계적 추론 방식(Mode of Statistical Inference)은 무엇인가?</h4>
+            <ul>
+                <li>연구 대상 모집단, 사용할 표본, 표준오차 계산 시의 가정을 명시</li>
+                <li>군집화(clustered) 또는 그룹화된 데이터에서 특히 중요</li>
+            </ul>
+            <blockquote>
+                <strong>계량경제학 하이쿠</strong> (Keisuke Hirano):<br>
+                <em>T-stat looks too good. / Use robust standard errors— / significance gone.</em>
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- Chapter 2 -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Chapter 2: The Experimental Ideal</h2>
+        <div class="section-content">
+            
+            <h3>2.1 선택 편의 문제 (Selection Problem)</h3>
+            
+            <h4>동기 예시: 병원이 사람들을 더 건강하게 만드는가?</h4>
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #f5f5f5;">
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">그룹</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">표본 크기</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">평균 건강 상태</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">입원 경험 있음</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">7,774</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">2.79</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">입원 경험 없음</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">90,049</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">2.07</td>
+                </tr>
+            </table>
+            <p>표면적으로 병원에 가면 더 아파 보이지만, <strong>실제 이유</strong>: 병원에 가는 사람들은 애초에 더 아픈 사람들</p>
+
+            <h4>잠재적 결과 (Potential Outcomes) 프레임워크</h4>
+            <p><strong>표기법:</strong></p>
+            <ul>
+                <li>D<sub>i</sub> ∈ {0, 1}: 처치 여부</li>
+                <li>Y<sub>1i</sub>: 처치를 받았을 때의 결과</li>
+                <li>Y<sub>0i</sub>: 처치를 받지 않았을 때의 결과</li>
+                <li><strong>인과효과</strong>: Y<sub>1i</sub> - Y<sub>0i</sub></li>
+            </ul>
+
+            <h4>선택 편의의 공식적 분해</h4>
+            <p style="background: #f9f9f9; padding: 1rem; border-radius: 8px; font-family: 'Times New Roman', serif;">
+                E[Y<sub>i</sub>|D<sub>i</sub>=1] - E[Y<sub>i</sub>|D<sub>i</sub>=0] = <span style="color: #2563eb;">E[Y<sub>1i</sub> - Y<sub>0i</sub>|D<sub>i</sub>=1]</span> + <span style="color: #dc2626;">E[Y<sub>0i</sub>|D<sub>i</sub>=1] - E[Y<sub>0i</sub>|D<sub>i</sub>=0]</span>
+            </p>
+            <p>
+                <span style="color: #2563eb;">■ 파란색: 처치받은 집단의 평균 처치효과 (ATT)</span><br>
+                <span style="color: #dc2626;">■ 빨간색: 선택 편의 (Selection Bias)</span>
+            </p>
+
+            <h3>2.2 무작위 배정이 선택 편의를 해결하는 방법</h3>
+            <p><strong>핵심 원리</strong>: 무작위 배정은 D<sub>i</sub>를 잠재적 결과와 <strong>독립</strong>으로 만든다.</p>
+            <p>→ <strong>선택 편의가 사라지고, 평균 처치효과(ATE)를 직접 추정 가능</strong></p>
+
+            <h4>실증 사례</h4>
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #f5f5f5;">
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">연구 분야</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">비실험적 비교</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">무작위 실험 결과</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">호르몬 대체 요법</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">HRT 사용자가 더 건강</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">효과 거의 없음, 부작용 발견</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">직업 훈련 프로그램</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">참가자 소득 더 낮음</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">대부분 양의 효과</td>
+                </tr>
+            </table>
+
+            <h3>2.3 Tennessee STAR 실험</h3>
+            <h4>실험 개요</h4>
+            <ul>
+                <li><strong>목적</strong>: 학급 규모가 학생 성취도에 미치는 영향 추정</li>
+                <li><strong>규모</strong>: 약 11,600명, 4년간 진행, 비용 $12 million</li>
+                <li><strong>처치 집단</strong>: 소규모(13-17명), 일반(22-25명)+파트타임 보조, 일반+풀타임 보조</li>
+            </ul>
+
+            <h4>주요 결과</h4>
+            <ul>
+                <li><strong>소규모 학급 효과</strong>: 약 5-6 백분위 점수 상승</li>
+                <li><strong>효과 크기</strong>: 약 0.2 표준편차</li>
+                <li>일반/보조 학급 효과: 작고 유의하지 않음</li>
+            </ul>
+
+            <h3>2.4 실험 데이터의 회귀분석</h3>
+            <h4>상수 처치효과 모형</h4>
+            <p style="background: #f9f9f9; padding: 1rem; border-radius: 8px; font-family: 'Times New Roman', serif;">
+                Y<sub>i</sub> = α + ρD<sub>i</sub> + η<sub>i</sub>
+            </p>
+            <p>선택 편의 = 오차항 η<sub>i</sub>와 설명변수 D<sub>i</sub> 간의 상관관계</p>
+            <p><strong>무작위 배정 시 선택 편의 = 0</strong></p>
+
+            <h4>공변량의 역할</h4>
+            <ol>
+                <li><strong>조건부 무작위 배정 통제</strong>: STAR는 학교 내에서만 무작위 배정 → 학교 고정효과 포함</li>
+                <li><strong>추정 정밀도 향상</strong>: X<sub>i</sub>가 D<sub>i</sub>와 상관없더라도 Y<sub>i</sub>의 분산을 설명하면 표준오차 감소</li>
+            </ol>
+
+            <h3>준실험적 접근: Angrist & Lavy (1999)</h3>
+            <p><strong>배경</strong>: 이스라엘 학급 규모 상한 = 40명</p>
+            <ul>
+                <li>5학년 코호트 40명 → 학급 규모 40명</li>
+                <li>5학년 코호트 41명 → 학급이 둘로 분리 → 학급 규모 약 20명</li>
+            </ul>
+            <p><strong>핵심 가정</strong>: 40명 vs 41명 코호트의 학생들은 능력, 가정환경 등에서 유사 → "무작위 배정과 같은" 상황</p>
+        </div>
+    </section>
+
+    <!-- Key Concepts Summary -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">핵심 개념 요약</h2>
+        <div class="section-content">
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #f5f5f5;">
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">개념</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">설명</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong>인과효과</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Y<sub>1i</sub> - Y<sub>0i</sub>: 처치를 받았을 때와 받지 않았을 때의 결과 차이</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong>선택 편의</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">처치 집단과 비처치 집단 간 기저 특성의 차이</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong>무작위 배정</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">D<sub>i</sub>를 잠재적 결과와 독립으로 만들어 선택 편의 제거</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong>FUQ'd</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">어떤 실험으로도 답할 수 없는 근본적으로 식별 불가능한 질문</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong>자연실험</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">외생적 변이를 활용하여 무작위 실험을 근사하는 방법</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <!-- References -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">참고문헌</h2>
+        <div class="section-content">
+            <ul>
+                <li>Angrist, J. D., & Krueger, A. B. (1991). Does compulsory school attendance affect schooling and earnings? <em>QJE</em>.</li>
+                <li>Angrist, J. D., & Lavy, V. (1999). Using Maimonides' rule to estimate the effect of class size on scholastic achievement. <em>QJE</em>.</li>
+                <li>Krueger, A. B. (1999). Experimental estimates of education production functions. <em>QJE</em>.</li>
+                <li>Rubin, D. B. (1974). Estimating causal effects of treatments in randomized and nonrandomized studies. <em>Journal of Educational Psychology</em>.</li>
+            </ul>
+        </div>
+    </section>
+
+    <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #eee;">
+        <a href="/study" style="color: #666;">← Back to Study Notes</a>
+    </div>
+</div>
