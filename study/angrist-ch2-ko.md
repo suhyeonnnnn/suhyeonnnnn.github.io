@@ -77,29 +77,112 @@ title: "Angrist Ch.2 - The Experimental Ideal"
                 Y<sub>i</sub> = Y<sub>0i</sub> + (Y<sub>1i</sub> − Y<sub>0i</sub>) · D<sub>i</sub>
             </div>
 
-            <h4>선택 편의의 공식적 분해</h4>
-            <div style="background: #fef3c7; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
-                <p style="text-align: center; font-family: 'Times New Roman', serif;">
-                    <span style="border-bottom: 2px solid #000;">E[Y<sub>i</sub>|D<sub>i</sub>=1] − E[Y<sub>i</sub>|D<sub>i</sub>=0]</span><br>
-                    <small>관측된 평균 차이</small>
-                </p>
-                <p style="text-align: center; font-size: 1.5rem;">=</p>
-                <p style="text-align: center; font-family: 'Times New Roman', serif;">
-                    <span style="color: #2563eb; border-bottom: 2px solid #2563eb;">E[Y<sub>1i</sub> − Y<sub>0i</sub> | D<sub>i</sub>=1]</span> + 
-                    <span style="color: #dc2626; border-bottom: 2px solid #dc2626;">E[Y<sub>0i</sub>|D<sub>i</sub>=1] − E[Y<sub>0i</sub>|D<sub>i</sub>=0]</span>
-                </p>
-                <p style="text-align: center;">
-                    <span style="color: #2563eb;">■ ATT (처치받은 집단의 평균 처치효과)</span><br>
-                    <span style="color: #dc2626;">■ Selection Bias (선택 편의)</span>
-                </p>
+            <h4>선택 편의의 공식적 분해 (Step by Step)</h4>
+            
+            <p><strong>Step 1: 시작점</strong></p>
+            <p>우리가 관측할 수 있는 것:</p>
+            <div style="background: #f9f9f9; padding: 1rem; border-radius: 8px; margin: 1rem 0; text-align: center; font-family: 'Times New Roman', serif;">
+                E[Y<sub>i</sub> | D<sub>i</sub> = 1] − E[Y<sub>i</sub> | D<sub>i</sub> = 0]
+            </div>
+            <p>"병원 간 사람들의 평균 건강" − "안 간 사람들의 평균 건강"</p>
+
+            <p><strong>Step 2: 관측된 Y를 잠재적 결과로 바꾸기</strong></p>
+            <div style="background: #f0f9ff; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <p><strong>핵심:</strong> D<sub>i</sub> = 1인 사람은 Y<sub>1i</sub>만 관측, D<sub>i</sub> = 0인 사람은 Y<sub>0i</sub>만 관측</p>
+            </div>
+            <div style="background: #f9f9f9; padding: 1rem; border-radius: 8px; margin: 1rem 0; font-family: 'Times New Roman', serif;">
+                E[Y<sub>i</sub> | D<sub>i</sub> = 1] = E[Y<sub>1i</sub> | D<sub>i</sub> = 1]<br>
+                E[Y<sub>i</sub> | D<sub>i</sub> = 0] = E[Y<sub>0i</sub> | D<sub>i</sub> = 0]
+            </div>
+            <p>따라서:</p>
+            <div style="background: #f9f9f9; padding: 1rem; border-radius: 8px; margin: 1rem 0; text-align: center; font-family: 'Times New Roman', serif;">
+                E[Y<sub>i</sub>|D<sub>i</sub>=1] − E[Y<sub>i</sub>|D<sub>i</sub>=0] = E[Y<sub>1i</sub>|D<sub>i</sub>=1] − E[Y<sub>0i</sub>|D<sub>i</sub>=0]
             </div>
 
-            <h4>선택 편의란?</h4>
-            <ul>
-                <li>처치를 받은 집단과 받지 않은 집단 간 <strong>Y<sub>0i</sub>의 차이</strong></li>
-                <li>병원 예시: 아픈 사람이 치료를 받으러 감 → 선택 편의는 <strong>음수</strong></li>
-                <li>양의 처치효과를 완전히 가릴 수 있음</li>
-            </ul>
+            <p><strong>Step 3: 트릭! 같은 항을 더했다 빼기</strong></p>
+            <p>E[Y<sub>0i</sub> | D<sub>i</sub> = 1]을 <strong>더했다가 빼면</strong> (= 0을 더하는 것):</p>
+            <div style="background: #fef3c7; padding: 1rem; border-radius: 8px; margin: 1rem 0; font-family: 'Times New Roman', serif;">
+                = E[Y<sub>1i</sub>|D<sub>i</sub>=1] <span style="color: #dc2626;">− E[Y<sub>0i</sub>|D<sub>i</sub>=1] + E[Y<sub>0i</sub>|D<sub>i</sub>=1]</span> − E[Y<sub>0i</sub>|D<sub>i</sub>=0]<br>
+                <small style="color: #666;">↑ 이 두 항은 서로 상쇄 = 0</small>
+            </div>
+
+            <p><strong>Step 4: 항을 재배열</strong></p>
+            <div style="background: #ecfdf5; padding: 1rem; border-radius: 8px; margin: 1rem 0; font-family: 'Times New Roman', serif;">
+                = <span style="color: #2563eb; border-bottom: 2px solid #2563eb;">(E[Y<sub>1i</sub>|D<sub>i</sub>=1] − E[Y<sub>0i</sub>|D<sub>i</sub>=1])</span> + <span style="color: #dc2626; border-bottom: 2px solid #dc2626;">(E[Y<sub>0i</sub>|D<sub>i</sub>=1] − E[Y<sub>0i</sub>|D<sub>i</sub>=0])</span><br><br>
+                = <span style="color: #2563eb;"><strong>E[Y<sub>1i</sub> − Y<sub>0i</sub> | D<sub>i</sub>=1]</strong></span> + <span style="color: #dc2626;"><strong>E[Y<sub>0i</sub>|D<sub>i</sub>=1] − E[Y<sub>0i</sub>|D<sub>i</sub>=0]</strong></span>
+            </div>
+
+            <p><strong>Step 5: 각 항의 의미</strong></p>
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #f5f5f5;">
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">항</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">수식</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">의미</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd; color: #2563eb;"><strong>ATT</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd; font-family: 'Times New Roman', serif;">E[Y<sub>1i</sub> − Y<sub>0i</sub> | D<sub>i</sub>=1]</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">처치받은 사람들의 평균 처치효과</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd; color: #dc2626;"><strong>Selection Bias</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd; font-family: 'Times New Roman', serif;">E[Y<sub>0i</sub>|D<sub>i</sub>=1] − E[Y<sub>0i</sub>|D<sub>i</sub>=0]</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">처치 안 받았을 때 기저 상태의 차이</td>
+                </tr>
+            </table>
+
+            <h4>직관적 이해</h4>
+            <div style="background: #f0f9ff; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <p><strong>ATT (Average Treatment effect on the Treated):</strong></p>
+                <ul>
+                    <li>E[Y<sub>1i</sub> | D<sub>i</sub> = 1]: 병원 간 사람들의 (병원 간 후) 건강</li>
+                    <li>E[Y<sub>0i</sub> | D<sub>i</sub> = 1]: 병원 간 사람들이 <strong>만약 안 갔다면</strong> 가졌을 건강</li>
+                    <li>차이 = 병원의 <strong>진짜 효과</strong></li>
+                </ul>
+            </div>
+            <div style="background: #fee2e2; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <p><strong>Selection Bias:</strong></p>
+                <ul>
+                    <li>E[Y<sub>0i</sub> | D<sub>i</sub> = 1]: 병원 간 사람들이 안 갔어도 가졌을 건강 (원래 아픔)</li>
+                    <li>E[Y<sub>0i</sub> | D<sub>i</sub> = 0]: 병원 안 간 사람들의 건강 (원래 건강함)</li>
+                    <li>차이 = <strong>애초에 다른 사람들</strong>이라서 생기는 차이</li>
+                </ul>
+            </div>
+
+            <h4>숫자 예시</h4>
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #f5f5f5;">
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;"></th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">병원 간 사람</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">병원 안 간 사람</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">관측된 건강 E[Y<sub>i</sub>|D<sub>i</sub>]</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">2.79</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">2.07</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">안 갔으면 건강 E[Y<sub>0i</sub>|D<sub>i</sub>]</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong>3.50</strong> (관측 불가)</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">2.07</td>
+                </tr>
+            </table>
+            
+            <p><strong>관측된 차이:</strong> 2.79 − 2.07 = 0.72</p>
+            
+            <div style="background: #fef3c7; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <p><strong>분해:</strong></p>
+                <ul>
+                    <li><span style="color: #2563eb;">ATT</span> = 2.79 − 3.50 = <strong>−0.71</strong> (병원이 건강하게 만듦!)</li>
+                    <li><span style="color: #dc2626;">Selection Bias</span> = 3.50 − 2.07 = <strong>+1.43</strong> (원래 아픈 사람이 병원 감)</li>
+                </ul>
+                <div style="background: white; padding: 0.5rem; border-radius: 4px; margin-top: 0.5rem; text-align: center; font-family: 'Times New Roman', serif;">
+                    <span style="border-bottom: 1px solid #000;">0.72</span> = <span style="color: #2563eb;">−0.71</span> + <span style="color: #dc2626;">+1.43</span><br>
+                    <small>관측 = ATT + Selection Bias</small>
+                </div>
+            </div>
+            
+            <p>→ <strong>선택 편의(+1.43)가 진짜 효과(−0.71)를 완전히 가려버림!</strong></p>
         </div>
     </section>
 

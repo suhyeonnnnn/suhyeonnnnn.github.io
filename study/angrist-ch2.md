@@ -77,29 +77,112 @@ title: "Angrist Ch.2 - The Experimental Ideal"
                 Y<sub>i</sub> = Y<sub>0i</sub> + (Y<sub>1i</sub> − Y<sub>0i</sub>) · D<sub>i</sub>
             </div>
 
-            <h4>Formal Decomposition of Selection Bias</h4>
-            <div style="background: #fef3c7; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
-                <p style="text-align: center; font-family: 'Times New Roman', serif;">
-                    <span style="border-bottom: 2px solid #000;">E[Y<sub>i</sub>|D<sub>i</sub>=1] − E[Y<sub>i</sub>|D<sub>i</sub>=0]</span><br>
-                    <small>Observed difference in means</small>
-                </p>
-                <p style="text-align: center; font-size: 1.5rem;">=</p>
-                <p style="text-align: center; font-family: 'Times New Roman', serif;">
-                    <span style="color: #2563eb; border-bottom: 2px solid #2563eb;">E[Y<sub>1i</sub> − Y<sub>0i</sub> | D<sub>i</sub>=1]</span> + 
-                    <span style="color: #dc2626; border-bottom: 2px solid #dc2626;">E[Y<sub>0i</sub>|D<sub>i</sub>=1] − E[Y<sub>0i</sub>|D<sub>i</sub>=0]</span>
-                </p>
-                <p style="text-align: center;">
-                    <span style="color: #2563eb;">■ ATT (Average Treatment Effect on the Treated)</span><br>
-                    <span style="color: #dc2626;">■ Selection Bias</span>
-                </p>
+            <h4>Formal Decomposition of Selection Bias (Step by Step)</h4>
+            
+            <p><strong>Step 1: Starting Point</strong></p>
+            <p>What we can observe:</p>
+            <div style="background: #f9f9f9; padding: 1rem; border-radius: 8px; margin: 1rem 0; text-align: center; font-family: 'Times New Roman', serif;">
+                E[Y<sub>i</sub> | D<sub>i</sub> = 1] − E[Y<sub>i</sub> | D<sub>i</sub> = 0]
+            </div>
+            <p>"Average health of those who went to hospital" − "Average health of those who didn't"</p>
+
+            <p><strong>Step 2: Replace observed Y with potential outcomes</strong></p>
+            <div style="background: #f0f9ff; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <p><strong>Key:</strong> For D<sub>i</sub> = 1, we only observe Y<sub>1i</sub>. For D<sub>i</sub> = 0, we only observe Y<sub>0i</sub>.</p>
+            </div>
+            <div style="background: #f9f9f9; padding: 1rem; border-radius: 8px; margin: 1rem 0; font-family: 'Times New Roman', serif;">
+                E[Y<sub>i</sub> | D<sub>i</sub> = 1] = E[Y<sub>1i</sub> | D<sub>i</sub> = 1]<br>
+                E[Y<sub>i</sub> | D<sub>i</sub> = 0] = E[Y<sub>0i</sub> | D<sub>i</sub> = 0]
+            </div>
+            <p>Therefore:</p>
+            <div style="background: #f9f9f9; padding: 1rem; border-radius: 8px; margin: 1rem 0; text-align: center; font-family: 'Times New Roman', serif;">
+                E[Y<sub>i</sub>|D<sub>i</sub>=1] − E[Y<sub>i</sub>|D<sub>i</sub>=0] = E[Y<sub>1i</sub>|D<sub>i</sub>=1] − E[Y<sub>0i</sub>|D<sub>i</sub>=0]
             </div>
 
-            <h4>What is Selection Bias?</h4>
-            <ul>
-                <li>Difference in <strong>Y<sub>0i</sub></strong> between treated and untreated groups</li>
-                <li>Hospital example: Sick people seek treatment → Selection bias is <strong>negative</strong></li>
-                <li>Can completely mask a positive treatment effect</li>
-            </ul>
+            <p><strong>Step 3: The Trick! Add and subtract the same term</strong></p>
+            <p><strong>Add and subtract</strong> E[Y<sub>0i</sub> | D<sub>i</sub> = 1] (= adding zero):</p>
+            <div style="background: #fef3c7; padding: 1rem; border-radius: 8px; margin: 1rem 0; font-family: 'Times New Roman', serif;">
+                = E[Y<sub>1i</sub>|D<sub>i</sub>=1] <span style="color: #dc2626;">− E[Y<sub>0i</sub>|D<sub>i</sub>=1] + E[Y<sub>0i</sub>|D<sub>i</sub>=1]</span> − E[Y<sub>0i</sub>|D<sub>i</sub>=0]<br>
+                <small style="color: #666;">↑ These two terms cancel out = 0</small>
+            </div>
+
+            <p><strong>Step 4: Rearrange terms</strong></p>
+            <div style="background: #ecfdf5; padding: 1rem; border-radius: 8px; margin: 1rem 0; font-family: 'Times New Roman', serif;">
+                = <span style="color: #2563eb; border-bottom: 2px solid #2563eb;">(E[Y<sub>1i</sub>|D<sub>i</sub>=1] − E[Y<sub>0i</sub>|D<sub>i</sub>=1])</span> + <span style="color: #dc2626; border-bottom: 2px solid #dc2626;">(E[Y<sub>0i</sub>|D<sub>i</sub>=1] − E[Y<sub>0i</sub>|D<sub>i</sub>=0])</span><br><br>
+                = <span style="color: #2563eb;"><strong>E[Y<sub>1i</sub> − Y<sub>0i</sub> | D<sub>i</sub>=1]</strong></span> + <span style="color: #dc2626;"><strong>E[Y<sub>0i</sub>|D<sub>i</sub>=1] − E[Y<sub>0i</sub>|D<sub>i</sub>=0]</strong></span>
+            </div>
+
+            <p><strong>Step 5: Meaning of each term</strong></p>
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #f5f5f5;">
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Term</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Formula</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Meaning</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd; color: #2563eb;"><strong>ATT</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd; font-family: 'Times New Roman', serif;">E[Y<sub>1i</sub> − Y<sub>0i</sub> | D<sub>i</sub>=1]</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Average treatment effect on the treated</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd; color: #dc2626;"><strong>Selection Bias</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd; font-family: 'Times New Roman', serif;">E[Y<sub>0i</sub>|D<sub>i</sub>=1] − E[Y<sub>0i</sub>|D<sub>i</sub>=0]</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Baseline difference without treatment</td>
+                </tr>
+            </table>
+
+            <h4>Intuitive Understanding</h4>
+            <div style="background: #f0f9ff; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <p><strong>ATT (Average Treatment effect on the Treated):</strong></p>
+                <ul>
+                    <li>E[Y<sub>1i</sub> | D<sub>i</sub> = 1]: Health of hospitalized people (after going)</li>
+                    <li>E[Y<sub>0i</sub> | D<sub>i</sub> = 1]: Health they <strong>would have had</strong> if they hadn't gone</li>
+                    <li>Difference = The <strong>true effect</strong> of the hospital</li>
+                </ul>
+            </div>
+            <div style="background: #fee2e2; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <p><strong>Selection Bias:</strong></p>
+                <ul>
+                    <li>E[Y<sub>0i</sub> | D<sub>i</sub> = 1]: Health hospitalized people would have even without going (originally sick)</li>
+                    <li>E[Y<sub>0i</sub> | D<sub>i</sub> = 0]: Health of non-hospitalized people (originally healthy)</li>
+                    <li>Difference = Gap from <strong>comparing different people</strong></li>
+                </ul>
+            </div>
+
+            <h4>Numerical Example</h4>
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #f5f5f5;">
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;"></th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Hospitalized</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Not Hospitalized</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Observed health E[Y<sub>i</sub>|D<sub>i</sub>]</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">2.79</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">2.07</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Health if not hospitalized E[Y<sub>0i</sub>|D<sub>i</sub>]</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong>3.50</strong> (unobserved)</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">2.07</td>
+                </tr>
+            </table>
+            
+            <p><strong>Observed difference:</strong> 2.79 − 2.07 = 0.72</p>
+            
+            <div style="background: #fef3c7; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <p><strong>Decomposition:</strong></p>
+                <ul>
+                    <li><span style="color: #2563eb;">ATT</span> = 2.79 − 3.50 = <strong>−0.71</strong> (hospital makes people healthier!)</li>
+                    <li><span style="color: #dc2626;">Selection Bias</span> = 3.50 − 2.07 = <strong>+1.43</strong> (sicker people go to hospital)</li>
+                </ul>
+                <div style="background: white; padding: 0.5rem; border-radius: 4px; margin-top: 0.5rem; text-align: center; font-family: 'Times New Roman', serif;">
+                    <span style="border-bottom: 1px solid #000;">0.72</span> = <span style="color: #2563eb;">−0.71</span> + <span style="color: #dc2626;">+1.43</span><br>
+                    <small>Observed = ATT + Selection Bias</small>
+                </div>
+            </div>
+            
+            <p>→ <strong>Selection bias (+1.43) completely masks the true effect (−0.71)!</strong></p>
         </div>
     </section>
 
