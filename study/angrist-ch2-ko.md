@@ -386,6 +386,217 @@ title: "Angrist Ch.2 - The Experimental Ideal"
         </div>
     </section>
 
+    <!-- Appendix -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Appendix: 실험 데이터의 회귀분석 심화</h2>
+        <div class="section-content">
+            
+            <h3>A.1 왜 회귀분석을 쓰는가?</h3>
+            <p>실험에서 처치 효과를 추정하는 가장 간단한 방법:</p>
+            <div style="background: #f9f9f9; padding: 1rem; border-radius: 8px; margin: 1rem 0; text-align: center; font-family: 'Times New Roman', serif;">
+                Ȳ<sub>처치</sub> − Ȳ<sub>통제</sub>
+            </div>
+            
+            <p><strong>이걸 회귀분석으로 하면:</strong></p>
+            <div style="background: #f9f9f9; padding: 1rem; border-radius: 8px; margin: 1rem 0; text-align: center; font-family: 'Times New Roman', serif;">
+                Y<sub>i</sub> = α + ρD<sub>i</sub> + η<sub>i</sub>
+            </div>
+            <p>여기서 ρ̂가 바로 Ȳ<sub>처치</sub> − Ȳ<sub>통제</sub>와 <strong>동일</strong>!</p>
+            
+            <p><strong>왜 굳이 회귀분석?</strong></p>
+            <ul>
+                <li>공변량 통제 쉬움</li>
+                <li>표준오차 계산 편리</li>
+                <li>다양한 모형 확장 가능</li>
+            </ul>
+
+            <h3>A.2 상수 처치효과 모형의 유도</h3>
+            <p><strong>가정:</strong> 모든 사람에게 처치효과가 동일</p>
+            <div style="background: #f0f9ff; padding: 1rem; border-radius: 8px; margin: 1rem 0; text-align: center; font-family: 'Times New Roman', serif;">
+                Y<sub>1i</sub> − Y<sub>0i</sub> = ρ (상수)
+            </div>
+            
+            <p><strong>잠재적 결과를 분해하면:</strong></p>
+            <div style="background: #f9f9f9; padding: 1rem; border-radius: 8px; margin: 1rem 0; font-family: 'Times New Roman', serif;">
+                Y<sub>0i</sub> = <span style="color: #2563eb;">E[Y<sub>0i</sub>]</span> + <span style="color: #059669;">(Y<sub>0i</sub> − E[Y<sub>0i</sub>])</span><br><br>
+                Y<sub>0i</sub> = <span style="color: #2563eb;">α</span> + <span style="color: #059669;">η<sub>i</sub></span>
+            </div>
+            <p style="text-align: center; font-size: 0.9rem;">
+                <span style="color: #2563eb;">α = 평균</span> &nbsp;&nbsp;
+                <span style="color: #059669;">η<sub>i</sub> = 개인별 편차</span>
+            </p>
+            
+            <p><strong>관측된 결과:</strong></p>
+            <div style="background: #f9f9f9; padding: 1rem; border-radius: 8px; margin: 1rem 0; font-family: 'Times New Roman', serif;">
+                Y<sub>i</sub> = Y<sub>0i</sub> + (Y<sub>1i</sub> − Y<sub>0i</sub>) · D<sub>i</sub><br>
+                &nbsp;&nbsp;&nbsp;= (α + η<sub>i</sub>) + ρ · D<sub>i</sub><br>
+                &nbsp;&nbsp;&nbsp;= <strong>α + ρD<sub>i</sub> + η<sub>i</sub></strong>
+            </div>
+
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #f5f5f5;">
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">항</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">의미</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">α</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">E[Y<sub>0i</sub>], 처치 안 받았을 때 평균 결과</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">ρ</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Y<sub>1i</sub> − Y<sub>0i</sub>, 처치 효과</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">η<sub>i</sub></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Y<sub>0i</sub> − E[Y<sub>0i</sub>], 개인별 랜덤 오차</td>
+                </tr>
+            </table>
+
+            <h3>A.3 선택 편의의 회귀적 해석</h3>
+            <p>회귀모형에서 조건부 기댓값:</p>
+            <div style="background: #f9f9f9; padding: 1rem; border-radius: 8px; margin: 1rem 0; font-family: 'Times New Roman', serif;">
+                E[Y<sub>i</sub> | D<sub>i</sub> = 1] = α + ρ + E[η<sub>i</sub> | D<sub>i</sub> = 1]<br>
+                E[Y<sub>i</sub> | D<sub>i</sub> = 0] = α + E[η<sub>i</sub> | D<sub>i</sub> = 0]
+            </div>
+            
+            <p><strong>차이를 구하면:</strong></p>
+            <div style="background: #fef3c7; padding: 1rem; border-radius: 8px; margin: 1rem 0; font-family: 'Times New Roman', serif;">
+                E[Y<sub>i</sub>|D<sub>i</sub>=1] − E[Y<sub>i</sub>|D<sub>i</sub>=0] = <span style="color: #dc2626;">ρ</span> + <span style="color: #7c3aed;">(E[η<sub>i</sub>|D<sub>i</sub>=1] − E[η<sub>i</sub>|D<sub>i</sub>=0])</span>
+            </div>
+            <p style="text-align: center;">
+                <span style="color: #dc2626;">■ ρ: 처치효과</span><br>
+                <span style="color: #7c3aed;">■ 선택 편의: 오차항 η<sub>i</sub>와 처치변수 D<sub>i</sub> 간의 상관관계</span>
+            </p>
+            
+            <p>이는 앞서 본 선택 편의와 동일:</p>
+            <div style="background: #f9f9f9; padding: 1rem; border-radius: 8px; margin: 1rem 0; text-align: center; font-family: 'Times New Roman', serif;">
+                E[η<sub>i</sub>|D<sub>i</sub>=1] − E[η<sub>i</sub>|D<sub>i</sub>=0] = E[Y<sub>0i</sub>|D<sub>i</sub>=1] − E[Y<sub>0i</sub>|D<sub>i</sub>=0]
+            </div>
+
+            <h3>A.4 무작위 배정 → OLS가 인과효과 추정</h3>
+            <p><strong>무작위 배정 시:</strong></p>
+            <div style="background: #ecfdf5; padding: 1rem; border-radius: 8px; margin: 1rem 0; text-align: center; font-family: 'Times New Roman', serif;">
+                D<sub>i</sub> ⊥ η<sub>i</sub>
+            </div>
+            
+            <p>따라서:</p>
+            <div style="background: #f9f9f9; padding: 1rem; border-radius: 8px; margin: 1rem 0; text-align: center; font-family: 'Times New Roman', serif;">
+                E[η<sub>i</sub> | D<sub>i</sub> = 1] = E[η<sub>i</sub> | D<sub>i</sub> = 0] = E[η<sub>i</sub>] = 0
+            </div>
+            
+            <p><strong>결과:</strong></p>
+            <div style="background: #ecfdf5; padding: 1rem; border-radius: 8px; margin: 1rem 0; text-align: center;">
+                E[Y<sub>i</sub> | D<sub>i</sub> = 1] − E[Y<sub>i</sub> | D<sub>i</sub> = 0] = <strong>ρ</strong><br><br>
+                → OLS로 추정한 ρ̂가 <strong>인과효과</strong>!
+            </div>
+
+            <h3>A.5 공변량 추가의 두 가지 역할</h3>
+            <p><strong>긴 회귀모형:</strong></p>
+            <div style="background: #f9f9f9; padding: 1rem; border-radius: 8px; margin: 1rem 0; text-align: center; font-family: 'Times New Roman', serif;">
+                Y<sub>i</sub> = α + ρD<sub>i</sub> + X<sub>i</sub>'γ + η<sub>i</sub>
+            </div>
+            
+            <h4>역할 1: 조건부 무작위 배정 통제</h4>
+            <p><strong>STAR 실험의 경우:</strong></p>
+            <ul>
+                <li>학교 <strong>내에서</strong> 무작위 배정</li>
+                <li>학교 <strong>간에는</strong> 무작위가 아님 (도시 학교 vs 농촌 학교)</li>
+            </ul>
+            <div style="background: #f9f9f9; padding: 1rem; border-radius: 8px; margin: 1rem 0; text-align: center; font-family: 'Times New Roman', serif;">
+                Y<sub>i</sub> = α + ρD<sub>i</sub> + Σ<sub>j</sub> δ<sub>j</sub> · 𝟙[School<sub>i</sub> = j] + η<sub>i</sub>
+            </div>
+            
+            <p><strong>왜 필요한가?</strong></p>
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #f5f5f5;">
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">학교</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">처치 확률</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">평균 성적</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">도시 A</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">40%</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">높음</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">농촌 B</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">30%</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">낮음</td>
+                </tr>
+            </table>
+            <p>→ 학교 통제 안 하면 처치효과가 오염될 수 있음</p>
+
+            <h4>역할 2: 추정 정밀도 향상</h4>
+            <p><strong>핵심 원리:</strong> X<sub>i</sub>가 Y<sub>i</sub>의 분산을 설명하면, 잔차 분산이 줄어들어 ρ̂의 표준오차 감소</p>
+            
+            <div style="background: #f9f9f9; padding: 1rem; border-radius: 8px; margin: 1rem 0; font-family: 'Times New Roman', serif;">
+                <p><strong>Short regression:</strong> Y<sub>i</sub> = α + ρD<sub>i</sub> + η<sub>i</sub></p>
+                <p style="text-align: center;">Var(ρ̂) ∝ Var(η<sub>i</sub>) / n</p>
+                <br>
+                <p><strong>Long regression:</strong> Y<sub>i</sub> = α + ρD<sub>i</sub> + X<sub>i</sub>'γ + η̃<sub>i</sub></p>
+                <p style="text-align: center;">Var(ρ̂) ∝ Var(η̃<sub>i</sub>) / n</p>
+            </div>
+            <p>X<sub>i</sub>가 Y<sub>i</sub>를 잘 설명하면 <strong>Var(η̃<sub>i</sub>) < Var(η<sub>i</sub>)</strong></p>
+
+            <p><strong>STAR 실험 결과:</strong></p>
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #f5f5f5;">
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">모형</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">소규모 학급 효과</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">표준오차</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">통제변수 없음</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">5.37</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">1.26</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">학생 특성 통제</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">5.36</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong>1.21</strong></td>
+                </tr>
+            </table>
+            <p>→ 추정치는 거의 동일, 표준오차만 감소!</p>
+
+            <h3>A.6 중요한 포인트: Short vs Long Regression</h3>
+            <p><strong>무작위 배정이 성공했으면:</strong></p>
+            <div style="background: #ecfdf5; padding: 1rem; border-radius: 8px; margin: 1rem 0; text-align: center; font-family: 'Times New Roman', serif;">
+                ρ̂<sub>short</sub> ≈ ρ̂<sub>long</sub>
+            </div>
+            <p>왜? D<sub>i</sub>가 X<sub>i</sub>와 상관없으니까!</p>
+            
+            <p><strong>수학적으로 (Omitted Variable Bias 공식):</strong></p>
+            <div style="background: #f9f9f9; padding: 1rem; border-radius: 8px; margin: 1rem 0; text-align: center; font-family: 'Times New Roman', serif;">
+                ρ̂<sub>short</sub> = ρ̂<sub>long</sub> + γ̂ · <span style="text-decoration: underline;">Cov(D<sub>i</sub>, X<sub>i</sub>) / Var(D<sub>i</sub>)</span><br>
+                <span style="font-size: 0.85rem; color: #666;">↑ 무작위 배정 시 ≈ 0</span>
+            </div>
+
+            <h3>A.7 요약</h3>
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #2563eb; color: white;">
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">상황</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">회귀분석 결과</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">무작위 배정 O</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">ρ̂ = 인과효과 (ATE)</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">무작위 배정 X</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">ρ̂ = 인과효과 + 선택편의</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">공변량 추가 (무작위 시)</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">추정치 동일, 표준오차 감소</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">공변량 추가 (조건부 무작위 시)</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">반드시 필요 (편의 제거)</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
     <!-- 참고문헌 -->
     <section class="section fade-in-delay">
         <h2 class="section-title">참고문헌</h2>
