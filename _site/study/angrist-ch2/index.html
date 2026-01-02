@@ -112,29 +112,112 @@
                 Y<sub>i</sub> = Y<sub>0i</sub> + (Y<sub>1i</sub> − Y<sub>0i</sub>) · D<sub>i</sub>
             </div>
 
-            <h4>Formal Decomposition of Selection Bias</h4>
-            <div style="background: #fef3c7; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
-                <p style="text-align: center; font-family: 'Times New Roman', serif;">
-                    <span style="border-bottom: 2px solid #000;">E[Y<sub>i</sub>|D<sub>i</sub>=1] − E[Y<sub>i</sub>|D<sub>i</sub>=0]</span><br />
-                    <small>Observed difference in means</small>
-                </p>
-                <p style="text-align: center; font-size: 1.5rem;">=</p>
-                <p style="text-align: center; font-family: 'Times New Roman', serif;">
-                    <span style="color: #2563eb; border-bottom: 2px solid #2563eb;">E[Y<sub>1i</sub> − Y<sub>0i</sub> | D<sub>i</sub>=1]</span> + 
-                    <span style="color: #dc2626; border-bottom: 2px solid #dc2626;">E[Y<sub>0i</sub>|D<sub>i</sub>=1] − E[Y<sub>0i</sub>|D<sub>i</sub>=0]</span>
-                </p>
-                <p style="text-align: center;">
-                    <span style="color: #2563eb;">■ ATT (Average Treatment Effect on the Treated)</span><br />
-                    <span style="color: #dc2626;">■ Selection Bias</span>
-                </p>
+            <h4>Formal Decomposition of Selection Bias (Step by Step)</h4>
+            
+            <p><strong>Step 1: Starting Point</strong></p>
+            <p>What we can observe:</p>
+            <div style="background: #f9f9f9; padding: 1rem; border-radius: 8px; margin: 1rem 0; text-align: center; font-family: 'Times New Roman', serif;">
+                E[Y<sub>i</sub> | D<sub>i</sub> = 1] − E[Y<sub>i</sub> | D<sub>i</sub> = 0]
+            </div>
+            <p>"Average health of those who went to hospital" − "Average health of those who didn't"</p>
+
+            <p><strong>Step 2: Replace observed Y with potential outcomes</strong></p>
+            <div style="background: #f0f9ff; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <p><strong>Key:</strong> For D<sub>i</sub> = 1, we only observe Y<sub>1i</sub>. For D<sub>i</sub> = 0, we only observe Y<sub>0i</sub>.</p>
+            </div>
+            <div style="background: #f9f9f9; padding: 1rem; border-radius: 8px; margin: 1rem 0; font-family: 'Times New Roman', serif;">
+                E[Y<sub>i</sub> | D<sub>i</sub> = 1] = E[Y<sub>1i</sub> | D<sub>i</sub> = 1]<br />
+                E[Y<sub>i</sub> | D<sub>i</sub> = 0] = E[Y<sub>0i</sub> | D<sub>i</sub> = 0]
+            </div>
+            <p>Therefore:</p>
+            <div style="background: #f9f9f9; padding: 1rem; border-radius: 8px; margin: 1rem 0; text-align: center; font-family: 'Times New Roman', serif;">
+                E[Y<sub>i</sub>|D<sub>i</sub>=1] − E[Y<sub>i</sub>|D<sub>i</sub>=0] = E[Y<sub>1i</sub>|D<sub>i</sub>=1] − E[Y<sub>0i</sub>|D<sub>i</sub>=0]
             </div>
 
-            <h4>What is Selection Bias?</h4>
-            <ul>
-                <li>Difference in <strong>Y<sub>0i</sub></strong> between treated and untreated groups</li>
-                <li>Hospital example: Sick people seek treatment → Selection bias is <strong>negative</strong></li>
-                <li>Can completely mask a positive treatment effect</li>
-            </ul>
+            <p><strong>Step 3: The Trick! Add and subtract the same term</strong></p>
+            <p><strong>Add and subtract</strong> E[Y<sub>0i</sub> | D<sub>i</sub> = 1] (= adding zero):</p>
+            <div style="background: #fef3c7; padding: 1rem; border-radius: 8px; margin: 1rem 0; font-family: 'Times New Roman', serif;">
+                = E[Y<sub>1i</sub>|D<sub>i</sub>=1] <span style="color: #dc2626;">− E[Y<sub>0i</sub>|D<sub>i</sub>=1] + E[Y<sub>0i</sub>|D<sub>i</sub>=1]</span> − E[Y<sub>0i</sub>|D<sub>i</sub>=0]<br />
+                <small style="color: #666;">↑ These two terms cancel out = 0</small>
+            </div>
+
+            <p><strong>Step 4: Rearrange terms</strong></p>
+            <div style="background: #ecfdf5; padding: 1rem; border-radius: 8px; margin: 1rem 0; font-family: 'Times New Roman', serif;">
+                = <span style="color: #2563eb; border-bottom: 2px solid #2563eb;">(E[Y<sub>1i</sub>|D<sub>i</sub>=1] − E[Y<sub>0i</sub>|D<sub>i</sub>=1])</span> + <span style="color: #dc2626; border-bottom: 2px solid #dc2626;">(E[Y<sub>0i</sub>|D<sub>i</sub>=1] − E[Y<sub>0i</sub>|D<sub>i</sub>=0])</span><br /><br />
+                = <span style="color: #2563eb;"><strong>E[Y<sub>1i</sub> − Y<sub>0i</sub> | D<sub>i</sub>=1]</strong></span> + <span style="color: #dc2626;"><strong>E[Y<sub>0i</sub>|D<sub>i</sub>=1] − E[Y<sub>0i</sub>|D<sub>i</sub>=0]</strong></span>
+            </div>
+
+            <p><strong>Step 5: Meaning of each term</strong></p>
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #f5f5f5;">
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Term</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Formula</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Meaning</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd; color: #2563eb;"><strong>ATT</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd; font-family: 'Times New Roman', serif;">E[Y<sub>1i</sub> − Y<sub>0i</sub> | D<sub>i</sub>=1]</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Average treatment effect on the treated</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd; color: #dc2626;"><strong>Selection Bias</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd; font-family: 'Times New Roman', serif;">E[Y<sub>0i</sub>|D<sub>i</sub>=1] − E[Y<sub>0i</sub>|D<sub>i</sub>=0]</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Baseline difference without treatment</td>
+                </tr>
+            </table>
+
+            <h4>Intuitive Understanding</h4>
+            <div style="background: #f0f9ff; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <p><strong>ATT (Average Treatment effect on the Treated):</strong></p>
+                <ul>
+                    <li>E[Y<sub>1i</sub> | D<sub>i</sub> = 1]: Health of hospitalized people (after going)</li>
+                    <li>E[Y<sub>0i</sub> | D<sub>i</sub> = 1]: Health they <strong>would have had</strong> if they hadn't gone</li>
+                    <li>Difference = The <strong>true effect</strong> of the hospital</li>
+                </ul>
+            </div>
+            <div style="background: #fee2e2; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <p><strong>Selection Bias:</strong></p>
+                <ul>
+                    <li>E[Y<sub>0i</sub> | D<sub>i</sub> = 1]: Health hospitalized people would have even without going (originally sick)</li>
+                    <li>E[Y<sub>0i</sub> | D<sub>i</sub> = 0]: Health of non-hospitalized people (originally healthy)</li>
+                    <li>Difference = Gap from <strong>comparing different people</strong></li>
+                </ul>
+            </div>
+
+            <h4>Numerical Example</h4>
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #f5f5f5;">
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;"></th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Hospitalized</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Not Hospitalized</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Observed health E[Y<sub>i</sub>|D<sub>i</sub>]</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">2.79</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">2.07</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Health if not hospitalized E[Y<sub>0i</sub>|D<sub>i</sub>]</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong>3.50</strong> (unobserved)</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">2.07</td>
+                </tr>
+            </table>
+            
+            <p><strong>Observed difference:</strong> 2.79 − 2.07 = 0.72</p>
+            
+            <div style="background: #fef3c7; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <p><strong>Decomposition:</strong></p>
+                <ul>
+                    <li><span style="color: #2563eb;">ATT</span> = 2.79 − 3.50 = <strong>−0.71</strong> (hospital makes people healthier!)</li>
+                    <li><span style="color: #dc2626;">Selection Bias</span> = 3.50 − 2.07 = <strong>+1.43</strong> (sicker people go to hospital)</li>
+                </ul>
+                <div style="background: white; padding: 0.5rem; border-radius: 4px; margin-top: 0.5rem; text-align: center; font-family: 'Times New Roman', serif;">
+                    <span style="border-bottom: 1px solid #000;">0.72</span> = <span style="color: #2563eb;">−0.71</span> + <span style="color: #dc2626;">+1.43</span><br />
+                    <small>Observed = ATT + Selection Bias</small>
+                </div>
+            </div>
+            
+            <p>→ <strong>Selection bias (+1.43) completely masks the true effect (−0.71)!</strong></p>
         </div>
     </section>
 
@@ -421,6 +504,217 @@
         </div>
     </section>
 
+    <!-- Appendix -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Appendix: Regression Analysis of Experiments (Deep Dive)</h2>
+        <div class="section-content">
+            
+            <h3>A.1 Why Use Regression?</h3>
+            <p>The simplest way to estimate treatment effects in an experiment:</p>
+            <div style="background: #f9f9f9; padding: 1rem; border-radius: 8px; margin: 1rem 0; text-align: center; font-family: 'Times New Roman', serif;">
+                Ȳ<sub>treated</sub> − Ȳ<sub>control</sub>
+            </div>
+            
+            <p><strong>With regression:</strong></p>
+            <div style="background: #f9f9f9; padding: 1rem; border-radius: 8px; margin: 1rem 0; text-align: center; font-family: 'Times New Roman', serif;">
+                Y<sub>i</sub> = α + ρD<sub>i</sub> + η<sub>i</sub>
+            </div>
+            <p>Here, ρ̂ is <strong>identical</strong> to Ȳ<sub>treated</sub> − Ȳ<sub>control</sub>!</p>
+            
+            <p><strong>Why bother with regression?</strong></p>
+            <ul>
+                <li>Easy to control for covariates</li>
+                <li>Convenient standard error calculation</li>
+                <li>Flexible model extensions</li>
+            </ul>
+
+            <h3>A.2 Deriving the Constant Treatment Effect Model</h3>
+            <p><strong>Assumption:</strong> Treatment effect is identical for everyone</p>
+            <div style="background: #f0f9ff; padding: 1rem; border-radius: 8px; margin: 1rem 0; text-align: center; font-family: 'Times New Roman', serif;">
+                Y<sub>1i</sub> − Y<sub>0i</sub> = ρ (constant)
+            </div>
+            
+            <p><strong>Decompose the potential outcome:</strong></p>
+            <div style="background: #f9f9f9; padding: 1rem; border-radius: 8px; margin: 1rem 0; font-family: 'Times New Roman', serif;">
+                Y<sub>0i</sub> = <span style="color: #2563eb;">E[Y<sub>0i</sub>]</span> + <span style="color: #059669;">(Y<sub>0i</sub> − E[Y<sub>0i</sub>])</span><br /><br />
+                Y<sub>0i</sub> = <span style="color: #2563eb;">α</span> + <span style="color: #059669;">η<sub>i</sub></span>
+            </div>
+            <p style="text-align: center; font-size: 0.9rem;">
+                <span style="color: #2563eb;">α = mean</span> &nbsp;&nbsp;
+                <span style="color: #059669;">η<sub>i</sub> = individual deviation</span>
+            </p>
+            
+            <p><strong>Observed outcome:</strong></p>
+            <div style="background: #f9f9f9; padding: 1rem; border-radius: 8px; margin: 1rem 0; font-family: 'Times New Roman', serif;">
+                Y<sub>i</sub> = Y<sub>0i</sub> + (Y<sub>1i</sub> − Y<sub>0i</sub>) · D<sub>i</sub><br />
+                &nbsp;&nbsp;&nbsp;= (α + η<sub>i</sub>) + ρ · D<sub>i</sub><br />
+                &nbsp;&nbsp;&nbsp;= <strong>α + ρD<sub>i</sub> + η<sub>i</sub></strong>
+            </div>
+
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #f5f5f5;">
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Term</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Meaning</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">α</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">E[Y<sub>0i</sub>], average outcome without treatment</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">ρ</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Y<sub>1i</sub> − Y<sub>0i</sub>, treatment effect</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">η<sub>i</sub></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Y<sub>0i</sub> − E[Y<sub>0i</sub>], individual random error</td>
+                </tr>
+            </table>
+
+            <h3>A.3 Selection Bias as Regression</h3>
+            <p>Conditional expectations in the regression model:</p>
+            <div style="background: #f9f9f9; padding: 1rem; border-radius: 8px; margin: 1rem 0; font-family: 'Times New Roman', serif;">
+                E[Y<sub>i</sub> | D<sub>i</sub> = 1] = α + ρ + E[η<sub>i</sub> | D<sub>i</sub> = 1]<br />
+                E[Y<sub>i</sub> | D<sub>i</sub> = 0] = α + E[η<sub>i</sub> | D<sub>i</sub> = 0]
+            </div>
+            
+            <p><strong>Taking the difference:</strong></p>
+            <div style="background: #fef3c7; padding: 1rem; border-radius: 8px; margin: 1rem 0; font-family: 'Times New Roman', serif;">
+                E[Y<sub>i</sub>|D<sub>i</sub>=1] − E[Y<sub>i</sub>|D<sub>i</sub>=0] = <span style="color: #dc2626;">ρ</span> + <span style="color: #7c3aed;">(E[η<sub>i</sub>|D<sub>i</sub>=1] − E[η<sub>i</sub>|D<sub>i</sub>=0])</span>
+            </div>
+            <p style="text-align: center;">
+                <span style="color: #dc2626;">■ ρ: Treatment effect</span><br />
+                <span style="color: #7c3aed;">■ Selection bias: Correlation between error η<sub>i</sub> and treatment D<sub>i</sub></span>
+            </p>
+            
+            <p>This equals the selection bias we saw earlier:</p>
+            <div style="background: #f9f9f9; padding: 1rem; border-radius: 8px; margin: 1rem 0; text-align: center; font-family: 'Times New Roman', serif;">
+                E[η<sub>i</sub>|D<sub>i</sub>=1] − E[η<sub>i</sub>|D<sub>i</sub>=0] = E[Y<sub>0i</sub>|D<sub>i</sub>=1] − E[Y<sub>0i</sub>|D<sub>i</sub>=0]
+            </div>
+
+            <h3>A.4 Random Assignment → OLS Estimates Causal Effect</h3>
+            <p><strong>Under random assignment:</strong></p>
+            <div style="background: #ecfdf5; padding: 1rem; border-radius: 8px; margin: 1rem 0; text-align: center; font-family: 'Times New Roman', serif;">
+                D<sub>i</sub> ⊥ η<sub>i</sub>
+            </div>
+            
+            <p>Therefore:</p>
+            <div style="background: #f9f9f9; padding: 1rem; border-radius: 8px; margin: 1rem 0; text-align: center; font-family: 'Times New Roman', serif;">
+                E[η<sub>i</sub> | D<sub>i</sub> = 1] = E[η<sub>i</sub> | D<sub>i</sub> = 0] = E[η<sub>i</sub>] = 0
+            </div>
+            
+            <p><strong>Result:</strong></p>
+            <div style="background: #ecfdf5; padding: 1rem; border-radius: 8px; margin: 1rem 0; text-align: center;">
+                E[Y<sub>i</sub> | D<sub>i</sub> = 1] − E[Y<sub>i</sub> | D<sub>i</sub> = 0] = <strong>ρ</strong><br /><br />
+                → OLS estimate ρ̂ is the <strong>causal effect</strong>!
+            </div>
+
+            <h3>A.5 Two Roles of Adding Covariates</h3>
+            <p><strong>Long regression:</strong></p>
+            <div style="background: #f9f9f9; padding: 1rem; border-radius: 8px; margin: 1rem 0; text-align: center; font-family: 'Times New Roman', serif;">
+                Y<sub>i</sub> = α + ρD<sub>i</sub> + X<sub>i</sub>'γ + η<sub>i</sub>
+            </div>
+            
+            <h4>Role 1: Control for Conditional Random Assignment</h4>
+            <p><strong>In the STAR experiment:</strong></p>
+            <ul>
+                <li>Random assignment <strong>within</strong> schools</li>
+                <li><strong>Not random across</strong> schools (urban vs rural)</li>
+            </ul>
+            <div style="background: #f9f9f9; padding: 1rem; border-radius: 8px; margin: 1rem 0; text-align: center; font-family: 'Times New Roman', serif;">
+                Y<sub>i</sub> = α + ρD<sub>i</sub> + Σ<sub>j</sub> δ<sub>j</sub> · 𝟙[School<sub>i</sub> = j] + η<sub>i</sub>
+            </div>
+            
+            <p><strong>Why necessary?</strong></p>
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #f5f5f5;">
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">School</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Treatment Prob.</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Avg. Score</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Urban A</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">40%</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">High</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Rural B</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">30%</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Low</td>
+                </tr>
+            </table>
+            <p>→ Without school controls, treatment effect may be contaminated</p>
+
+            <h4>Role 2: Improve Estimation Precision</h4>
+            <p><strong>Key principle:</strong> If X<sub>i</sub> explains variance in Y<sub>i</sub>, residual variance decreases, reducing SE of ρ̂</p>
+            
+            <div style="background: #f9f9f9; padding: 1rem; border-radius: 8px; margin: 1rem 0; font-family: 'Times New Roman', serif;">
+                <p><strong>Short regression:</strong> Y<sub>i</sub> = α + ρD<sub>i</sub> + η<sub>i</sub></p>
+                <p style="text-align: center;">Var(ρ̂) ∝ Var(η<sub>i</sub>) / n</p>
+                <br />
+                <p><strong>Long regression:</strong> Y<sub>i</sub> = α + ρD<sub>i</sub> + X<sub>i</sub>'γ + η̃<sub>i</sub></p>
+                <p style="text-align: center;">Var(ρ̂) ∝ Var(η̃<sub>i</sub>) / n</p>
+            </div>
+            <p>If X<sub>i</sub> explains Y<sub>i</sub> well: <strong>Var(η̃<sub>i</sub>) &lt; Var(η<sub>i</sub>)</strong></p>
+
+            <p><strong>STAR experiment results:</strong></p>
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #f5f5f5;">
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Model</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Small Class Effect</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Std. Error</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">No controls</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">5.37</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">1.26</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Student controls</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">5.36</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong>1.21</strong></td>
+                </tr>
+            </table>
+            <p>→ Estimate nearly identical, only standard error decreases!</p>
+
+            <h3>A.6 Key Point: Short vs Long Regression</h3>
+            <p><strong>If random assignment succeeded:</strong></p>
+            <div style="background: #ecfdf5; padding: 1rem; border-radius: 8px; margin: 1rem 0; text-align: center; font-family: 'Times New Roman', serif;">
+                ρ̂<sub>short</sub> ≈ ρ̂<sub>long</sub>
+            </div>
+            <p>Why? Because D<sub>i</sub> is uncorrelated with X<sub>i</sub>!</p>
+            
+            <p><strong>Mathematically (Omitted Variable Bias formula):</strong></p>
+            <div style="background: #f9f9f9; padding: 1rem; border-radius: 8px; margin: 1rem 0; text-align: center; font-family: 'Times New Roman', serif;">
+                ρ̂<sub>short</sub> = ρ̂<sub>long</sub> + γ̂ · <span style="text-decoration: underline;">Cov(D<sub>i</sub>, X<sub>i</sub>) / Var(D<sub>i</sub>)</span><br />
+                <span style="font-size: 0.85rem; color: #666;">↑ ≈ 0 under random assignment</span>
+            </div>
+
+            <h3>A.7 Summary</h3>
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #2563eb; color: white;">
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Scenario</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Regression Result</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Random assignment ✓</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">ρ̂ = Causal effect (ATE)</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Random assignment ✗</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">ρ̂ = Causal effect + Selection bias</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Add covariates (under randomization)</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Same estimate, smaller SE</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Add covariates (conditional randomization)</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Required (removes bias)</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
     <!-- References -->
     <section class="section fade-in-delay">
         <h2 class="section-title">References</h2>
@@ -449,7 +743,7 @@
         
         <!-- 푸터 -->
         <footer class="footer">
-            © Copyright 2025 Suhyeon Lee.
+            © Copyright 2026 Suhyeon Lee.
         </footer>
     </div>
     

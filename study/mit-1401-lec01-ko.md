@@ -1,0 +1,464 @@
+---
+layout: minimal_base
+title: "MIT 14.01 Lec 1: 미시경제학 소개"
+---
+
+<div class="content">
+    <section class="section fade-in">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h2 class="section-title">Lecture 1: 미시경제학 소개</h2>
+            <a href="/study/mit-1401-lec01" style="background: #e5e7eb; color: #374151; padding: 0.4rem 0.8rem; border-radius: 4px; font-size: 0.85rem; text-decoration: none;">English</a>
+        </div>
+        <div class="section-content">
+            <p><em>MIT 14.01 Principles of Microeconomics | Fall 2023 | Prof. Jonathan Gruber</em></p>
+        </div>
+    </section>
+
+    <!-- 핵심 메시지 -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">핵심 메시지</h2>
+        <div class="section-content">
+            <blockquote style="border-left: 4px solid #2563eb; padding-left: 1rem; margin: 1rem 0; color: #374151;">
+                "미시경제학은 희소성(scarcity)의 세계에서 개인과 기업이 어떻게 자신을 최대한 잘 살게 만드는지에 대한 학문이다."
+            </blockquote>
+            <p>경제학의 핵심은 <strong>기회비용(Opportunity Cost)</strong>이다. 모든 선택에는 포기해야 하는 차선책이 존재한다.</p>
+        </div>
+    </section>
+
+    <!-- 1. 미시경제학이란 -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">1. 미시경제학이란?</h2>
+        <div class="section-content">
+            <h4>정의</h4>
+            <p>희소성(scarcity)의 세계에서 개인과 기업이 어떻게 자신을 최대한 잘 살게 만드는지에 대한 학문</p>
+
+            <h4>핵심 개념: 제약 하 최적화 (Constrained Optimization)</h4>
+            <ul>
+                <li>미시경제학의 핵심은 <strong>트레이드오프(trade-offs)</strong></li>
+                <li>"모든 것을 가질 수 없다"는 전제 하에 제한된 자원을 어떻게 최선으로 활용할 것인가?</li>
+            </ul>
+
+            <h4>기회비용 (Opportunity Cost) ⭐</h4>
+            <div style="background: #f0f9ff; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <p><strong>정의:</strong> 모든 행동(또는 비행동)에는 "차선책을 포기하는 비용"이 수반됨</p>
+                <p><strong>예시:</strong></p>
+                <ul>
+                    <li>셔츠를 사면 → 바지를 살 돈을 포기</li>
+                    <li>밤새 공부하면 → 좋아하는 밴드 콘서트를 포기</li>
+                </ul>
+                <p>경제학이 <strong>"우울한 과학(dismal science)"</strong>이라 불리는 이유: 경제학자는 "그건 공짜가 아니야"라고 말하는 역할</p>
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- 2. 경제학의 방법론: 모델 -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">2. 경제학의 방법론: 모델 (Models)</h2>
+        <div class="section-content">
+            <h4>모델의 정의</h4>
+            <p>두 개 이상의 변수 간 관계를 기술하는 것</p>
+
+            <h4>경제학 vs 자연과학</h4>
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #f8fafc; border-bottom: 2px solid #e5e7eb;">
+                    <th style="padding: 0.75rem; text-align: left;">자연과학</th>
+                    <th style="padding: 0.75rem; text-align: left;">경제학</th>
+                </tr>
+                <tr style="border-bottom: 1px solid #e5e7eb;">
+                    <td style="padding: 0.75rem;">과학적 법칙, 상수 존재</td>
+                    <td style="padding: 0.75rem;">법칙/상수 없음</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #e5e7eb;">
+                    <td style="padding: 0.75rem;">"진정한 과학"</td>
+                    <td style="padding: 0.75rem;">사회과학</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.75rem;">보편적 적용 가능</td>
+                    <td style="padding: 0.75rem;">단순화 가정 필요</td>
+                </tr>
+            </table>
+
+            <h4>단순화 가정의 목적</h4>
+            <ul>
+                <li><strong>목표 1:</strong> 최대한 많이 설명</li>
+                <li><strong>목표 2:</strong> 가르치고 풀기 쉬운 간결한 모델</li>
+            </ul>
+            <p>예: 실제로는 여러 재화가 있지만, 2개 재화 모델로도 충분한 직관을 얻을 수 있음 (수학만 더 쉬워짐)</p>
+
+            <blockquote style="border-left: 4px solid #10b981; padding-left: 1rem; margin: 1rem 0; color: #374151;">
+                "All models are wrong, but some are useful." — George Box
+            </blockquote>
+
+            <h4>경제학 이해의 3가지 수준</h4>
+            <ul>
+                <li><strong>수학적 (Mathematical)</strong></li>
+                <li><strong>그래프적 (Graphical)</strong></li>
+                <li><strong>직관적 (Intuitive)</strong></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 3. 수요-공급 모델 -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">3. 수요-공급 모델 (Supply and Demand)</h2>
+        <div class="section-content">
+            <h4>Adam Smith의 다이아몬드-물 역설 (1776)</h4>
+            <p><em>국부론(Wealth of Nations)</em>에서 제기된 질문:</p>
+            
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #f8fafc; border-bottom: 2px solid #e5e7eb;">
+                    <th style="padding: 0.75rem; text-align: left;">재화</th>
+                    <th style="padding: 0.75rem; text-align: left;">생존 필수성</th>
+                    <th style="padding: 0.75rem; text-align: left;">가격</th>
+                </tr>
+                <tr style="border-bottom: 1px solid #e5e7eb;">
+                    <td style="padding: 0.75rem;">물</td>
+                    <td style="padding: 0.75rem;">필수적</td>
+                    <td style="padding: 0.75rem;">거의 무료</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.75rem;">다이아몬드</td>
+                    <td style="padding: 0.75rem;">불필요</td>
+                    <td style="padding: 0.75rem;">매우 높음</td>
+                </tr>
+            </table>
+
+            <div style="background: #fef3c7; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <p><strong>왜?</strong> 수요만 보면 설명 불가. <strong>공급까지 봐야 함</strong></p>
+                <ul>
+                    <li>물의 수요 > 다이아몬드 수요</li>
+                    <li>하지만 물의 공급 >>> 다이아몬드 공급</li>
+                    <li>결과적으로 다이아몬드 가격이 더 높음</li>
+                </ul>
+            </div>
+
+            <h4>시장 (Market)의 정의</h4>
+            <p><strong>시장:</strong> 구매자와 판매자가 모여 거래하는 곳</p>
+
+            <h4>장미 시장 예시</h4>
+            
+            <p><strong>수요곡선 (Demand Curve)</strong></p>
+            <div style="background: #eff6ff; padding: 1rem; border-radius: 8px; margin: 0.5rem 0;">
+                <p style="font-family: monospace; font-size: 1.1rem; text-align: center;">Q = 1800 - 400P</p>
+                <ul>
+                    <li><strong>기울기:</strong> 우하향 (음의 관계)</li>
+                    <li><strong>이유:</strong> 가격↑ → 기회비용↑ → 구매량↓</li>
+                </ul>
+            </div>
+
+            <p><strong>공급곡선 (Supply Curve)</strong></p>
+            <div style="background: #f0fdf4; padding: 1rem; border-radius: 8px; margin: 0.5rem 0;">
+                <p style="font-family: monospace; font-size: 1.1rem; text-align: center;">Q = 200P</p>
+                <ul>
+                    <li><strong>기울기:</strong> 우상향 (양의 관계)</li>
+                    <li><strong>이유:</strong> 가격↑ → 다른 작물 대신 장미 생산이 더 유리 → 생산량↑</li>
+                </ul>
+            </div>
+
+            <p><strong>균형 (Equilibrium)</strong></p>
+            <div style="background: #faf5ff; padding: 1rem; border-radius: 8px; margin: 0.5rem 0;">
+                <p>수요곡선과 공급곡선이 만나는 점:</p>
+                <p style="font-family: monospace; text-align: center;">
+                    1800 - 400P = 200P<br>
+                    1800 = 600P<br>
+                    <strong>P* = 3, Q* = 600</strong>
+                </p>
+                <p><strong>균형의 의미:</strong></p>
+                <ul>
+                    <li>소비자는 $3에 600송이를 기꺼이 구매</li>
+                    <li>생산자는 $3에 600송이를 기꺼이 판매</li>
+                    <li>양측 모두 만족하는 "시스템이 안정된 상태"</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. 실증경제학 vs 규범경제학 -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">4. 실증경제학 vs 규범경제학</h2>
+        <div class="section-content">
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #f8fafc; border-bottom: 2px solid #e5e7eb;">
+                    <th style="padding: 0.75rem; text-align: left;">구분</th>
+                    <th style="padding: 0.75rem; text-align: left;">영어</th>
+                    <th style="padding: 0.75rem; text-align: left;">정의</th>
+                    <th style="padding: 0.75rem; text-align: left;">질문 유형</th>
+                </tr>
+                <tr style="border-bottom: 1px solid #e5e7eb;">
+                    <td style="padding: 0.75rem; font-weight: 600;">실증경제학</td>
+                    <td style="padding: 0.75rem;">Positive Economics</td>
+                    <td style="padding: 0.75rem;">세상이 어떻게 <strong>존재하는지</strong> 연구</td>
+                    <td style="padding: 0.75rem;">"왜 이런 현상이 일어났나?"</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.75rem; font-weight: 600;">규범경제학</td>
+                    <td style="padding: 0.75rem;">Normative Economics</td>
+                    <td style="padding: 0.75rem;">세상이 어떻게 <strong>되어야 하는지</strong> 연구</td>
+                    <td style="padding: 0.75rem;">"이것이 허용되어야 하는가?"</td>
+                </tr>
+            </table>
+
+            <h4>eBay 신장 경매 사례</h4>
+            <div style="background: #fef2f2; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <p><strong>실제 사건:</strong></p>
+                <ul>
+                    <li>누군가 신장을 $25,000에 경매 시작</li>
+                    <li>$500만까지 올라감</li>
+                    <li>eBay가 중단</li>
+                </ul>
+            </div>
+
+            <p><strong>실증적 질문:</strong> 왜 가격이 그렇게 높아졌나?</p>
+            <p>→ 신장 수요는 매우 높음(생존 문제), 공급은 극히 낮음 → 고가격</p>
+
+            <p><strong>규범적 질문:</strong> 신체 장기를 팔아도 되는가?</p>
+
+            <h4>시장 개입의 두 가지 이유</h4>
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #f8fafc; border-bottom: 2px solid #e5e7eb;">
+                    <th style="padding: 0.75rem; text-align: left;">이유</th>
+                    <th style="padding: 0.75rem; text-align: left;">설명</th>
+                    <th style="padding: 0.75rem; text-align: left;">예시</th>
+                </tr>
+                <tr style="border-bottom: 1px solid #e5e7eb;">
+                    <td style="padding: 0.75rem; font-weight: 600;">시장실패 (Market Failures)</td>
+                    <td style="padding: 0.75rem;">시장이 제대로 작동하지 않을 때</td>
+                    <td style="padding: 0.75rem;">정보 비대칭, 강제 거래, 범죄 활동</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.75rem; font-weight: 600;">형평성 (Equity)</td>
+                    <td style="padding: 0.75rem;">불공정한 결과</td>
+                    <td style="padding: 0.75rem;">부자만 장기를 살 수 있는 것이 공정한가?</td>
+                </tr>
+            </table>
+
+            <p><strong>참고:</strong> 이 수업의 90%는 효율성(efficiency)에 관한 것. 형평성(equity)은 학기 후반부에만 다룸.</p>
+        </div>
+    </section>
+
+    <!-- 5. 경제 체제 -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">5. 경제 체제: 자본주의 vs 명령경제</h2>
+        <div class="section-content">
+            <h4>자본주의 (Capitalist Model)</h4>
+            
+            <p><strong>순수 자본주의 (Laissez-faire)</strong></p>
+            <ul>
+                <li>개인이 생산과 소비를 정부 간섭 없이 결정</li>
+                <li>실제로는 존재한 적 없음</li>
+            </ul>
+
+            <p><strong>제약된 자본주의 (미국 등)</strong></p>
+            <ul>
+                <li>시장 주도 + 정부/사회적 제약</li>
+                <li>예: GM이 자동차 생산량 결정, 하지만 배기가스/안전 규제 존재</li>
+            </ul>
+
+            <h4>명령경제 (Command Economy)</h4>
+            <ul>
+                <li>정부가 모든 생산 및 배분 결정</li>
+                <li>전형적으로 공산주의와 연관 (소련)</li>
+                <li>파시즘에서도 가능 (나치 독일)</li>
+            </ul>
+
+            <p><strong>이론적 장점 (Karl Marx):</strong> 정부가 사회 전체의 복지를 최대화, 올바른 재화가 올바른 사람에게 배분</p>
+
+            <p><strong>실패 이유:</strong></p>
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #f8fafc; border-bottom: 2px solid #e5e7eb;">
+                    <th style="padding: 0.75rem; text-align: left;">문제</th>
+                    <th style="padding: 0.75rem; text-align: left;">설명</th>
+                    <th style="padding: 0.75rem; text-align: left;">예시</th>
+                </tr>
+                <tr style="border-bottom: 1px solid #e5e7eb;">
+                    <td style="padding: 0.75rem;">결정의 과부하</td>
+                    <td style="padding: 0.75rem;">수십억 개의 결정을 정부가 다 내릴 수 없음</td>
+                    <td style="padding: 0.75rem;">동독: 차는 부족한데 빵이 너무 많아 돼지에게 먹임</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.75rem;">부패의 필연성</td>
+                    <td style="padding: 0.75rem;">소수가 모든 배분을 결정 → 자기 이익 우선</td>
+                    <td style="padding: 0.75rem;">구조적으로 필연적</td>
+                </tr>
+            </table>
+
+            <h4>보이지 않는 손 (Invisible Hand)</h4>
+            <blockquote style="border-left: 4px solid #2563eb; padding-left: 1rem; margin: 1rem 0; color: #374151;">
+                Adam Smith: 정부가 모든 결정을 할 필요 없음. 시장이 자동으로 생산량과 배분을 결정.
+            </blockquote>
+
+            <div style="background: #f0f9ff; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <p><strong>볼링 비유:</strong></p>
+                <ul>
+                    <li><strong>자본주의:</strong> 정부 = 볼링장 가이드 레일 (공이 레인에서 벗어나지 않게)</li>
+                    <li><strong>명령경제:</strong> 정부가 "7번 핀을 쓰러뜨려라"고 직접 지시</li>
+                </ul>
+            </div>
+
+            <h4>자본주의의 장단점</h4>
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #f8fafc; border-bottom: 2px solid #e5e7eb;">
+                    <th style="padding: 0.75rem; text-align: left;">장점</th>
+                    <th style="padding: 0.75rem; text-align: left;">단점</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.75rem;">미국은 세계 최부국<br>수세기 동안 급속 성장</td>
+                    <td style="padding: 0.75rem;">막대한 불평등<br>상위 1%가 소득의 25% 차지</td>
+                </tr>
+            </table>
+
+            <h4>사회주의에 대한 오해</h4>
+            <ul>
+                <li><strong>오해:</strong> 유럽 국가들은 사회주의</li>
+                <li><strong>실제:</strong> 제약이 더 많은 자본주의 (더 높은 세금, 더 많은 정부 개입, 더 평등)</li>
+                <li><strong>사회주의 정의:</strong> 정부가 산업을 소유/통제</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 6. 강의 로드맵 -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">6. 강의 로드맵</h2>
+        <div class="section-content">
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #f8fafc; border-bottom: 2px solid #e5e7eb;">
+                    <th style="padding: 0.75rem; text-align: left;">순서</th>
+                    <th style="padding: 0.75rem; text-align: left;">내용</th>
+                </tr>
+                <tr style="border-bottom: 1px solid #e5e7eb;">
+                    <td style="padding: 0.75rem;">다음 몇 강의</td>
+                    <td style="padding: 0.75rem;">수요곡선이 어디서 오는지 (소비자 선호에서 도출)</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #e5e7eb;">
+                    <td style="padding: 0.75rem;">그 다음 5강의</td>
+                    <td style="padding: 0.75rem;">공급곡선이 어디서 오는지 (기업 의사결정에서 도출)</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #e5e7eb;">
+                    <td style="padding: 0.75rem;">수요+공급 결합</td>
+                    <td style="padding: 0.75rem;">균형의 의미 이해</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #e5e7eb;">
+                    <td style="padding: 0.75rem;">규범경제학</td>
+                    <td style="padding: 0.75rem;">왜 시장 균형이 최선의 결과인지</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.75rem;">학기 후반부</td>
+                    <td style="padding: 0.75rem;">표준 모델이 깨지는 경우들<br>- 독점 (예: 구글 검색)<br>- 국제무역<br>- 저축과 노동 결정<br>- 투자와 기후변화</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <!-- 핵심 요약 -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">핵심 요약</h2>
+        <div class="section-content">
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #f8fafc; border-bottom: 2px solid #e5e7eb;">
+                    <th style="padding: 0.75rem; text-align: center; width: 5%;">#</th>
+                    <th style="padding: 0.75rem; text-align: left; width: 25%;">개념</th>
+                    <th style="padding: 0.75rem; text-align: left;">설명</th>
+                </tr>
+                <tr style="border-bottom: 1px solid #e5e7eb;">
+                    <td style="padding: 0.75rem; text-align: center;">1</td>
+                    <td style="padding: 0.75rem; font-weight: 600;">미시경제학</td>
+                    <td style="padding: 0.75rem;">희소성 하에서의 최적 의사결정</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #e5e7eb;">
+                    <td style="padding: 0.75rem; text-align: center;">2</td>
+                    <td style="padding: 0.75rem; font-weight: 600;">기회비용</td>
+                    <td style="padding: 0.75rem;">모든 선택에는 포기하는 차선책이 있음</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #e5e7eb;">
+                    <td style="padding: 0.75rem; text-align: center;">3</td>
+                    <td style="padding: 0.75rem; font-weight: 600;">수요-공급 모델</td>
+                    <td style="padding: 0.75rem;">경제학의 가장 기본 모델, 기회비용으로 설명 가능</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #e5e7eb;">
+                    <td style="padding: 0.75rem; text-align: center;">4</td>
+                    <td style="padding: 0.75rem; font-weight: 600;">실증 vs 규범</td>
+                    <td style="padding: 0.75rem;">"어떻게 작동하는가" vs "어떻게 되어야 하는가"</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #e5e7eb;">
+                    <td style="padding: 0.75rem; text-align: center;">5</td>
+                    <td style="padding: 0.75rem; font-weight: 600;">시장 개입 이유</td>
+                    <td style="padding: 0.75rem;">시장실패 또는 형평성</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.75rem; text-align: center;">6</td>
+                    <td style="padding: 0.75rem; font-weight: 600;">자본주의 vs 명령경제</td>
+                    <td style="padding: 0.75rem;">효율성과 형평성의 트레이드오프</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <!-- Key Terms -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Key Terms</h2>
+        <div class="section-content">
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #f8fafc; border-bottom: 2px solid #e5e7eb;">
+                    <th style="padding: 0.75rem; text-align: left;">영어</th>
+                    <th style="padding: 0.75rem; text-align: left;">한국어</th>
+                    <th style="padding: 0.75rem; text-align: left;">정의</th>
+                </tr>
+                <tr style="border-bottom: 1px solid #e5e7eb;">
+                    <td style="padding: 0.75rem;">Scarcity</td>
+                    <td style="padding: 0.75rem;">희소성</td>
+                    <td style="padding: 0.75rem;">자원이 제한되어 있음</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #e5e7eb;">
+                    <td style="padding: 0.75rem;">Opportunity Cost</td>
+                    <td style="padding: 0.75rem;">기회비용</td>
+                    <td style="padding: 0.75rem;">선택으로 인해 포기하는 차선책의 가치</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #e5e7eb;">
+                    <td style="padding: 0.75rem;">Constrained Optimization</td>
+                    <td style="padding: 0.75rem;">제약 하 최적화</td>
+                    <td style="padding: 0.75rem;">제한된 조건에서 최선의 선택</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #e5e7eb;">
+                    <td style="padding: 0.75rem;">Equilibrium</td>
+                    <td style="padding: 0.75rem;">균형</td>
+                    <td style="padding: 0.75rem;">수요와 공급이 일치하는 상태</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #e5e7eb;">
+                    <td style="padding: 0.75rem;">Positive Economics</td>
+                    <td style="padding: 0.75rem;">실증경제학</td>
+                    <td style="padding: 0.75rem;">세상이 어떻게 작동하는지 분석</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #e5e7eb;">
+                    <td style="padding: 0.75rem;">Normative Economics</td>
+                    <td style="padding: 0.75rem;">규범경제학</td>
+                    <td style="padding: 0.75rem;">세상이 어떻게 되어야 하는지 판단</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #e5e7eb;">
+                    <td style="padding: 0.75rem;">Market Failure</td>
+                    <td style="padding: 0.75rem;">시장실패</td>
+                    <td style="padding: 0.75rem;">시장이 효율적 결과를 달성하지 못함</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #e5e7eb;">
+                    <td style="padding: 0.75rem;">Equity</td>
+                    <td style="padding: 0.75rem;">형평성</td>
+                    <td style="padding: 0.75rem;">공정한 배분</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.75rem;">Invisible Hand</td>
+                    <td style="padding: 0.75rem;">보이지 않는 손</td>
+                    <td style="padding: 0.75rem;">시장이 자동으로 효율적 배분을 달성</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <section class="section fade-in-delay">
+        <div class="section-content" style="text-align: center; color: #6b7280; font-size: 0.9rem;">
+            <p><em>Last updated: 2025-01-02</em></p>
+            <p><a href="/study/mit-1401-overview-ko">← 강의 개요로 돌아가기</a></p>
+        </div>
+    </section>
+</div>

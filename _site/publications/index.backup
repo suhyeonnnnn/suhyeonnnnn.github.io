@@ -23,7 +23,7 @@
 {"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Suhyeon Lee"},"description":"KAIST M.S. student researching Digital Marketing, Social Media, and AI applications in human behavior","headline":"Publications","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo.png"},"name":"Suhyeon Lee"},"url":"http://localhost:4000/publications/"}</script>
 <!-- End Jekyll SEO tag -->
 
-    <link rel="stylesheet" href="/assets/css/style.css?v=d6526ad402ae66944b6d05e383c01715ff6b5214">
+    <link rel="stylesheet" href="/assets/css/style.css?v=65499ca4fa05e12219907fbbb48ba6ac5a60f357">
     <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
 
 <!-- Setup Google Analytics -->
