@@ -109,8 +109,8 @@ title: "Study"
                         <div style="border-left: 3px solid #10b981; padding-left: 1rem; margin: 0.5rem 0;">
                             <a href="/study/mit-1401-lec02" style="text-decoration: none; color: #374151;">Lec 2: Preferences and Utility Functions</a>
                         </div>
-                        <div style="border-left: 3px solid #d1d5db; padding-left: 1rem; margin: 0.5rem 0; color: #9ca3af;">
-                            Lec 3: Budget Constraints and Constrained Choice
+                        <div style="border-left: 3px solid #10b981; padding-left: 1rem; margin: 0.5rem 0;">
+                            <a href="/study/mit-1401-lec03" style="text-decoration: none; color: #374151;">Lec 3: Budget Constraints and Constrained Choice</a>
                         </div>
                         <div style="border-left: 3px solid #d1d5db; padding-left: 1rem; margin: 0.5rem 0; color: #9ca3af;">
                             Lec 4: Demand Curves and Income/Substitution Effects
