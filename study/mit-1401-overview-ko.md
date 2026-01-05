@@ -129,6 +129,11 @@ title: "MIT 14.01 미시경제학 원론"
                 </tr>
                 <tr style="border-bottom: 1px solid #e5e7eb;">
                     <td style="padding: 0.75rem;">Lec 4</td>
+                    <td style="padding: 0.75rem;">수요곡선과 소득/대체효과</td>
+                    <td style="padding: 0.75rem;"><a href="/study/mit-1401-lec04-ko">노트</a></td>
+                </tr>
+                <tr style="border-bottom: 1px solid #e5e7eb;">
+                    <td style="padding: 0.75rem;">Lec 5</td>
                     <td style="padding: 0.75rem;">TBD</td>
                     <td style="padding: 0.75rem;">-</td>
                 </tr>

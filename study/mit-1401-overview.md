@@ -129,6 +129,11 @@ title: "MIT 14.01 Principles of Microeconomics"
                 </tr>
                 <tr style="border-bottom: 1px solid #e5e7eb;">
                     <td style="padding: 0.75rem;">Lec 4</td>
+                    <td style="padding: 0.75rem;">Demand Curves and Income/Substitution Effects</td>
+                    <td style="padding: 0.75rem;"><a href="/study/mit-1401-lec04">Notes</a></td>
+                </tr>
+                <tr style="border-bottom: 1px solid #e5e7eb;">
+                    <td style="padding: 0.75rem;">Lec 5</td>
                     <td style="padding: 0.75rem;">TBD</td>
                     <td style="padding: 0.75rem;">-</td>
                 </tr>
