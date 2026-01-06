@@ -346,9 +346,113 @@ title: "Angrist Ch.2 - The Experimental Ideal"
         </div>
     </section>
 
-    <!-- 2.4 Regression Analysis -->
+    <!-- 2.4 Attrition Problem -->
     <section class="section fade-in-delay">
-        <h2 class="section-title">2.4 실험 데이터의 회귀분석</h2>
+        <h2 class="section-title">2.4 이탈 문제 (Attrition Problem)</h2>
+        <div class="section-content">
+            
+            <h4>정의</h4>
+            <div style="background: #fee2e2; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <p><strong>이탈(Attrition):</strong> 실험 도중 참가자가 빠져나가는 것</p>
+            </div>
+            
+            <h4>STAR 실험에서의 이탈</h4>
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #f5f5f5;">
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">시점</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">학생 수</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">시작 (유치원)</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">~11,600명</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">종료 (3학년)</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">일부 이탈</td>
+                </tr>
+            </table>
+            
+            <p><strong>이탈 이유:</strong></p>
+            <ul>
+                <li>전학</li>
+                <li>자퇴</li>
+                <li>실험 거부</li>
+                <li>데이터 누락</li>
+            </ul>
+
+            <h4>왜 문제인가?</h4>
+            <div style="background: #fef3c7; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <p><strong>핵심:</strong> 이탈이 무작위가 아닐 수 있다!</p>
+            </div>
+            
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #f5f5f5;">
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">시나리오</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">문제</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">소규모 학급에서 성적 낮은 학생이 더 많이 전학</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">남은 학생 평균 ↑ → 효과 <strong>과대추정</strong></td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">일반 학급에서 성적 높은 학생이 더 많이 전학</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">남은 학생 평균 ↓ → 효과 <strong>과대추정</strong></td>
+                </tr>
+            </table>
+            
+            <p>→ <strong>무작위 배정이 깨짐!</strong> → 선택 편의 다시 발생</p>
+
+            <h4>수식으로 이해</h4>
+            <p><strong>처음에 무작위 배정 성공:</strong></p>
+            <div style="background: #ecfdf5; padding: 1rem; border-radius: 8px; margin: 1rem 0; text-align: center; font-family: 'Times New Roman', serif;">
+                E[Y<sub>0i</sub> | D<sub>i</sub> = 1] = E[Y<sub>0i</sub> | D<sub>i</sub> = 0]
+            </div>
+            
+            <p><strong>이탈 후:</strong></p>
+            <div style="background: #fee2e2; padding: 1rem; border-radius: 8px; margin: 1rem 0; text-align: center; font-family: 'Times New Roman', serif;">
+                E[Y<sub>0i</sub> | D<sub>i</sub> = 1, <strong>남음</strong>] ≠ E[Y<sub>0i</sub> | D<sub>i</sub> = 0, <strong>남음</strong>]
+            </div>
+            <p style="text-align: center;">→ 남은 사람들끼리는 더 이상 비교 가능하지 않을 수 있음!</p>
+
+            <h4>이탈 문제 해결 방법</h4>
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #2563eb; color: white;">
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">방법</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">설명</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong>이탈률 비교</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">처치/통제 그룹 간 이탈률이 비슷한지 확인</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong>이탈자 특성 비교</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">누가 빠졌는지 분석 (어떤 특성을 가진 사람이 이탈했나?)</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong>Bounds 분석</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">최악/최선 시나리오로 효과의 범위 추정</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong>ITT 분석</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">이탈 여부 상관없이 원래 배정 기준으로 분석 (Intent-to-Treat)</td>
+                </tr>
+            </table>
+
+            <div style="background: #f0f9ff; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <p><strong>ITT (Intent-to-Treat) 분석:</strong></p>
+                <ul>
+                    <li>원래 배정된 그룹 기준으로 분석</li>
+                    <li>실제로 처치를 받았는지 여부는 무시</li>
+                    <li>이탈로 인한 선택 편의를 피할 수 있음</li>
+                    <li>단점: 실제 처치 효과를 과소추정할 수 있음</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2.5 Regression Analysis -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">2.5 실험 데이터의 회귀분석</h2>
         <div class="section-content">
             
             <h4>상수 처치효과 모형</h4>

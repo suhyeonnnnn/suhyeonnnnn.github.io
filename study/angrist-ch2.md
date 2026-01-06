@@ -346,9 +346,113 @@ title: "Angrist Ch.2 - The Experimental Ideal"
         </div>
     </section>
 
-    <!-- 2.4 Regression Analysis -->
+    <!-- 2.4 Attrition Problem -->
     <section class="section fade-in-delay">
-        <h2 class="section-title">2.4 Regression Analysis of Experiments</h2>
+        <h2 class="section-title">2.4 The Attrition Problem</h2>
+        <div class="section-content">
+            
+            <h4>Definition</h4>
+            <div style="background: #fee2e2; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <p><strong>Attrition:</strong> Participants dropping out during the course of an experiment</p>
+            </div>
+            
+            <h4>Attrition in the STAR Experiment</h4>
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #f5f5f5;">
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Time Point</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Number of Students</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Start (Kindergarten)</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">~11,600</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">End (3rd Grade)</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Some attrition</td>
+                </tr>
+            </table>
+            
+            <p><strong>Reasons for attrition:</strong></p>
+            <ul>
+                <li>School transfers</li>
+                <li>Dropping out</li>
+                <li>Refusal to continue participation</li>
+                <li>Missing data</li>
+            </ul>
+
+            <h4>Why Is This a Problem?</h4>
+            <div style="background: #fef3c7; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <p><strong>Key issue:</strong> Attrition may not be random!</p>
+            </div>
+            
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #f5f5f5;">
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Scenario</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Problem</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Low-performing students in small classes transfer more</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Remaining students' average ↑ → Effect <strong>overestimated</strong></td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">High-performing students in regular classes transfer more</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Remaining students' average ↓ → Effect <strong>overestimated</strong></td>
+                </tr>
+            </table>
+            
+            <p>→ <strong>Random assignment is compromised!</strong> → Selection bias re-emerges</p>
+
+            <h4>Mathematical Understanding</h4>
+            <p><strong>Initially, random assignment succeeds:</strong></p>
+            <div style="background: #ecfdf5; padding: 1rem; border-radius: 8px; margin: 1rem 0; text-align: center; font-family: 'Times New Roman', serif;">
+                E[Y<sub>0i</sub> | D<sub>i</sub> = 1] = E[Y<sub>0i</sub> | D<sub>i</sub> = 0]
+            </div>
+            
+            <p><strong>After attrition:</strong></p>
+            <div style="background: #fee2e2; padding: 1rem; border-radius: 8px; margin: 1rem 0; text-align: center; font-family: 'Times New Roman', serif;">
+                E[Y<sub>0i</sub> | D<sub>i</sub> = 1, <strong>Stayer</strong>] ≠ E[Y<sub>0i</sub> | D<sub>i</sub> = 0, <strong>Stayer</strong>]
+            </div>
+            <p style="text-align: center;">→ Those who remain may no longer be comparable!</p>
+
+            <h4>Solutions to the Attrition Problem</h4>
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #2563eb; color: white;">
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Method</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Description</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong>Compare attrition rates</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Check if attrition rates are similar across treatment/control groups</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong>Compare attriter characteristics</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Analyze who dropped out (what characteristics do attriters have?)</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong>Bounds analysis</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Estimate range of effects under worst/best case scenarios</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong>ITT analysis</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Analyze based on original assignment regardless of attrition (Intent-to-Treat)</td>
+                </tr>
+            </table>
+
+            <div style="background: #f0f9ff; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <p><strong>ITT (Intent-to-Treat) Analysis:</strong></p>
+                <ul>
+                    <li>Analyze based on originally assigned group</li>
+                    <li>Ignore whether treatment was actually received</li>
+                    <li>Avoids selection bias from attrition</li>
+                    <li>Drawback: May underestimate actual treatment effect</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2.5 Regression Analysis -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">2.5 Regression Analysis of Experiments</h2>
         <div class="section-content">
             
             <h4>Constant Treatment Effect Model</h4>
