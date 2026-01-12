@@ -115,8 +115,8 @@ title: "Study"
                         <div style="border-left: 3px solid #10b981; padding-left: 1rem; margin: 0.5rem 0;">
                             <a href="/study/mit-1401-lec04" style="text-decoration: none; color: #374151;">Lec 4: Demand Curves and Income/Substitution Effects</a>
                         </div>
-                        <div style="border-left: 3px solid #d1d5db; padding-left: 1rem; margin: 0.5rem 0; color: #9ca3af;">
-                            Lec 5: Production Theory
+                        <div style="border-left: 3px solid #10b981; padding-left: 1rem; margin: 0.5rem 0;">
+                            <a href="/study/mit-1401-lec05" style="text-decoration: none; color: #374151;">Lec 5: Production Theory</a>
                         </div>
                         <div style="border-left: 3px solid #d1d5db; padding-left: 1rem; margin: 0.5rem 0; color: #9ca3af;">
                             Lec 6: Costs

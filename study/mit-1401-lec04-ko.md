@@ -164,6 +164,17 @@ title: "MIT 14.01 Lec 4: 수요곡선과 소득/대체효과"
             </div>
 
             <h4>극단적 케이스</h4>
+            <div style="display: flex; gap: 1rem; margin: 1.5rem 0; flex-wrap: wrap;">
+                <div style="flex: 1; min-width: 280px; text-align: center;">
+                    <img src="/assets/images/mit1401-fig4-2.png" alt="Figure 4-2: 완전 비탄력적 수요" style="max-width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <p style="color: #6b7280; font-size: 0.85rem; margin-top: 0.5rem;">Figure 4-2: 완전 비탄력적 (ε = 0)</p>
+                </div>
+                <div style="flex: 1; min-width: 280px; text-align: center;">
+                    <img src="/assets/images/mit1401-fig4-3.png" alt="Figure 4-3: 완전 탄력적 수요" style="max-width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <p style="color: #6b7280; font-size: 0.85rem; margin-top: 0.5rem;">Figure 4-3: 완전 탄력적 (ε = -∞)</p>
+                </div>
+            </div>
+
             <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
                 <tr style="background: #f8fafc; border-bottom: 2px solid #e5e7eb;">
                     <th style="padding: 0.75rem; text-align: left;">유형</th>
@@ -256,6 +267,11 @@ title: "MIT 14.01 Lec 4: 수요곡선과 소득/대체효과"
             </div>
 
             <h4>엥겔곡선 (Engel Curve)</h4>
+            <div style="text-align: center; margin: 1.5rem 0;">
+                <img src="/assets/images/mit1401-fig4-4.png" alt="Figure 4-4: 엥겔곡선 생성" style="max-width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <p style="color: #6b7280; font-size: 0.9rem; margin-top: 0.5rem;">Figure 4-4: 엥겔곡선 생성</p>
+            </div>
+
             <div style="background: #eff6ff; padding: 1rem; border-radius: 8px; margin: 0.5rem 0;">
                 <p><strong>정의:</strong> 소득과 수요량 사이의 관계</p>
                 <p style="font-family: monospace; font-size: 1.1rem; text-align: center; margin-top: 0.5rem;">
@@ -403,6 +419,11 @@ title: "MIT 14.01 Lec 4: 수요곡선과 소득/대체효과"
                 <li>원래 무차별곡선에 <strong>접함</strong> (효용 일정 유지)</li>
             </ol>
 
+            <div style="text-align: center; margin: 1.5rem 0;">
+                <img src="/assets/images/mit1401-fig4-5.png" alt="Figure 4-5: 정상재의 소득/대체효과" style="max-width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <p style="color: #6b7280; font-size: 0.9rem; margin-top: 0.5rem;">Figure 4-5: 정상재의 소득효과와 대체효과</p>
+            </div>
+
             <div style="background: #f8fafc; padding: 1rem; border-radius: 8px; margin: 1rem 0; border-left: 4px solid #2563eb;">
                 <p><em>"일정한 효용에서 수량 변화를 보여주는 거예요. 효용을 어떻게 일정하게 유지하죠? 같은 무차별곡선에 머무르는 거예요."</em></p>
             </div>
@@ -498,8 +519,10 @@ title: "MIT 14.01 Lec 4: 수요곡선과 소득/대체효과"
                 </tr>
             </table>
 
-            <h4>원래 상태 (점 A)</h4>
-            <p>스테이크: 3.5개, 감자: 7.5개</p>
+            <div style="text-align: center; margin: 1.5rem 0;">
+                <img src="/assets/images/mit1401-fig4-6.png" alt="Figure 4-6: 열등재의 소득/대체효과" style="max-width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <p style="color: #6b7280; font-size: 0.9rem; margin-top: 0.5rem;">Figure 4-6: 열등재(감자)의 소득효과와 대체효과</p>
+            </div>
 
             <h4>분해</h4>
             <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
@@ -715,7 +738,7 @@ title: "MIT 14.01 Lec 4: 수요곡선과 소득/대체효과"
     <!-- Footer -->
     <section class="section fade-in-delay">
         <div class="section-content" style="text-align: center; color: #6b7280; font-size: 0.9rem;">
-            <p><em>Last updated: 2025-01-05</em></p>
+            <p><em>Last updated: 2025-01-10</em></p>
             <p><a href="/study/mit-1401-overview-ko">← 코스 개요로 돌아가기</a></p>
         </div>
     </section>

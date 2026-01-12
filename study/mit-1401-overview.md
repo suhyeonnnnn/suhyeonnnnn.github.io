@@ -134,8 +134,8 @@ title: "MIT 14.01 Principles of Microeconomics"
                 </tr>
                 <tr style="border-bottom: 1px solid #e5e7eb;">
                     <td style="padding: 0.75rem;">Lec 5</td>
-                    <td style="padding: 0.75rem;">TBD</td>
-                    <td style="padding: 0.75rem;">-</td>
+                    <td style="padding: 0.75rem;">Production Theory</td>
+                    <td style="padding: 0.75rem;"><a href="/study/mit-1401-lec05">Notes</a></td>
                 </tr>
             </table>
         </div>
