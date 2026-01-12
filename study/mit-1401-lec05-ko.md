@@ -410,6 +410,11 @@ title: "MIT 14.01 Lec 5: 생산 이론"
                 <p style="margin-top: 0.5rem;"><em>"무차별곡선처럼 보여요. 하지만 이 맥락에서는 등량곡선이라고 불러요, 멋진 단어 만들기 좋아하거든요."</em></p>
             </div>
 
+            <div style="text-align: center; margin: 1.5rem 0;">
+                <img src="/assets/images/fig5-1-isoquants.png" alt="Figure 5-1: 등량곡선" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <p style="color: #6b7280; font-size: 0.9rem; margin-top: 0.5rem;"><strong>Figure 5-1:</strong> q = √(K·L)의 등량곡선. 각 곡선은 다른 산출 수준을 나타냅니다.</p>
+            </div>
+
             <h4>6.4 등량곡선의 속성</h4>
             <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
                 <tr style="background: #f8fafc; border-bottom: 2px solid #e5e7eb;">
@@ -455,6 +460,17 @@ title: "MIT 14.01 Lec 5: 생산 이론"
                     <td style="padding: 0.75rem;"><em>"시리얼과 시리얼 상자"</em></td>
                 </tr>
             </table>
+
+            <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin: 1.5rem 0;">
+                <div style="text-align: center; flex: 1; min-width: 280px;">
+                    <img src="/assets/images/fig5-2a-perfect-substitutes.png" alt="Figure 5-2a: 완전 대체재" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <p style="color: #6b7280; font-size: 0.85rem; margin-top: 0.5rem;"><strong>Figure 5-2a:</strong> 완전 대체재 (q = x + y)</p>
+                </div>
+                <div style="text-align: center; flex: 1; min-width: 280px;">
+                    <img src="/assets/images/fig5-2b-perfect-complements.png" alt="Figure 5-2b: 완전 보완재" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <p style="color: #6b7280; font-size: 0.85rem; margin-top: 0.5rem;"><strong>Figure 5-2b:</strong> 완전 보완재 (q = min(x, y))</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -490,6 +506,12 @@ title: "MIT 14.01 Lec 5: 생산 이론"
             </div>
 
             <h4>7.4 등량곡선을 따라 MRTS 해석</h4>
+
+            <div style="text-align: center; margin: 1.5rem 0;">
+                <img src="/assets/images/fig5-3-mrts.png" alt="Figure 5-3: 등량곡선과 MRTS" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <p style="color: #6b7280; font-size: 0.9rem; margin-top: 0.5rem;"><strong>Figure 5-3:</strong> 등량곡선과 MRTS. 점 A(1,4), B(2,2), C(4,1)에서 MRTS가 어떻게 변하는지 보여줍니다.</p>
+            </div>
+
             <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
                 <tr style="background: #f8fafc; border-bottom: 2px solid #e5e7eb;">
                     <th style="padding: 0.75rem;">점</th>
