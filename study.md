@@ -43,8 +43,14 @@ title: "Study"
                         <div style="border-left: 3px solid #2563eb; padding-left: 1rem; margin: 0.5rem 0;">
                             <a href="/study/angrist-ch3" style="text-decoration: none; color: #374151;">Ch 3: Making Regression Make Sense</a>
                         </div>
-                        <div style="border-left: 3px solid #d1d5db; padding-left: 1rem; margin: 0.5rem 0; color: #9ca3af;">
-                            Ch 4: Instrumental Variables in Action
+                        <div style="border-left: 3px solid #2563eb; padding-left: 1rem; margin: 0.5rem 0;">
+                            <a href="/study/angrist-ch4-part1" style="text-decoration: none; color: #374151;">Ch 4-1: IV Basics, Wald & 2SLS</a>
+                        </div>
+                        <div style="border-left: 3px solid #2563eb; padding-left: 1rem; margin: 0.5rem 0;">
+                            <a href="/study/angrist-ch4-part2" style="text-decoration: none; color: #374151;">Ch 4-2: LATE & Heterogeneous Effects</a>
+                        </div>
+                        <div style="border-left: 3px solid #2563eb; padding-left: 1rem; margin: 0.5rem 0;">
+                            <a href="/study/angrist-ch4-part3" style="text-decoration: none; color: #374151;">Ch 4-3: IV Details</a>
                         </div>
                     </div>
                 </details>
