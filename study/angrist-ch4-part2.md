@@ -317,6 +317,199 @@ title: "Angrist Ch.4-2 - LATE & Heterogeneous Effects"
         </div>
     </section>
 
+    <!-- Applied Case Study: Angrist & Evans (1998) -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">Applied: Angrist & Evans (1998) — Fertility & Labor Supply</h2>
+        <div class="section-content">
+            <p><strong>Research question:</strong> Does having a third child causally reduce female labor supply?</p>
+
+            <h3>The Identification Problem</h3>
+            <p>Simple OLS comparison of mothers with 2 vs. 3+ children confounds causation with selection: women who have more children may have inherently stronger family-orientation preferences, leading to both more children <em>and</em> less labor supply.</p>
+
+            <div style="background: #fef3c7; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <strong style="color: #92400e;">Core problem:</strong> Fertility is endogenous — unobservable preferences drive both the number of children and labor supply decisions simultaneously.
+            </div>
+
+            <h3>Two Instruments for a Third Child</h3>
+            <p>Among mothers with ≥2 children, Angrist & Evans use two sources of exogenous variation:</p>
+
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #2563eb; color: white;">
+                    <th style="padding: 0.75rem; border: 1px solid #ddd;"></th>
+                    <th style="padding: 0.75rem; border: 1px solid #ddd;">Twins at second birth</th>
+                    <th style="padding: 0.75rem; border: 1px solid #ddd;">Same-sex (first two children)</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong>Logic</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Twins mechanically create ≥3 children</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Parents prefer mixed-sex sibship → more likely to try for a third</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong>First stage</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">0.625 (very strong)</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">0.067 (modest)</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong>Validity</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Twin births are essentially random</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Child sex composition is random</td>
+                </tr>
+            </table>
+
+            <h3>Results</h3>
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #2563eb; color: white;">
+                    <th style="padding: 0.75rem; border: 1px solid #ddd;">Outcome</th>
+                    <th style="padding: 0.75rem; border: 1px solid #ddd;">OLS</th>
+                    <th style="padding: 0.75rem; border: 1px solid #ddd;">Twins IV</th>
+                    <th style="padding: 0.75rem; border: 1px solid #ddd;">Same-sex IV</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Employment</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">−0.167</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">−0.083</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">−0.135</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Weeks worked</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">−8.05</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">−3.83</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">−6.23</td>
+                </tr>
+            </table>
+
+            <div style="background: #fef3c7; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <strong style="color: #92400e;">Key observation:</strong> |OLS| > |Same-sex IV| > |Twins IV|. Same treatment, same outcome, but different estimates. Why?
+            </div>
+
+            <h3>Why Estimates Differ: Different Compliers</h3>
+            <p>Each instrument identifies effects for a <strong>different complier subpopulation</strong>:</p>
+
+            <div style="background: #f0f9ff; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <p><strong>Twins compliers</strong> = mothers who would <em>not</em> have had a third child without twins</p>
+                <ul>
+                    <li>Older, more educated, established careers</li>
+                    <li>Planned for 2 children → forced into 3 by twins</li>
+                    <li>→ Labor supply impact is <strong>smaller</strong> (career attachment buffers the shock)</li>
+                </ul>
+            </div>
+
+            <div style="background: #f0f9ff; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <p><strong>Same-sex compliers</strong> = mothers who had a third child due to sex-mix preference</p>
+                <ul>
+                    <li>Younger, less educated, early career stage</li>
+                    <li>Strong family composition preferences</li>
+                    <li>→ Labor supply impact is <strong>larger</strong> (less career attachment, higher opportunity cost)</li>
+                </ul>
+            </div>
+
+            <h3>Mapping to ATE / ATT / ITT / LATE</h3>
+
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #2563eb; color: white;">
+                    <th style="padding: 0.75rem; border: 1px solid #ddd;">Estimand</th>
+                    <th style="padding: 0.75rem; border: 1px solid #ddd;">Definition</th>
+                    <th style="padding: 0.75rem; border: 1px solid #ddd;">In This Study</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong style="color: #dc2626;">ATE</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">E[Y(1)−Y(0)] for entire population</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Effect of 3rd child on <em>all</em> mothers with 2 children — not directly observed</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong style="color: #059669;">ATT</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">E[Y(1)−Y(0) | D=1] for treated</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Effect on mothers who <em>actually</em> had a 3rd child — OLS (−0.167) tries but is biased by selection</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong style="color: #d97706;">ITT</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">E[Y|Z=1]−E[Y|Z=0] by assignment</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Effect of being assigned twins/same-sex — reduced form, always unbiased</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong style="color: #7c3aed;">LATE</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">E[Y(1)−Y(0) | compliers]</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Twins: −0.083 | Same-sex: −0.135 — different compliers give different LATEs</td>
+                </tr>
+            </table>
+
+            <h3>Mathematical Relationships</h3>
+            <div style="background: #f9f9f9; padding: 1rem; border-radius: 8px; margin: 1rem 0; font-family: 'Times New Roman', serif;">
+                <p><strong>ATE</strong> = E[Y₁−Y₀|C]·π<sub>C</sub> + E[Y₁−Y₀|AT]·π<sub>AT</sub> + E[Y₁−Y₀|NT]·π<sub>NT</sub></p>
+                <p><strong>ATT</strong> = E[Y₁−Y₀|C]·π<sub>C</sub>/(π<sub>C</sub>+π<sub>AT</sub>) + E[Y₁−Y₀|AT]·π<sub>AT</sub>/(π<sub>C</sub>+π<sub>AT</sub>)</p>
+                <p><strong>ITT</strong> = LATE × π<sub>C</sub>  (always unbiased, |ITT| ≤ |LATE|)</p>
+                <p><strong>LATE</strong> = E[Y₁−Y₀ | Compliers] = ITT / First stage</p>
+            </div>
+
+            <h4>Size Relationships</h4>
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.95rem;">
+                <tr style="background: #f5f5f5;">
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Relationship</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Condition</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">|ITT| &lt; |LATE|</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Always (compliance rate &lt; 1)</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">ATT ≥ ATE (typically)</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">High-benefit individuals self-select into treatment</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">LATE = ATT</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">No always-takers (Bloom 1984)</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">LATE₁ ≠ LATE₂</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Different IVs → different compliers (Angrist & Evans)</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">LATE = ATE</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Homogeneous treatment effects (constant effect)</td>
+                </tr>
+            </table>
+
+            <h4>Method → Estimand Mapping</h4>
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.95rem;">
+                <tr style="background: #2563eb; color: white;">
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Method</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Estimates</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Generalizability</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">RCT (full compliance)</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong style="color: #dc2626;">ATE</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Broad</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">RCT (non-compliance) + IV</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong style="color: #7c3aed;">LATE</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Compliers only</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">DID / Matching / PSM</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong style="color: #059669;">ATT</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Groups similar to treated</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">RDD</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong style="color: #7c3aed;">LATE at cutoff</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Near cutoff only</td>
+                </tr>
+            </table>
+
+            <div style="background: #ecfdf5; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <p><strong>Key lessons from Angrist & Evans:</strong></p>
+                <ol>
+                    <li><strong>LATE ≠ ATE ≠ ATT.</strong> OLS (−0.167), Twins IV (−0.083), Same-sex IV (−0.135) all give different numbers for the same research question.</li>
+                    <li><strong>Different instruments → different compliers → different LATEs.</strong> The choice of instrument determines <em>whose</em> effect you estimate.</li>
+                    <li><strong>Complier characteristics explain the gap.</strong> The difference is systematic, not random — it traces back to demographics of each complier group.</li>
+                    <li><strong>Policy implications change.</strong> −8% vs. −17% employment effects lead to completely different childcare policy conclusions.</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
     <!-- Summary -->
     <section class="section fade-in-delay">
         <h2 class="section-title">Part 2 Summary</h2>

@@ -265,6 +265,199 @@ title: "Angrist Ch.4-2 - LATE & 이질적 효과"
         </div>
     </section>
 
+    <!-- 적용 사례: Angrist & Evans (1998) -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">적용: Angrist & Evans (1998) — 출산과 노동공급</h2>
+        <div class="section-content">
+            <p><strong>연구 질문:</strong> 셋째 자녀 출산이 여성의 노동공급을 인과적으로 감소시키는가?</p>
+
+            <h3>식별 문제</h3>
+            <p>자녀 2명 vs 3명 이상인 어머니의 단순 OLS 비교는 인과관계와 선택을 혼동: 자녀가 많은 여성은 본래 가정 중심적 선호가 강할 수 있어 자녀 수와 노동공급 <em>모두</em>에 영향.</p>
+
+            <div style="background: #fef3c7; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <strong style="color: #92400e;">핵심 문제:</strong> 출산은 내생적 — 관찰 불가능한 선호가 자녀 수와 노동공급 결정을 동시에 주도.
+            </div>
+
+            <h3>셋째 자녀를 위한 두 가지 도구변수</h3>
+            <p>자녀가 2명 이상인 어머니를 대상으로, 두 가지 외생적 변동 활용:</p>
+
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #2563eb; color: white;">
+                    <th style="padding: 0.75rem; border: 1px solid #ddd;"></th>
+                    <th style="padding: 0.75rem; border: 1px solid #ddd;">둘째 출산 시 쌍둥이</th>
+                    <th style="padding: 0.75rem; border: 1px solid #ddd;">첫 두 자녀 동성</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong>논리</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">쌍둥이가 기계적으로 자녀 ≥3명을 만듦</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">부모가 성별 다양성을 선호 → 셋째 시도 확률 ↑</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong>1단계</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">0.625 (매우 강함)</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">0.067 (약함)</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong>타당성</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">쌍둥이 출산은 본질적으로 무작위</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">자녀 성별 구성은 무작위</td>
+                </tr>
+            </table>
+
+            <h3>추정 결과</h3>
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #2563eb; color: white;">
+                    <th style="padding: 0.75rem; border: 1px solid #ddd;">결과변수</th>
+                    <th style="padding: 0.75rem; border: 1px solid #ddd;">OLS</th>
+                    <th style="padding: 0.75rem; border: 1px solid #ddd;">Twins IV</th>
+                    <th style="padding: 0.75rem; border: 1px solid #ddd;">Same-sex IV</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">취업 여부</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">−0.167</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">−0.083</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">−0.135</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">연간 근로주수</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">−8.05</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">−3.83</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">−6.23</td>
+                </tr>
+            </table>
+
+            <div style="background: #fef3c7; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <strong style="color: #92400e;">핵심 관찰:</strong> |OLS| > |Same-sex IV| > |Twins IV|. 같은 처치, 같은 결과변수인데 추정치가 다르다. 왜?
+            </div>
+
+            <h3>추정치가 다른 이유: 순응자가 다르다</h3>
+            <p>각 도구변수는 서로 다른 <strong>순응자 하위집단</strong>의 효과를 식별:</p>
+
+            <div style="background: #f0f9ff; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <p><strong>Twins 순응자</strong> = 쌍둥이가 아니었으면 셋째를 낳지 <em>않았을</em> 어머니들</p>
+                <ul>
+                    <li>나이 많고, 교육 수준 높고, 커리어 확립</li>
+                    <li>2명만 계획 → 쌍둥이로 강제 3명</li>
+                    <li>→ 노동공급 감소가 <strong>작음</strong> (커리어 애착이 충격을 완충)</li>
+                </ul>
+            </div>
+
+            <div style="background: #f0f9ff; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <p><strong>Same-sex 순응자</strong> = 성별 다양성 선호로 셋째를 낳게 된 어머니들</p>
+                <ul>
+                    <li>젊고, 교육 수준 낮고, 커리어 초기 단계</li>
+                    <li>가족 구성에 대한 강한 선호</li>
+                    <li>→ 노동공급 감소가 <strong>큼</strong> (낮은 커리어 애착, 높은 기회비용)</li>
+                </ul>
+            </div>
+
+            <h3>ATE / ATT / ITT / LATE 관점에서의 매핑</h3>
+
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #2563eb; color: white;">
+                    <th style="padding: 0.75rem; border: 1px solid #ddd;">추정량</th>
+                    <th style="padding: 0.75rem; border: 1px solid #ddd;">정의</th>
+                    <th style="padding: 0.75rem; border: 1px solid #ddd;">이 연구에서</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong style="color: #dc2626;">ATE</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">E[Y(1)−Y(0)], 전체 모집단</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">2자녀 <em>모든</em> 어머니가 셋째를 낳으면 — 직접 관측 불가</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong style="color: #059669;">ATT</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">E[Y(1)−Y(0)|D=1], 처치자</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><em>실제로</em> 셋째를 낳은 어머니 — OLS(−0.167)가 추정 시도하나 선택 편의</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong style="color: #d97706;">ITT</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">E[Y|Z=1]−E[Y|Z=0], 할당별</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">쌍둥이/동성에 "배정"된 것의 효과 — 축약형, 항상 불편</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong style="color: #7c3aed;">LATE</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">E[Y(1)−Y(0)|순응자]</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Twins: −0.083 | Same-sex: −0.135 — 다른 순응자 → 다른 LATE</td>
+                </tr>
+            </table>
+
+            <h3>수학적 관계</h3>
+            <div style="background: #f9f9f9; padding: 1rem; border-radius: 8px; margin: 1rem 0; font-family: 'Times New Roman', serif;">
+                <p><strong>ATE</strong> = E[Y₁−Y₀|C]·π<sub>C</sub> + E[Y₁−Y₀|AT]·π<sub>AT</sub> + E[Y₁−Y₀|NT]·π<sub>NT</sub></p>
+                <p><strong>ATT</strong> = E[Y₁−Y₀|C]·π<sub>C</sub>/(π<sub>C</sub>+π<sub>AT</sub>) + E[Y₁−Y₀|AT]·π<sub>AT</sub>/(π<sub>C</sub>+π<sub>AT</sub>)</p>
+                <p><strong>ITT</strong> = LATE × π<sub>C</sub>  (항상 불편, |ITT| ≤ |LATE|)</p>
+                <p><strong>LATE</strong> = E[Y₁−Y₀ | 순응자] = ITT / 1단계</p>
+            </div>
+
+            <h4>크기 관계 요약</h4>
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.95rem;">
+                <tr style="background: #f5f5f5;">
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">관계</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">조건</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">|ITT| &lt; |LATE|</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">항상 (순응률 &lt; 1일 때)</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">ATT ≥ ATE (보통)</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">효과 큰 사람이 선택적으로 참여</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">LATE = ATT</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">항상-처치자 없음 (Bloom 1984)</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">LATE₁ ≠ LATE₂</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">다른 IV → 다른 순응자 (Angrist & Evans)</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">LATE = ATE</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">동질적 처치효과 (모든 사람에게 효과 동일)</td>
+                </tr>
+            </table>
+
+            <h4>방법론 → 추정량 연결</h4>
+            <table style="width:100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.95rem;">
+                <tr style="background: #2563eb; color: white;">
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">방법론</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">추정하는 효과</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">일반화 범위</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">RCT (완전 순응)</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong style="color: #dc2626;">ATE</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">넓음</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">RCT (비순응) + IV</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong style="color: #7c3aed;">LATE</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">순응자 한정</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">DID / Matching / PSM</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong style="color: #059669;">ATT</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">처치군과 비슷한 집단</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">RDD</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;"><strong style="color: #7c3aed;">LATE at cutoff</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">Cutoff 근처 한정</td>
+                </tr>
+            </table>
+
+            <div style="background: #ecfdf5; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <p><strong>Angrist & Evans의 핵심 교훈:</strong></p>
+                <ol>
+                    <li><strong>LATE ≠ ATE ≠ ATT.</strong> OLS(−0.167), Twins IV(−0.083), Same-sex IV(−0.135) 모두 같은 연구 질문에 다른 숫자.</li>
+                    <li><strong>다른 도구변수 → 다른 순응자 → 다른 LATE.</strong> 도구변수 선택이 <em>누구의</em> 효과를 추정하는지를 결정.</li>
+                    <li><strong>순응자 특성이 차이를 설명.</strong> 추정치 차이는 무작위가 아니라 각 순응자 집단의 인구통계학적 구성으로 체계적으로 설명됨.</li>
+                    <li><strong>정책적 함의가 달라진다.</strong> 취업 효과 −8% vs −17%는 완전히 다른 보육정책 결론으로 이어짐.</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
     <!-- 요약 -->
     <section class="section fade-in-delay">
         <h2 class="section-title">Part 2 요약</h2>
