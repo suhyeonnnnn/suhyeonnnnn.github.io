@@ -130,18 +130,18 @@ title: "Study"
                         <div style="border-left: 3px solid #10b981; padding-left: 1rem; margin: 0.5rem 0;">
                             <a href="/study/mit-1401-lec07" style="text-decoration: none; color: #374151;">Lec 7: Competition I</a>
                         </div>
+                        <div style="border-left: 3px solid #10b981; padding-left: 1rem; margin: 0.5rem 0;">
+                            <a href="/study/mit-1401-lec08" style="text-decoration: none; color: #374151;">Lec 8: Competition II</a>
+                        </div>
                     </div>
                 </details>
                 
                 <!-- Part 2: Producer Theory & Competition -->
                 <details style="margin-bottom: 0.75rem;">
                     <summary style="cursor: pointer; font-weight: 600; color: #1e40af; padding: 0.5rem; background: #eff6ff; border-radius: 4px;">
-                        Part 2: Producer Theory & Competition (Lec 8-13)
+                        Part 2: Producer Theory & Competition (Lec 9-13)
                     </summary>
                     <div style="padding: 0.75rem; padding-left: 1.5rem;">
-                        <div style="border-left: 3px solid #d1d5db; padding-left: 1rem; margin: 0.5rem 0; color: #9ca3af;">
-                            Lec 8: Competition II
-                        </div>
                         <div style="border-left: 3px solid #d1d5db; padding-left: 1rem; margin: 0.5rem 0; color: #9ca3af;">
                             Lec 9: Supply and Demand; Consumer/Producer Surplus
                         </div>

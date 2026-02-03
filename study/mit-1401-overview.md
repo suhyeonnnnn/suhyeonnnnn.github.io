@@ -147,6 +147,11 @@ title: "MIT 14.01 Principles of Microeconomics"
                     <td style="padding: 0.75rem;">Competition I</td>
                     <td style="padding: 0.75rem;"><a href="/study/mit-1401-lec07">Notes</a></td>
                 </tr>
+                <tr style="border-bottom: 1px solid #e5e7eb;">
+                    <td style="padding: 0.75rem;">Lec 8</td>
+                    <td style="padding: 0.75rem;">Competition II</td>
+                    <td style="padding: 0.75rem;"><a href="/study/mit-1401-lec08">Notes</a></td>
+                </tr>
             </table>
         </div>
     </section>
