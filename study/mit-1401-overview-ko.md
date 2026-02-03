@@ -142,6 +142,11 @@ title: "MIT 14.01 미시경제학 원론"
                     <td style="padding: 0.75rem;">비용</td>
                     <td style="padding: 0.75rem;"><a href="/study/mit-1401-lec06-ko">노트</a></td>
                 </tr>
+                <tr style="border-bottom: 1px solid #e5e7eb;">
+                    <td style="padding: 0.75rem;">Lec 7</td>
+                    <td style="padding: 0.75rem;">경쟁 I</td>
+                    <td style="padding: 0.75rem;"><a href="/study/mit-1401-lec07-ko">노트</a></td>
+                </tr>
             </table>
         </div>
     </section>
