@@ -56,13 +56,13 @@ title: "Study"
                 </details>
                 
                 <!-- Part 3: Design-Based Methods (Ch 5-6) -->
-                <details style="margin-bottom: 0.75rem;">
+                <details style="margin-bottom: 0.75rem;" open>
                     <summary style="cursor: pointer; font-weight: 600; color: #1e40af; padding: 0.5rem; background: #eff6ff; border-radius: 4px;">
                         Part 3: Design-Based Methods (Ch 5-6)
                     </summary>
                     <div style="padding: 0.75rem; padding-left: 1.5rem;">
-                        <div style="border-left: 3px solid #d1d5db; padding-left: 1rem; margin: 0.5rem 0; color: #9ca3af;">
-                            Ch 5: Parallel Worlds – Fixed Effects, DD, and Panel Data
+                        <div style="border-left: 3px solid #2563eb; padding-left: 1rem; margin: 0.5rem 0;">
+                            <a href="/study/angrist-ch5" style="text-decoration: none; color: #374151;">Ch 5: Fixed Effects, DD, and Panel Data</a>
                         </div>
                         <div style="border-left: 3px solid #d1d5db; padding-left: 1rem; margin: 0.5rem 0; color: #9ca3af;">
                             Ch 6: Getting a Little Jumpy – Regression Discontinuity
