@@ -64,8 +64,8 @@ title: "Study"
                         <div style="border-left: 3px solid #2563eb; padding-left: 1rem; margin: 0.5rem 0;">
                             <a href="/study/angrist-ch5" style="text-decoration: none; color: #374151;">Ch 5: Fixed Effects, DD, and Panel Data</a>
                         </div>
-                        <div style="border-left: 3px solid #d1d5db; padding-left: 1rem; margin: 0.5rem 0; color: #9ca3af;">
-                            Ch 6: Getting a Little Jumpy – Regression Discontinuity
+                        <div style="border-left: 3px solid #2563eb; padding-left: 1rem; margin: 0.5rem 0;">
+                            <a href="/study/angrist-ch6" style="text-decoration: none; color: #374151;">Ch 6: Regression Discontinuity Designs</a>
                         </div>
                     </div>
                 </details>
