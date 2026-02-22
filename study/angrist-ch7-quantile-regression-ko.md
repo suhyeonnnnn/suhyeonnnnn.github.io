@@ -1,853 +1,463 @@
 ---
-layout: default
-title: "앵그리스트 7장: 분위수 회귀 학습 가이드"
-lang: ko
+layout: minimal_base
+title: "앵그리스트 7장 - 분위수 회귀"
 ---
 
-# 7장: 분위수 회귀 학습 가이드
-
----
-
-## 핵심 개념 요약
-
-### 왜 분위수 회귀인가?
-
-> "응용 계량경제학의 95%는 평균에 관한 것이다. 하지만 분포 전체에 무슨 일이 일어나는지 알고 싶다면?"
-
-**최소제곱법의 한계**:
-- 평균 효과만 추정
-- 분포의 변화 (퍼짐, 압축) 파악 불가
-- 불평등 변화 분석 불가
-
-**분위수 회귀의 장점**:
-- 분포의 여러 지점 (10분위, 중위수, 90분위 등) 효과 추정
-- 불평등 변화 분석 가능
-- 최소제곱법과 유사하게 공변량 통제 가능
-
----
-
-## 7.1 분위수 회귀 모형
-
-### 조건부 분위수 함수
-
-**정의**:
-```
-Q_τ(y_i | X_i) = F_Y^{-1}(τ | X_i)
-```
-
-| τ 값 | 의미 |
-|------|------|
-| τ = 0.10 | 하위 10분위 |
-| τ = 0.50 | 중위수 |
-| τ = 0.90 | 상위 10분위 |
-
-### 조건부 기대 함수 vs 조건부 분위수 함수 비교
-
-| | 조건부 기대 함수 (최소제곱) | 조건부 분위수 함수 (분위수 회귀) |
-|---|---|---|
-| **정의** | E[y_i \| X_i] | Q_τ(y_i \| X_i) |
-| **최소화** | E[(y_i - m(X_i))²] | E[ρ_τ(y_i - q(X_i))] |
-| **손실함수** | 제곱 오차 | 체크 함수 ρ_τ |
-| **추정** | 조건부 평균 | 조건부 분위수 |
-
-### 체크 함수 (ρ_τ)
-
-```
-ρ_τ(u) = u · (τ - 1(u ≤ 0))
-       = τ·u        만약 u > 0
-       = (τ-1)·u    만약 u ≤ 0
-```
-
-**직관**: 양수/음수 잔차에 **비대칭 가중치** 부여
-
-| τ 값 | 양수 잔차 가중치 | 음수 잔차 가중치 | 결과 |
-|------|-----------------|-----------------|------|
-| 0.5 | 0.5 | 0.5 | 중위수 (최소절대편차) |
-| 0.9 | 0.9 | 0.1 | 상위 분위수 |
-| 0.1 | 0.1 | 0.9 | 하위 분위수 |
-
-### 분위수 회귀 추정
-
-**모집단 문제**:
-```
-β_τ = arg min_{b∈R^d} E[ρ_τ(y_i - X_i'b)]
-```
-
-**표본 유사체**: 선형 계획법으로 해결 가능
-
-선형 모형 가정:
-```
-Q_τ(y_i | X_i) = X_i'β_τ
-```
-
----
-
-## 위치 이동 vs 이분산성
-
-### 경우 1: 위치 이동 (등분산)
-
-**모형**:
-```
-y_i ~ N(X_i'β, σ²)
-```
-
-**조건부 분위수 함수 유도**:
-```
-P[y_i - X_i'β < σ·Φ^{-1}(τ) | X_i] = τ
-```
-
-따라서:
-```
-Q_τ(y_i | X_i) = X_i'β + σ·Φ^{-1}(τ)
-```
-
-**특징**: 
-- 절편만 τ에 따라 변함
-- **기울기 β는 모든 분위수에서 동일**
-- 집단 내 불평등 불변
-
-### 경우 2: 이분산성 (선형 위치-척도 모형)
-
-**모형**:
-```
-y_i ~ N(X_i'β, (X_i'γ)²)
-```
-여기서 γ > 0, X_i'γ > 0
-
-**조건부 분위수 함수 유도**:
-```
-P[y_i - X_i'β < (X_i'γ)·Φ^{-1}(τ) | X_i] = τ
-```
-
-따라서:
-```
-Q_τ(y_i | X_i) = X_i'β + (X_i'γ)·Φ^{-1}(τ)
-                = X_i'[β + γ·Φ^{-1}(τ)]
-```
-
-**특징**:
-- **기울기가 τ에 따라 변함**
-- τ > 0.5: 기울기 증가 (상위 분위수)
-- τ < 0.5: 기울기 감소 (하위 분위수)
-- 집단 내 불평등이 X에 따라 변함
-
----
-
-## 실증 예시: 교육의 임금 효과 (표 7.1.1)
-
-### 자료
-- 1980, 1990, 2000년 미국 인구조사
-- 40-49세 백인/흑인 남성
-- 통제변수: 인종, 잠재 경력(나이 - 교육 연수 - 6)의 이차함수
-
-### 연도별 분위수 회귀 결과
-
-| 인구조사 | 평균 | 표준편차 | 0.10 | 0.25 | 0.50 | 0.75 | 0.90 | 최소제곱 |
-|----------|------|---------|------|------|------|------|------|----------|
-| **1980** | 6.40 | 0.67 | .074 | .074 | .068 | .070 | .079 | .072 |
-| **1990** | 6.46 | 0.60 | .112 | .110 | .106 | .111 | .137 | .114 |
-| **2000** | 6.50 | 0.75 | .092 | .105 | .111 | .120 | **.157** | .114 |
-
-### 해석
-
-**1980년**: 
-- 모든 분위수에서 계수 유사 (~0.07)
-- **위치 이동** — 교육이 임금 분포를 균등하게 이동
-- 집단 내 불평등 불변
-
-**1990년**:
-- 대체로 유사한 패턴 (~0.11)
-- 상위 10분위만 약간 높음 (0.137)
-
-**2000년**: 
-- **상위 분위수에서 계수 급증** (0.09 → 0.16)
-- 하위 10분위: 9.2% vs 상위 10분위: 15.7%
-- **이분산성** — 교육이 불평등도 증가시킴
-- "교육받은 사람 중에서도 부자가 더 부자가 됨"
-
-**정책적 함의**:
-- 1980-1990년대: 전반적인 학력 프리미엄 증가
-- 2000년: 학력 내 불평등(집단 내 불평등)도 증가
-- 노동시장의 근본적 변화 시사
-
----
-
-## 7.1.1 절단된 분위수 회귀
-
-### 문제 상황
-
-**절단**: 일부 자료가 숨겨짐 (제한적 종속변수와 다름!)
-```
-y_{i,관측} = y_i · 1[y_i < c]
-```
-
-| 유형 | 예시 | 설명 |
-|------|------|------|
-| **상한 코딩** | 현재인구조사 고소득 비공개 | 사생활 보호 |
-| **기간 절단** | 실업 기간 40주 이상 미추적 | 추적 기간 제한 |
-
-**주의**: 제한적 종속변수 (예: 의료비=0)와 다름!
-
-### 해결책: 파월 (1986)
-
-**핵심 아이디어**: 절단점 **아래** 분위수는 영향 없음
-
-예: 상위 10%가 절단됨 → τ ≤ 0.90 추정에 영향 없음
-
-**절단된 분위수 회귀 모형**:
-```
-Q_τ(y_i | X_i) = min(c, X_i'β_τ)
-```
-
-**추정**:
-```
-β_τ^c = arg min_{b∈R^d} E{1[X_i'β_τ^c < c] · ρ_τ(y_i - X_i'b)}
-```
-
-즉, X_i'β < c 인 관측치만 사용
-
-### 부친스키 (1994) 반복 알고리즘
-
-**문제**: 어떤 관측치가 X_i'β < c 인지 미리 모름
-
-**해결**: 반복 추정
-
-```
-1단계: 절단 무시하고 β̂_τ 추정
-2단계: X_i'β̂_τ < c 인 셀 찾기
-3단계: 해당 셀만으로 β̂_τ 재추정
-4단계: 수렴까지 반복
-```
-
-**특징**:
-- 수렴 보장 안 되지만 실제로 잘 작동
-- 표준오차는 붓스트랩으로
-- 부친스키 (1994), 챔벌린 (1994): 절단 보정 시 교육 수익률 증가
-
----
-
-## 7.1.2 분위수 회귀 근사 속성
-
-### 정리 7.1.1 (앵그리스트, 체르노주코프, 페르난데스-발 2006)
-
-**가정**:
-- (i) 조건부 밀도 f_Y(y|X_i) 존재
-- (ii) E[y_i], E[Q_τ(y_i|X_i)], E||X_i|| 유한
-- (iii) β_τ가 유일한 해
-
-**정리**:
-```
-β_τ = arg min_{b∈R^d} E[w_τ(X_i, b) · ε_τ²(X_i, b)]
-```
-
-여기서:
-- **명세 오차**: ε_τ(X_i, β) ≡ X_i'β_τ - Q_τ(y_i|X_i)
-- **가중 함수**: 
-```
-w_τ(X_i, β) = ∫_0^1 (1-u) · f_{ε(τ)}(u·ε_τ(X_i,β) | X_i) du
-```
-
-**근사**:
-```
-w_τ(X_i, β_τ) ≈ (1/2) · f_Y(Q_τ(y_i|X_i) | X_i)
-```
-
-### 직관적 의미
-
-| | 최소제곱법 | 분위수 회귀 |
-|---|---|---|
-| **근사 대상** | E[y_i \| X_i] | Q_τ(y_i \| X_i) |
-| **가중치** | X_i의 히스토그램 | w_τ(X_i) × 히스토그램 |
-| **강조 영역** | X_i 분포 전체 | 조건부 분위수 함수 근처에 y_i가 밀집된 X_i |
-
-**핵심**: 조건부 분위수 함수가 정확히 선형이 아니어도, 분위수 회귀는 **가중 최소제곱 의미에서 최선의 선형 근사** 제공
-
----
-
-## 그림 7.1.1: 분위수 회귀 vs 최소거리 vs 비모수 조건부 분위수 함수
-
-### 세 가지 추정량 비교
-
-**1980 인구조사 자료, 종속변수: 로그 임금, 독립변수: 학력**
-
-| 추정량 | 방법 | 특징 |
-|--------|------|------|
-| **비모수 조건부 분위수** | 각 학력 수준에서 직접 분위수 계산 | 비모수적, 대표본 필요 |
-| **분위수 회귀** | ρ_τ 최소화 | 선형 모형 가정, 가중 적합 |
-| **최소거리** | 조건부 분위수 함수에 선형 회귀 | 챔벌린 (1994), 히스토그램 가중 |
-
-### 최소거리 추정량
-
-**챔벌린 (1994)**:
-
-```
-β̃_τ = arg min_{b∈R^d} E[(Q_τ(y_i|X_i) - X_i'b)²]
-```
-
-**해석**: Q_τ(y_i|X_i)를 X_i에 회귀 → 히스토그램 가중치 사용
-
-**분위수 회귀 vs 최소거리 차이**:
-- 분위수 회귀: w_τ(X_i) × 히스토그램 가중
-- 최소거리: 히스토그램만 가중
-- 실제로는 매우 유사한 결과
-
-### 그림 해석 (패널 A-C)
-
-```
-패널 A (τ = 0.10):          패널 B (τ = 0.50):          패널 C (τ = 0.90):
-                              
-    y│                            y│                            y│
-     │    ○○○○                     │      ○○○○                   │        ○○○○
-     │  ○○  ──분위수회귀            │    ○○  ──분위수회귀          │      ○○  ──분위수회귀
-     │○○   ---최소거리              │  ○○   ---최소거리            │    ○○   ---최소거리
-     │    ○=비모수                  │○○    ○=비모수               │  ○○    ○=비모수
-     └──────────── 학력             └──────────── 학력             └──────────── 학력
-```
-
-- ○ = 비모수 조건부 분위수 함수 (셀별)
-- 실선 = 분위수 회귀
-- 점선 = 최소거리
-- **세 추정량 모두 유사** → 선형 근사 타당
-
-### 그림 해석 (패널 D-F): 가중 함수
-
-```
-패널 D-F: 학력별 가중 함수
-
-  가중치│
-   0.5 │     
-       │        ●  ●           ← 분위수 회귀 가중치 (전체)
-   0.4 │       ● ●  ●
-       │      ●      ●
-   0.3 │     ●        ●
-       │    ●          ●
-   0.2 │   ●            ●
-       │  ●              ●
-   0.1 │ ●                ●
-       │●                  ●
-     0 └────────────────────── 학력
-         8  10  12  14  16  18
-```
-
-**관찰**:
-- **중요도 가중치** ≈ **밀도 가중치** ≈ 평평
-- **전체 분위수 회귀 가중치** ≈ 학력 히스토그램
-- → 12년, 16년 학력에 가장 높은 가중치 (관측치 많음)
-
----
-
-## 7.1.3 까다로운 점들
-
-### 까다로운 점 1: 개인 효과 vs 분포 효과
-
-> **"훈련이 하위 10분위를 올렸다" ≠ "가난했던 사람이 부자가 됐다"**
-
-**분위수 회귀가 말해주는 것**:
-- 처치 후 분포의 하위 10분위 **위치**
-
-**말해주지 않는 것**:
-- 특정 개인의 변화
-- 누가 하위 10%인지
-
-**수학적 설명**:
-- Q_τ(y₁ᵢ|X) vs Q_τ(y₀ᵢ|X) 비교
-- 이것은 **주변 분포의 분위수** 비교
-- **개인 수준 (y₁ᵢ - y₀ᵢ)의 분위수가 아님!**
-
-**순위 보존 가정**:
-- 처치가 순위를 바꾸지 않는다면 → 개인 효과로 해석 가능
-- 하지만 이 가정은 매우 강함
-
-### 까다로운 점 2: 조건부 분위수 vs 주변 분위수
-
-**문제**: 조건부 분위수 ≠ 주변 분위수
-
-**기대값의 경우 (간단)**:
-```
-E[y_i | X_i] = X_i'β  
-⟹  E[y_i] = E[X_i]'β   (반복 기대값 법칙에 의해)
-```
-
-**분위수의 경우 (복잡)**:
-```
-Q_τ(y_i | X_i) = X_i'β_τ  
-⟹  Q_τ(y_i) ≠ E[X_i]'β_τ   (일반적으로!)
-```
-
-**왜?** 분위수는 비선형 연산자
-
-### 주변 분위수 추출: 상세 절차
-
-**1단계**: 조건부 분위수와 조건부 분포의 관계
-
-```
-∫_0^1 1[F_Y^{-1}(τ|X_i) < y] dτ = F_Y(y|X_i)
-```
-
-해석: y 아래에 있는 조건부 분위수의 비율 = 조건부 누적분포함수
-
-**2단계**: 선형 조건부 분위수 함수 대입
-
-```
-F_Y(y|X_i) = ∫_0^1 1[X_i'β_τ < y] dτ
-```
-
-**3단계**: X_i에 대해 적분 → 주변 누적분포함수
-
-```
-F_Y(y) = ∫∫_0^1 1[X_i'β_τ < y] dτ dF_X(x)
-```
-
-**4단계**: 주변 분위수 = F_Y(y) 역함수
-
-```
-Q_τ(y_i) = inf{y : F_Y(y) ≥ τ}
-```
-
-### 실제 추정 (마차도 & 마타 2005)
-
-**표본 유사체**:
-```
-F̂_Y(y) = (1/n) Σ_i (1/100) Σ_{τ=0.01}^{1.00} 1[X_i'β̂_τ < y]
-```
-
-**절차**:
-1. τ = 0.01, 0.02, ..., 0.99에서 100개 분위수 회귀 추정
-2. 각 X_i에 대해 100개 예측값 계산
-3. 전체 예측값의 경험적 분포 계산
-4. 이 분포에서 주변 분위수 추출
-
-**한계**:
-- 많은 분위수 회귀 필요
-- 분포 이론 복잡 (멜리 2005)
-
----
-
-## 7.2 분위수 처치 효과
-
-### 문제: 분위수 회귀의 선택 편의
-
-분위수 회귀도 **누락 변수 편의** 문제 있음
-
-| 방법 | 추정 대상 | 선택 편의 |
-|------|----------|-----------|
-| 최소제곱법 | 평균 효과 | 있음 |
-| 분위수 회귀 | 분위수 효과 | 있음 |
-| 2단계 최소제곱법 | 평균 인과효과 | 제거 |
-| **분위수 처치 효과** | **분위수 인과효과** | **제거** |
-
-### 분위수 처치 효과의 아이디어
-
-**국소 평균 처치 효과 틀을 분위수로 확장** (아바디, 앵그리스트, 임벤스 2002)
-
-**모형**:
-```
-Q_τ(y_i | X_i, d_i, 순응자) = α_τ·d_i + X_i'β_τ
-```
-
-**해석**:
-- α_τ = **순응자의 τ-분위수에 대한 처치 효과**
-- 즉: Q_τ(y₁ᵢ|X_i, 순응자) - Q_τ(y₀ᵢ|X_i, 순응자) = α_τ
-
-### 중요한 구분
-
-**α_τ가 의미하는 것**:
-- 순응자의 y₁과 y₀ **각각의 주변 분포** 비교
-- τ-분위수에서의 차이
-
-**α_τ가 의미하지 않는 것**:
-- 개인 처치효과 (y₁ᵢ - y₀ᵢ)의 τ-분위수
-- 이건 y₁ᵢ와 y₀ᵢ를 동시에 관측해야 알 수 있음 → 불가능
-
-**좋은 소식**: 
-- 평균의 경우: E[y₁-y₀] = E[y₁] - E[y₀] ✓
-- 후생 분석에는 주변 분포만 필요 (앳킨슨 1970)
-
-### 분위수 처치 효과 추정량: 아바디 카파
-
-**카파 정의**:
-```
-κ_i = 1 - d_i(1-z_i)/(1-P(z_i=1|X_i)) - (1-d_i)z_i/P(z_i=1|X_i)
-```
-
-**속성**: E[κ_i | 순응자] = 1, E[κ_i | 비순응자] = 0
-
-**분위수 처치 효과 추정**:
-```
-(α_τ, β_τ) = arg min_{a,b} E[κ_i · ρ_τ(y_i - a·d_i - X_i'b)]
-```
-
-### 분위수 처치 효과 구현의 실제 문제와 해결
-
-#### 문제 1: κ_i가 음수일 수 있음
-
-d_i ≠ z_i 일 때 κ_i < 0 → 최소화 문제가 비볼록 → 선형계획법 불가
-
-**해결**: 반복 기대값 사용
-
-```
-E[κ_i · ρ_τ(...)] = E[E[κ_i | y_i, d_i, X_i] · ρ_τ(...)]
-```
-
-여기서:
-```
-E[κ_i | y_i, d_i, X_i] = P[순응자 | y_i, d_i, X_i] ∈ [0, 1]
-```
-
-#### 문제 2: E[κ_i | y_i, d_i, X_i] 추정 필요
-
-**공식**:
-```
-E[κ_i | y_i, d_i, X_i] = 1 - d_i(1-E[z_i|y_i,d_i=1,X_i])/(1-P(z_i=1|X_i)) 
-                          - (1-d_i)E[z_i|y_i,d_i=0,X_i]/P(z_i=1|X_i)
-```
-
-### 분위수 처치 효과 구현 단계 (앵그리스트 2001)
-
-```
-1단계: d_i = 1 하위표본에서 프로빗: z_i ~ y_i, X_i
-        → Ê[z_i | y_i, d_i=1, X_i] 저장
-
-2단계: d_i = 0 하위표본에서 프로빗: z_i ~ y_i, X_i
-        → Ê[z_i | y_i, d_i=0, X_i] 저장
-
-3단계: 전체 표본에서 프로빗: z_i ~ X_i
-        → P̂(z_i=1 | X_i) 저장
-
-4단계: 공식에 대입하여 Ê[κ_i | y_i, d_i, X_i] 계산
-        - [0, 1] 범위 벗어나면 절단
-
-5단계: 스타타 qreg에서 가중치로 사용하여 분위수 회귀
-
-6단계: 전체 과정 붓스트랩 → 표준오차
-```
-
----
-
-## 분위수 회귀의 표준오차
-
-### 전통적 표준오차 (스타타 qreg, 강건)
-
-**가정**: 조건부 분위수 함수가 정확히 선형
-
-**공식**:
-```
-Var(β̂_τ) = τ(1-τ) · {E[f_u(0|X_i)X_i X_i']}^{-1} · E[X_i X_i'] · {E[f_u(0|X_i)X_i X_i']}^{-1}
-```
-
-여기서 f_u(0|X_i) = 잔차의 조건부 밀도 (0에서)
-
-**등분산 경우**:
-```
-Var(β̂_τ) = τ(1-τ)/f_u²(0) · {E[X_i X_i']}^{-1}
-```
-
-### 강건 표준오차 (앵그리스트, 체르노주코프, 페르난데스-발 2006)
-
-- 비선형 조건부 분위수 함수에도 강건
-- 실제로는 전통적 방법과 큰 차이 없는 경우 많음
-
-### 붓스트랩
-
-- 분위수 처치 효과의 경우 필수 (1단계 추정 때문)
-- 전체 과정 (프로빗 → 카파 → 분위수 회귀) 반복
-
----
-
-## 실증 예시: 직업훈련협력법 훈련 프로그램 (표 7.2.1)
-
-### 배경
-
-| 항목 | 내용 |
-|------|------|
-| **프로그램** | 직업훈련협력법 (1980년대 미국) |
-| **대상** | 저소득 노동자 |
-| **서비스 제공 지역** | 649개 |
-| **표본** | 15,981명 (30개월 소득 자료) |
-
-### 변수 정의
-
-| 변수 | 정의 |
-|------|------|
-| y_i | 30개월 누적 소득 |
-| d_i | 실제 훈련 참여 여부 |
-| z_i | 훈련 제안 (무작위 배정) |
-| X_i | 인종, 학력, 결혼, 연령, 과거 근로 등 |
-
-### 순응 상황
-
-- 제안받은 사람 중 ~60%만 실제 참여
-- 통제집단 중 <2%가 훈련 받음 (항상 참여자 적음)
-- → 순응자 효과 ≈ 처치자 효과
-
-### 결과 비교: 패널 A (최소제곱법 & 분위수 회귀)
-
-**선택 편의 있음**
-
-| | 최소제곱 | τ=0.15 | τ=0.25 | τ=0.50 | τ=0.75 | τ=0.85 |
-|---|---|---|---|---|---|---|
-| **훈련** | 3,754 | 1,187 | 2,510 | 4,420 | 4,678 | 4,806 |
-| (표준오차) | (536) | (205) | (356) | (651) | (937) | (1,055) |
-| **% 영향** | 21% | **136%** | 75% | 35% | 17% | 13% |
-
-**관찰**: 하위 분위수에서 효과가 **훨씬 커 보임** (136% vs 13%)
-
-### 결과 비교: 패널 B (2단계 최소제곱법 & 분위수 처치 효과)
-
-**선택 편의 제거**
-
-| | 2단계최소제곱 | τ=0.15 | τ=0.25 | τ=0.50 | τ=0.75 | τ=0.85 |
-|---|---|---|---|---|---|---|
-| **훈련** | 1,593 | **121** | 702 | 1,544 | 3,131 | 3,378 |
-| (표준오차) | (895) | (475) | (670) | (1,073) | (1,376) | (1,811) |
-| **% 영향** | 9% | **5%** | 12% | 10% | 11% | 9% |
-
-**관찰**: 하위 분위수 효과가 **거의 사라짐!**
-
-### 분위수 회귀 vs 분위수 처치 효과 비교
-
-| 분위수 | 분위수 회귀 추정치 | 분위수 처치 효과 추정치 | 차이 | 해석 |
-|--------|-------------------|------------------------|------|------|
-| 0.15 | $1,187 | **$121** | −90% | 심각한 선택 편의 |
-| 0.25 | $2,510 | $702 | −72% | 심각한 선택 편의 |
-| 0.50 | $4,420 | $1,544 | −65% | 중간 |
-| 0.75 | $4,678 | $3,131 | −33% | 덜 심각 |
-| 0.85 | $4,806 | $3,378 | −30% | 덜 심각 |
-
-### 핵심 발견
-
-**선택 편의 패턴**:
-- 하위 분위수: 심각한 양의 선택 편의
-- 상위 분위수: 덜 심각
-
-**해석**:
-- 훈련에 참여한 저소득자 = 더 의욕적인 사람
-- 분위수 회귀 하위 분위수: 훈련 효과 + 의욕 효과 혼재
-- 분위수 처치 효과로 분리하면 → 하위 분위수 실제 효과 거의 없음
-
-**정책적 함의**:
-- 직업훈련협력법은 **상위 분위수**에서만 효과 있음
-- 저소득층 돕겠다는 목표와 괴리
-- 상위 분위수 소득 증가가 정책 우선순위였나?
-
----
-
-## 핵심 질문 3개
-
-### 질문 1. 분위수 회귀 vs 최소제곱법
-
-**분위수 회귀가 최소제곱법과 다른 점은 무엇이며, 언제 사용해야 하는가?**
-
-**답변**:
-
-| 측면 | 최소제곱법 | 분위수 회귀 |
-|------|-----------|------------|
-| 추정 대상 | 조건부 평균 | 조건부 분위수 |
-| 손실함수 | 제곱 오차 | 체크 함수 (비대칭) |
-| 분포 정보 | 평균만 | 분포 전체 |
-| 이상치 민감도 | 높음 | 낮음 (특히 중위수) |
-
-**사용 시점**:
-- 불평등 변화 분석 시
-- 효과의 이질성 (상위/하위 분위수) 파악 시
-- 위치 이동 vs 이분산성 구분 시
-- 이상치에 강건한 추정 필요 시
-
----
-
-### 질문 2. 위치 이동 vs 부채꼴 패턴
-
-**분위수별 계수가 동일하면 위치 이동, 다르면 무엇을 의미하는가?**
-
-**답변**:
-
-| 패턴 | 의미 | 수학적 조건 | 예시 |
-|------|------|-------------|------|
-| **동일한 계수** | 위치 이동 | 등분산 | 1980년 교육 효과 |
-| **증가하는 계수** | 불평등 증가 (부채꼴) | Var(y\|X) 증가 | 2000년 교육 효과 |
-| **감소하는 계수** | 불평등 감소 (압축) | Var(y\|X) 감소 | - |
-
-**2000년 해석**: 
-- 평균 교육 수익률 ~11%
-- 상위 10분위: 15.7% (평균보다 높음)
-- 하위 10분위: 9.2% (평균보다 낮음)
-- → 교육이 평균 임금도 올리지만, **고학력자 내 불평등도 증가**
-
----
-
-### 질문 3. 분위수 처치 효과의 필요성
-
-**분위수 회귀 추정치에 선택 편의가 있을 수 있는 이유와 분위수 처치 효과의 해결 방식을 설명하시오.**
-
-**답변**:
-
-**선택 편의 예시 (직업훈련협력법)**:
-- 훈련에 참여하는 저소득자 = 더 의욕적인 사람
-- 분위수 회귀 하위 분위수: 훈련 효과 + 의욕 효과 혼재
-- → 과대추정
-
-**분위수 처치 효과 해결 방식**:
-1. 도구변수 논리를 분위수 회귀에 적용
-2. 아바디 카파로 순응자 가중
-3. 무작위 배정(z_i)을 도구변수로 사용
-4. 카파 가중 분위수 회귀
-
-**직업훈련협력법 결과**: 
-- 하위 분위수 효과: $1,187 → $121 (90% 감소)
-- 선택 편의가 얼마나 심각했는지 보여줌
-
----
-
-## 토론 질문
-
-### 토론 1. 개인 효과 vs 분포 효과
-
-> "훈련이 하위 10분위를 $1,000 올렸다"는 것은 "가난한 사람이 $1,000 더 벌게 됐다"를 의미하는가?
-
-**토론 포인트**:
-- 순위 보존 가정이 필요
-- 처치가 순위를 바꿀 수 있음
-- E[y₁-y₀]의 분위수 vs Q(y₁)-Q(y₀)의 차이
-- 분포 효과 vs 개인 효과의 정책 함의
-
-### 토론 2. 조건부 분위수 vs 주변 분위수
-
-> 교육의 분위수별 효과가 다르면, 전체 불평등에 어떤 영향을 미치는가?
-
-**토론 포인트**:
-- Q_τ(y|X) ≠ Q_τ(y) 문제
-- 마차도 & 마타 (2005) 방법론
-- 반사실적 분포 구성
-- "교육 수준이 전부 대졸이었다면 불평등은?"
-
-### 토론 3. 분위수 처치 효과의 한계
-
-> 분위수 처치 효과는 국소 평균 처치 효과처럼 순응자에 대한 효과만 추정한다. 이것이 정책 함의에 어떤 제한을 주는가?
-
-**토론 포인트**:
-- 순응자 vs 항상 참여자 vs 절대 불참자
-- 직업훈련협력법에서 통제집단의 2%만 항상 참여자 → 문제 적음
-- 다른 맥락에서는?
-- 외적 타당성과 일반화
-
----
-
-## 실무 점검표
-
-### 분위수 회귀 수행 시
-
-```
-□ 여러 분위수 (0.1, 0.25, 0.5, 0.75, 0.9) 추정
-□ 계수가 분위수별로 어떻게 변하는지 확인
-□ 위치 이동 vs 부채꼴 패턴 판단
-□ 절단 문제 확인 (상한 코딩 등)
-□ 표준오차 보고 (붓스트랩 권장)
-□ 중위수 ≈ 최소제곱 인지 확인 (대칭 분포 시)
-```
-
-### 분위수 처치 효과 수행 시
-
-```
-□ 도구변수의 타당성 확인 (국소 평균 처치 효과 가정)
-□ 1단계 강도 확인
-□ 프로빗으로 E[z|y,d,X] 추정 (d=0, d=1 별도)
-□ 프로빗으로 P(z=1|X) 추정
-□ 카파 가중치 계산 및 [0,1] 절단
-□ 카파 가중 분위수 회귀
-□ 분위수 회귀 추정치와 비교 (선택 편의 크기 파악)
-□ 붓스트랩 표준오차
-```
-
-### 스타타 코드 예시
-
-```stata
-* 분위수 회귀
-qreg y x1 x2, quantile(0.5) vce(robust)
-
-* 여러 분위수
-foreach q in 0.1 0.25 0.5 0.75 0.9 {
-    qreg y x1 x2, quantile(`q')
-}
-
-* 분위수 처치 효과 (간략화)
-* 1-3단계: 프로빗
-probit z y x1 x2 if d==1
-predict pz_d1
-probit z y x1 x2 if d==0  
-predict pz_d0
-probit z x1 x2
-predict pz
-
-* 4단계: 카파
-gen kappa = 1 - d*(1-pz_d1)/(1-pz) - (1-d)*pz_d0/pz
-replace kappa = 0 if kappa < 0
-replace kappa = 1 if kappa > 1
-
-* 5단계: 가중 분위수 회귀
-qreg y d x1 x2 [pw=kappa], quantile(0.5)
-```
-
----
-
-## 핵심 수식 요약
-
-### 체크 함수
-```
-ρ_τ(u) = u·(τ - 1(u ≤ 0))
-```
-
-### 분위수 회귀
-```
-β_τ = arg min E[ρ_τ(y_i - X_i'b)]
-```
-
-### 위치 이동 모형
-```
-Q_τ(y_i | X_i) = X_i'β + σ·Φ^{-1}(τ)
-```
-
-### 이분산 모형 (위치-척도)
-```
-Q_τ(y_i | X_i) = X_i'[β + γ·Φ^{-1}(τ)]
-```
-
-### 아바디 카파
-```
-κ_i = 1 - d_i(1-z_i)/(1-p(X_i)) - (1-d_i)z_i/p(X_i)
-```
-여기서 p(X_i) = P(z_i=1|X_i)
-
-### 분위수 처치 효과 추정량
-```
-(α_τ, β_τ) = arg min E[κ_i · ρ_τ(y_i - α·d_i - X_i'b)]
-```
-
-### 조건부 → 주변 분위수
-```
-F_Y(y) = ∫∫_0^1 1[X_i'β_τ < y] dτ dF_X(x)
-Q_τ(y) = F_Y^{-1}(τ)
-```
-
----
-
-## 종합 비교: 최소제곱법 vs 분위수 회귀 vs 2단계 최소제곱법 vs 분위수 처치 효과
-
-### 2×2 틀
-
-| | 외생적 d_i | 내생적 d_i |
-|---|---|---|
-| **평균** | 최소제곱법 | 2단계 최소제곱법 |
-| **분위수** | 분위수 회귀 | **분위수 처치 효과** |
-
-### 상세 비교
-
-| 방법 | 추정 대상 | 선택 편의 | 분포 정보 | 가정 |
-|------|----------|-----------|----------|------|
-| 최소제곱법 | E[y\|X,d] | 있음 | 평균만 | 선형 조건부 기대 함수 |
-| 2단계 최소제곱법 | 순응자의 E[y\|X,d] | 제거 | 평균만 | 국소 평균 처치 효과 가정 |
-| 분위수 회귀 | Q_τ(y\|X,d) | 있음 | 분포 전체 | 선형 조건부 분위수 함수 |
-| 분위수 처치 효과 | 순응자의 Q_τ(y\|X,d) | 제거 | 분포 전체 | 국소 평균 처치 효과 + 선형 조건부 분위수 함수 |
-
----
-
-*앵그리스트 & 피슈케, "대체로 무해한 계량경제학" 7장에 기반함*
+<div class="content">
+    <section class="section fade-in">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h2 class="section-title">7장: 분위수 회귀</h2>
+            <a href="/study/angrist-ch7-quantile-regression" style="background: #e5e7eb; color: #374151; padding: 0.4rem 0.8rem; border-radius: 4px; font-size: 0.85rem; text-decoration: none;">English</a>
+        </div>
+        <div class="section-content">
+            <p><em>앵그리스트 & 피슈케, 대체로 무해한 계량경제학 — 7장</em></p>
+            <p style="color: #6b7280; font-style: italic;">"기도문을 하나 알려줄게... 내가 알 필요 없는 것은 모르게 해주세요." — 더글러스 애덤스</p>
+        </div>
+    </section>
+
+    <!-- 핵심 메시지 -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">핵심 메시지</h2>
+        <div class="section-content">
+            <blockquote style="border-left: 4px solid #2563eb; padding-left: 1rem; margin: 1rem 0; color: #374151;">
+                <strong>응용 계량경제학의 95%는 평균에 관한 것이다.</strong> 하지만 많은 변수들은 평균만으로는 알 수 없는 방식으로 변화하는 연속 분포를 가진다 — 분포가 퍼지거나 압축될 수 있다. <strong>분위수 회귀</strong>를 사용하면 평균뿐 아니라 전체 분포를 모형화할 수 있다.
+            </blockquote>
+            <div style="background: #f0f9ff; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <p><strong>핵심 통찰:</strong> 최소제곱법이 조건부 평균에 선형 모형을 적합하듯이, 분위수 회귀는 조건부 분위수에 선형 모형을 적합한다 — 이를 통해 처치가 분포의 다른 부분에 서로 다른 영향을 미치는지 확인할 수 있다.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7.1 분위수 회귀 모형 -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">7.1 분위수 회귀 모형</h2>
+        <div class="section-content">
+
+            <h3>조건부 분위수 함수 (CQF)</h3>
+            <p>출발점은 <strong>조건부 분위수 함수</strong>이다:</p>
+
+            <div style="background: #ecfdf5; padding: 1rem; border-radius: 8px; margin: 1rem 0; font-family: 'Times New Roman', serif; text-align: center; font-size: 1.1rem;">
+                Q<sub>τ</sub>(y<sub>i</sub> | X<sub>i</sub>) = F<sub>Y</sub><sup>-1</sup>(τ | X<sub>i</sub>)
+            </div>
+
+            <table style="width: 100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #f8fafc;">
+                    <th style="padding: 0.75rem; border: 1px solid #e5e7eb; text-align: left;">τ 값</th>
+                    <th style="padding: 0.75rem; border: 1px solid #e5e7eb; text-align: left;">의미</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">τ = 0.10</td>
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">하위 10분위</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">τ = 0.50</td>
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">중위수</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">τ = 0.90</td>
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">상위 10분위</td>
+                </tr>
+            </table>
+
+            <h3>조건부 기대 함수 vs 조건부 분위수 함수</h3>
+            <table style="width: 100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #f8fafc;">
+                    <th style="padding: 0.75rem; border: 1px solid #e5e7eb;"></th>
+                    <th style="padding: 0.75rem; border: 1px solid #e5e7eb;">조건부 기대 함수 (최소제곱)</th>
+                    <th style="padding: 0.75rem; border: 1px solid #e5e7eb;">조건부 분위수 함수 (분위수 회귀)</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;"><strong>최소화</strong></td>
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">E[(y - m(X))²]</td>
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">E[ρ<sub>τ</sub>(y - q(X))]</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;"><strong>손실 함수</strong></td>
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">제곱 오차</td>
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">체크 함수 ρ<sub>τ</sub></td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;"><strong>추정 대상</strong></td>
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">조건부 평균</td>
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">조건부 분위수</td>
+                </tr>
+            </table>
+
+            <h3>체크 함수</h3>
+            <p>체크 함수는 양수와 음수 잔차에 <strong>비대칭 가중치</strong>를 부여한다:</p>
+
+            <div style="background: #f0f9ff; padding: 1rem; border-radius: 8px; margin: 1rem 0; font-family: monospace;">
+                ρ<sub>τ</sub>(u) = u · (τ - 1(u ≤ 0))<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= τ·u &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;만약 u > 0<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= (τ-1)·u &nbsp;만약 u ≤ 0
+            </div>
+
+            <table style="width: 100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #f8fafc;">
+                    <th style="padding: 0.75rem; border: 1px solid #e5e7eb;">τ</th>
+                    <th style="padding: 0.75rem; border: 1px solid #e5e7eb;">양수 가중치</th>
+                    <th style="padding: 0.75rem; border: 1px solid #e5e7eb;">음수 가중치</th>
+                    <th style="padding: 0.75rem; border: 1px solid #e5e7eb;">결과</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">0.5</td>
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">0.5</td>
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">0.5</td>
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">중위수 (최소절대편차)</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">0.9</td>
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">0.9</td>
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">0.1</td>
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">상위 분위수</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">0.1</td>
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">0.1</td>
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">0.9</td>
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">하위 분위수</td>
+                </tr>
+            </table>
+
+        </div>
+    </section>
+
+    <!-- 위치 이동 vs 이분산성 -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">위치 이동 vs 이분산성</h2>
+        <div class="section-content">
+
+            <h3>경우 1: 위치 이동 (등분산)</h3>
+            <div style="background: #ecfdf5; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <p><strong>모형:</strong> y<sub>i</sub> ~ N(X<sub>i</sub>'β, σ²)</p>
+                <p><strong>조건부 분위수 함수:</strong> Q<sub>τ</sub>(y<sub>i</sub> | X<sub>i</sub>) = X<sub>i</sub>'β + σ·Φ<sup>-1</sup>(τ)</p>
+                <p><strong>핵심 특징:</strong> 기울기 β는 모든 분위수에서 <em>동일</em>. 절편만 τ에 따라 변함.</p>
+            </div>
+
+            <h3>경우 2: 이분산성 (위치-척도 모형)</h3>
+            <div style="background: #fef3c7; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <p><strong>모형:</strong> y<sub>i</sub> ~ N(X<sub>i</sub>'β, (X<sub>i</sub>'γ)²)</p>
+                <p><strong>조건부 분위수 함수:</strong> Q<sub>τ</sub>(y<sub>i</sub> | X<sub>i</sub>) = X<sub>i</sub>'[β + γ·Φ<sup>-1</sup>(τ)]</p>
+                <p><strong>핵심 특징:</strong> 기울기가 <em>τ에 따라 변함</em>. 상위 분위수에서 계수가 더 큼 → X에 따라 불평등 증가.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 실증 예시: 교육 수익률 -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">실증 예시: 교육 수익률 (표 7.1.1)</h2>
+        <div class="section-content">
+
+            <p><strong>자료:</strong> 1980, 1990, 2000년 미국 인구조사. 40-49세 백인/흑인 남성. 통제변수: 인종, 잠재 경력의 이차함수.</p>
+
+            <table style="width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem;">
+                <tr style="background: #1e40af; color: white;">
+                    <th style="padding: 0.5rem; border: 1px solid #e5e7eb;">인구조사</th>
+                    <th style="padding: 0.5rem; border: 1px solid #e5e7eb;">0.10</th>
+                    <th style="padding: 0.5rem; border: 1px solid #e5e7eb;">0.25</th>
+                    <th style="padding: 0.5rem; border: 1px solid #e5e7eb;">0.50</th>
+                    <th style="padding: 0.5rem; border: 1px solid #e5e7eb;">0.75</th>
+                    <th style="padding: 0.5rem; border: 1px solid #e5e7eb;">0.90</th>
+                    <th style="padding: 0.5rem; border: 1px solid #e5e7eb;">최소제곱</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb;"><strong>1980</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb;">.074</td>
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb;">.074</td>
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb;">.068</td>
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb;">.070</td>
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb;">.079</td>
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb;">.072</td>
+                </tr>
+                <tr style="background: #f8fafc;">
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb;"><strong>1990</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb;">.112</td>
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb;">.110</td>
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb;">.106</td>
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb;">.111</td>
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb;">.137</td>
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb;">.114</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb;"><strong>2000</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb;">.092</td>
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb;">.105</td>
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb;">.111</td>
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb;">.120</td>
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb; background: #fef3c7;"><strong>.157</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb;">.114</td>
+                </tr>
+            </table>
+
+            <div style="background: #f0f9ff; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <p><strong>1980년:</strong> 모든 분위수에서 계수 유사 (~0.07) → <strong>위치 이동</strong></p>
+                <p><strong>2000년:</strong> 상위 10분위 (15.7%) >> 하위 10분위 (9.2%) → <strong>부채꼴 패턴</strong></p>
+                <p><strong>해석:</strong> "교육받은 사람 중에서도 부자가 더 부자가 됨" — 교육이 평균 임금과 불평등 모두 증가시킴.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 절단된 분위수 회귀 -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">7.1.1 절단된 분위수 회귀</h2>
+        <div class="section-content">
+
+            <p><strong>문제:</strong> 일부 자료가 숨겨짐 (예: 현재인구조사 상한 코딩, 기간 절단).</p>
+
+            <div style="background: #ecfdf5; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <p><strong>핵심 통찰:</strong> 위에서 절단되어도 절단점 <em>아래</em> 분위수는 영향 없음.</p>
+                <p>예: 상위 10%가 절단됨 → τ ≤ 0.90 추정치는 영향 없음.</p>
+            </div>
+
+            <p><strong>파월 (1986) 해결책:</strong></p>
+            <ul>
+                <li>모형: Q<sub>τ</sub>(y | X) = min(c, X'β<sub>τ</sub>)</li>
+                <li>X'β < c 인 관측치만 사용</li>
+            </ul>
+
+            <p><strong>부친스키 (1994) 반복 알고리즘:</strong></p>
+            <ol>
+                <li>절단 무시하고 β̂<sub>τ</sub> 추정</li>
+                <li>X'β̂<sub>τ</sub> < c 인 셀 찾기</li>
+                <li>해당 셀만으로 재추정</li>
+                <li>수렴까지 반복</li>
+            </ol>
+
+        </div>
+    </section>
+
+    <!-- 까다로운 점들 -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">7.1.3 까다로운 점들</h2>
+        <div class="section-content">
+
+            <h3>까다로운 점 1: 개인 효과 vs 분포 효과</h3>
+            <div style="background: #fef2f2; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <p><strong>"훈련이 하위 10분위를 올렸다"</strong> ≠ <strong>"가난한 사람이 부자가 됐다"</strong></p>
+                <p>분위수 회귀는 특정 개인이 아닌 <em>분포의 형태</em>를 알려준다. <strong>순위 보존</strong>(처치가 순위를 바꾸지 않음)을 가정해야만 개인 수준으로 해석 가능.</p>
+            </div>
+
+            <h3>까다로운 점 2: 조건부 분위수 ≠ 주변 분위수</h3>
+            <div style="background: #fef3c7; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <p><strong>평균의 경우:</strong> E[y | X] = X'β ⟹ E[y] = E[X]'β ✓</p>
+                <p><strong>분위수의 경우:</strong> Q<sub>τ</sub>(y | X) = X'β<sub>τ</sub> ⟹ Q<sub>τ</sub>(y) ≠ E[X]'β<sub>τ</sub> ✗</p>
+                <p>분위수는 비선형 연산자. 주변 분위수 추출에는 X 분포 전체에 대한 적분 필요 (마차도 & 마타, 2005).</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 7.2 분위수 처치 효과 -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">7.2 분위수 처치 효과 (QTE)</h2>
+        <div class="section-content">
+
+            <h3>문제: 선택 편의</h3>
+            <p>최소제곱법과 마찬가지로, 분위수 회귀도 처치가 내생적일 때 <strong>누락 변수 편의</strong> 문제가 있다.</p>
+
+            <table style="width: 100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #f8fafc;">
+                    <th style="padding: 0.75rem; border: 1px solid #e5e7eb;"></th>
+                    <th style="padding: 0.75rem; border: 1px solid #e5e7eb;">외생적 d</th>
+                    <th style="padding: 0.75rem; border: 1px solid #e5e7eb;">내생적 d</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;"><strong>평균</strong></td>
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">최소제곱법</td>
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">2단계 최소제곱법</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;"><strong>분위수</strong></td>
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">분위수 회귀</td>
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;"><strong>분위수 처치 효과</strong></td>
+                </tr>
+            </table>
+
+            <h3>분위수 처치 효과: 국소 평균 처치 효과의 분위수 확장</h3>
+            <p>아바디, 앵그리스트, 임벤스 (2002)가 국소 평균 처치 효과 프레임워크를 분위수로 확장:</p>
+
+            <div style="background: #ecfdf5; padding: 1rem; border-radius: 8px; margin: 1rem 0; font-family: monospace;">
+                Q<sub>τ</sub>(y | X, d, 순응자) = α<sub>τ</sub>·d + X'β<sub>τ</sub>
+            </div>
+
+            <p>α<sub>τ</sub> = <strong>순응자</strong>에 대한 τ-분위수 처치 효과</p>
+
+            <h3>아바디 카파</h3>
+            <div style="background: #f0f9ff; padding: 1rem; border-radius: 8px; margin: 1rem 0; font-family: monospace;">
+                κ<sub>i</sub> = 1 - d<sub>i</sub>(1-z<sub>i</sub>)/(1-p(X<sub>i</sub>)) - (1-d<sub>i</sub>)z<sub>i</sub>/p(X<sub>i</sub>)
+            </div>
+
+            <p>속성: E[κ | 순응자] = 1, E[κ | 비순응자] = 0</p>
+
+            <p><strong>분위수 처치 효과 추정량:</strong></p>
+            <div style="background: #f0f9ff; padding: 1rem; border-radius: 8px; margin: 1rem 0; font-family: monospace;">
+                (α<sub>τ</sub>, β<sub>τ</sub>) = arg min E[κ<sub>i</sub> · ρ<sub>τ</sub>(y<sub>i</sub> - α·d<sub>i</sub> - X<sub>i</sub>'b)]
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 분위수 처치 효과 구현 단계 -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">분위수 처치 효과 구현 단계</h2>
+        <div class="section-content">
+
+            <ol>
+                <li><strong>1단계:</strong> d=1 하위표본에서 프로빗 z ~ y, X → Ê[z | y, d=1, X] 저장</li>
+                <li><strong>2단계:</strong> d=0 하위표본에서 프로빗 z ~ y, X → Ê[z | y, d=0, X] 저장</li>
+                <li><strong>3단계:</strong> 전체 표본에서 프로빗 z ~ X → P̂(z=1 | X) 저장</li>
+                <li><strong>4단계:</strong> 공식으로 Ê[κ | y, d, X] 계산; [0, 1]로 절단</li>
+                <li><strong>5단계:</strong> κ-가중 분위수 회귀 실행</li>
+                <li><strong>6단계:</strong> 전체 과정 붓스트랩으로 표준오차 계산</li>
+            </ol>
+
+        </div>
+    </section>
+
+    <!-- 직업훈련협력법 예시 -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">실증 예시: 직업훈련협력법 훈련 (표 7.2.1)</h2>
+        <div class="section-content">
+
+            <p><strong>설정:</strong> 직업훈련협력법 (1980년대 미국). z = 무작위 배정된 훈련 제안, d = 실제 참여 (~60%), y = 30개월 소득.</p>
+
+            <h3>패널 A: 최소제곱법 & 분위수 회귀 (선택 편의 있음)</h3>
+            <table style="width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem;">
+                <tr style="background: #1e40af; color: white;">
+                    <th style="padding: 0.5rem; border: 1px solid #e5e7eb;"></th>
+                    <th style="padding: 0.5rem; border: 1px solid #e5e7eb;">최소제곱</th>
+                    <th style="padding: 0.5rem; border: 1px solid #e5e7eb;">τ=0.15</th>
+                    <th style="padding: 0.5rem; border: 1px solid #e5e7eb;">τ=0.25</th>
+                    <th style="padding: 0.5rem; border: 1px solid #e5e7eb;">τ=0.50</th>
+                    <th style="padding: 0.5rem; border: 1px solid #e5e7eb;">τ=0.75</th>
+                    <th style="padding: 0.5rem; border: 1px solid #e5e7eb;">τ=0.85</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb;"><strong>훈련</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb;">3,754</td>
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb; background: #fef2f2;">1,187</td>
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb;">2,510</td>
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb;">4,420</td>
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb;">4,678</td>
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb;">4,806</td>
+                </tr>
+                <tr style="background: #f8fafc;">
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb;"><strong>% 영향</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb;">21%</td>
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb; background: #fef2f2;"><strong>136%</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb;">75%</td>
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb;">35%</td>
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb;">17%</td>
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb;">13%</td>
+                </tr>
+            </table>
+
+            <h3>패널 B: 2단계 최소제곱법 & 분위수 처치 효과 (선택 편의 제거)</h3>
+            <table style="width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem;">
+                <tr style="background: #1e40af; color: white;">
+                    <th style="padding: 0.5rem; border: 1px solid #e5e7eb;"></th>
+                    <th style="padding: 0.5rem; border: 1px solid #e5e7eb;">2단계최소제곱</th>
+                    <th style="padding: 0.5rem; border: 1px solid #e5e7eb;">τ=0.15</th>
+                    <th style="padding: 0.5rem; border: 1px solid #e5e7eb;">τ=0.25</th>
+                    <th style="padding: 0.5rem; border: 1px solid #e5e7eb;">τ=0.50</th>
+                    <th style="padding: 0.5rem; border: 1px solid #e5e7eb;">τ=0.75</th>
+                    <th style="padding: 0.5rem; border: 1px solid #e5e7eb;">τ=0.85</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb;"><strong>훈련</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb;">1,593</td>
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb; background: #ecfdf5;"><strong>121</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb;">702</td>
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb;">1,544</td>
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb;">3,131</td>
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb;">3,378</td>
+                </tr>
+                <tr style="background: #f8fafc;">
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb;"><strong>% 영향</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb;">9%</td>
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb; background: #ecfdf5;"><strong>5%</strong></td>
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb;">12%</td>
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb;">10%</td>
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb;">11%</td>
+                    <td style="padding: 0.5rem; border: 1px solid #e5e7eb;">9%</td>
+                </tr>
+            </table>
+
+            <div style="background: #ecfdf5; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <p><strong>핵심 발견:</strong> 분위수 회귀는 τ=0.15에서 큰 효과 ($1,187, 136%). 하지만 분위수 처치 효과는 거의 0 ($121, 5%)!</p>
+                <p><strong>해석:</strong> 저소득 훈련생들이 더 의욕적임 → 양의 선택 편의가 하위 분위수의 분위수 회귀 추정치를 부풀림. 직업훈련협력법은 실제로 상위 분위수에서만 효과가 있었음.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 핵심 질문 -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">핵심 질문 3개</h2>
+        <div class="section-content">
+
+            <div style="background: #f0f9ff; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <h4 style="margin-top: 0; color: #1e40af;">질문 1. 분위수 회귀 vs 최소제곱법</h4>
+                <p><strong>Q:</strong> 분위수 회귀가 최소제곱법과 어떻게 다르며, 언제 사용해야 하는가?</p>
+                <p><strong>A:</strong> 최소제곱법은 조건부 평균을 추정하고, 분위수 회귀는 조건부 분위수를 추정한다. 사용 시점: (1) 불평등 분석, (2) 이질적 효과 탐지, (3) 위치 이동 vs 부채꼴 패턴 구분, (4) 이상치에 강건한 추정.</p>
+            </div>
+
+            <div style="background: #f0f9ff; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <h4 style="margin-top: 0; color: #1e40af;">질문 2. 위치 이동 vs 부채꼴 패턴</h4>
+                <p><strong>Q:</strong> 분위수별 계수가 τ에 따라 다르면 무엇을 의미하는가?</p>
+                <p><strong>A:</strong> 동일한 계수 → 위치 이동 (분포가 균등하게 이동). 증가하는 계수 → 부채꼴 패턴 (X에 따라 불평등 증가). 2000년 인구조사: 상위 10분위 수익률 (15.7%) >> 하위 10분위 (9.2%) → 교육이 불평등 증가시킴.</p>
+            </div>
+
+            <div style="background: #f0f9ff; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <h4 style="margin-top: 0; color: #1e40af;">질문 3. 분위수 처치 효과의 필요성</h4>
+                <p><strong>Q:</strong> 분위수 회귀 추정치가 편향될 수 있는 이유와 분위수 처치 효과의 해결 방법은?</p>
+                <p><strong>A:</strong> 처치가 내생적일 때 분위수 회귀도 선택 편의 문제가 있다. 분위수 처치 효과는 도구변수 논리를 적용: 아바디 카파로 순응자일 확률에 따라 관측치에 가중치 부여. 직업훈련협력법 예시: 분위수 회귀의 하위 분위수 효과가 $1,187에서 $121로 감소 (90% 감소).</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 종합 비교 -->
+    <section class="section fade-in-delay">
+        <h2 class="section-title">종합 비교: 최소제곱법 vs 분위수 회귀 vs 2단계 최소제곱법 vs 분위수 처치 효과</h2>
+        <div class="section-content">
+
+            <table style="width: 100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background: #1e40af; color: white;">
+                    <th style="padding: 0.75rem; border: 1px solid #e5e7eb;">방법</th>
+                    <th style="padding: 0.75rem; border: 1px solid #e5e7eb;">추정 대상</th>
+                    <th style="padding: 0.75rem; border: 1px solid #e5e7eb;">선택 편의</th>
+                    <th style="padding: 0.75rem; border: 1px solid #e5e7eb;">분포 정보</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">최소제곱법</td>
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">E[y|X,d]</td>
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">있음</td>
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">평균만</td>
+                </tr>
+                <tr style="background: #f8fafc;">
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">2단계 최소제곱법</td>
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">순응자의 E[y|X,d]</td>
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">제거</td>
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">평균만</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">분위수 회귀</td>
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">Q<sub>τ</sub>(y|X,d)</td>
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">있음</td>
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">분포 전체</td>
+                </tr>
+                <tr style="background: #ecfdf5;">
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;"><strong>분위수 처치 효과</strong></td>
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;">순응자의 Q<sub>τ</sub>(y|X,d)</td>
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;"><strong>제거</strong></td>
+                    <td style="padding: 0.75rem; border: 1px solid #e5e7eb;"><strong>분포 전체</strong></td>
+                </tr>
+            </table>
+
+        </div>
+    </section>
+
+</div>
