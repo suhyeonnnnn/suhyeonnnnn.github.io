@@ -1,5 +1,5 @@
-title: "Suhyeon Lee - Digital Marketing Researcher"
-description: "KAIST M.S. student researching Digital Marketing, Social Media, and AI applications in human behavior"
+title: "Suhyeon Lee"
+description: "KAIST Ph.D. student researching AI agents, digital markets, and platform governance"
 url: "https://suhyeonnnnn.github.io"
 baseurl: ""
 
@@ -10,7 +10,7 @@ author:
   github: "suhyeonnnnn"
   university: "KAIST"
   department: "Management Engineering"
-  degree: "M.S. Student"
+  degree: "Ph.D. Student"
   location: "Seoul, Republic of Korea"
 
 # Site settings
@@ -73,15 +73,13 @@ social:
 # Research Areas
 research:
   substantive:
-    - "Digital Marketing"
-    - "Social Media"
-    - "User-Generated Content"
-    - "User Behavior"
+    - "AI Agents and Digital Markets"
+    - "Human-AI Decision Making"
+    - "AI Governance and Digital Platforms"
   methodological:
-    - "Generative AI"
-    - "LLM"
-    - "Computer Vision"
-    - "Video Analysis"
+    - "Causal Inference"
+    - "Experiments"
+    - "LLM-based Behavioral Simulation"
 
 # Exclude files
 exclude:

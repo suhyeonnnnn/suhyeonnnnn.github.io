@@ -23,33 +23,34 @@ title: Home
     </div>
     <div class="about-text fade-in">
         <p>
-            Welcome! I'm a <span class="highlight">M.S. student at KAIST</span> in Management Engineering, 
-            advised by Prof. Donghyuk Shin. My research focuses on <span class="highlight">Digital Marketing, 
-            Social Media, and User Behavior</span> using cutting-edge AI technologies.
+            Welcome! I'm a <span class="highlight">Ph.D. student at KAIST</span> in Management Engineering,
+            advised by Prof. Donghyuk Shin. I study <span class="highlight">AI-mediated markets</span>:
+            what changes when AI systems come to sit between people and the choices they make.
         </p>
         <p>
-            I'm particularly interested in applying <span class="highlight">Generative AI, LLMs, and Computer Vision</span> 
-            to understand how digital platforms shape user behavior and marketing effectiveness. 
-            Currently, I'm a visiting student at <span class="highlight">Carnegie Mellon University</span> 
-            participating in the AI Intensive Program.
+            I look at this shift from three sides. For <span class="highlight">consumers</span>, I ask whether
+            marketing still works once an agent does the searching and buying. For
+            <span class="highlight">platforms</span>, I ask whether rules and features still govern as intended
+            once AI generates and filters content. For <span class="highlight">AI providers</span>, I ask how these
+            systems should be built to work with people in the first place.
         </p>
         <p>
-            My work bridges the gap between advanced AI methodologies and practical marketing insights, 
-            aiming to create innovative solutions for understanding and predicting human behavior 
-            in digital environments.
+            My work combines causal inference on large-scale platform data, controlled experiments with
+            LLM agents, and theory-guided behavioral simulation. Before starting my Ph.D., I was a visiting
+            student at <span class="highlight">Carnegie Mellon University</span> in the AI Intensive Program.
         </p>
         <div class="quick-stats">
             <div class="stat-item">
-                <span class="stat-number">3+</span>
+                <span class="stat-number">3</span>
                 <span class="stat-label">Publications</span>
             </div>
             <div class="stat-item">
-                <span class="stat-number">10+</span>
-                <span class="stat-label">Conference Presentations</span>
+                <span class="stat-number">5</span>
+                <span class="stat-label">Working Papers</span>
             </div>
             <div class="stat-item">
-                <span class="stat-number">$4K+</span>
-                <span class="stat-label">Awards & Prizes</span>
+                <span class="stat-number">8</span>
+                <span class="stat-label">Conference Presentations</span>
             </div>
         </div>
     </div>

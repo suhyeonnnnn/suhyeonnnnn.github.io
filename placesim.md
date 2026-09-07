@@ -1,6 +1,6 @@
 ---
 layout: minimal_base
-title: "PlaceSim Research"
+title: "PlaceSim: An LLM-based Interactive Platform for Human Behavior Simulation in Physical Facilities"
 ---
 
 <div class="content">
@@ -17,9 +17,9 @@ title: "PlaceSim Research"
             <h1 class="research-title">PlaceSim: An LLM-based Interactive Platform for Human Behavior Simulation in Physical Facilities</h1>
             <div class="research-meta">
                 <div class="authors"><strong>Lee, S.</strong>, Y. Yu, D. Shin, & R. Singh</div>
-                <div class="venue">Proceedings of the 34th ACM International Conference on Information and Knowledge Management (CIKM '25)</div>
-                <div class="date">November 10-14, 2025, Seoul, Republic of Korea</div>
-                <div class="status"><span class="status-badge forthcoming">Forthcoming</span></div>
+                <div class="venue">Proceedings of the ACM International Conference on Information and Knowledge Management (CIKM), 2025</div>
+                <div class="date">Seoul, Republic of Korea &middot; <a href="https://doi.org/10.1145/3746252.3761461" target="_blank">doi:10.1145/3746252.3761461</a></div>
+                <div class="status"><span class="status-badge forthcoming">Published</span></div>
             </div>
         </div>
     </section>
@@ -29,10 +29,19 @@ title: "PlaceSim Research"
         <h2 class="section-title">Abstract</h2>
         <div class="section-content">
             <p>
-                An innovative interactive platform that leverages Large Language Models to simulate human behavior in physical facilities. 
-                This project combines AI, spatial analytics, and behavioral modeling to create realistic simulations for urban planning 
-                and facility design. The platform enables researchers and practitioners to understand and predict human movement patterns 
-                and spatial interactions in various built environments.
+                Physical facility design faces a cold-start problem: predicting how people will behave in spaces that do
+                not yet exist. Surveys capture stated preferences that diverge from actual usage, and existing simulation
+                tools demand technical expertise that limits who can use them. PlaceSim is a web-based platform that uses
+                large language models to simulate facility behavior through a zero-code interface, structuring model
+                reasoning with a Persona-Environment-Scenario (P.E.S.) framework and context-aware AI personas whose
+                decisions remain inspectable.
+            </p>
+            <p>
+                The platform supports interactive facility design, persona generation, live simulation with reasoning
+                visualization, and what-if comparison across scenarios. Evaluated on 18 months of real apartment facility
+                data covering 789,238 usage records from 8,435 residents, the zero-shot approach reaches
+                Jensen-Shannon Divergence scores as low as 0.006, outperforming both supervised learning methods and
+                existing LLM-based tools without requiring any training data.
             </p>
         </div>
     </section>
