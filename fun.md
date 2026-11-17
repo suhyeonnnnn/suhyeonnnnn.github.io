@@ -8,6 +8,22 @@ title: "Fun"
     <section class="section fade-in">
     <h2 class="section-title">Life in Pictures</h2>
         <div class="photo-gallery">
+            <!-- CIST 2026 사진 -->
+            <div class="photo-card large">
+                <div class="photo-container">
+                    <img src="{{ '/assets/images/cist2026.jpg' | relative_url }}" alt="INFORMS CIST 2026 Presentation" class="photo-image">
+                    <div class="photo-overlay">
+                        <div class="photo-story">
+                            <h4>INFORMS CIST 2026, San Francisco</h4>
+                            <p>
+                                Presenting "When the Buyer Is a Machine" at CIST 2026. My first time presenting
+                                the agentic commerce work to an IS audience, and the questions afterwards were
+                                the most useful part of the trip.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!-- ISMS Conference 사진 -->
             <div class="photo-card medium">
                 <div class="photo-container">

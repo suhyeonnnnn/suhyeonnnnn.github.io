@@ -18,8 +18,8 @@ title: "How You Ask Shapes What You Get: A Theory-Seeded Measurement of Articula
             <div class="research-meta">
                 <div class="authors">Baek, J., <strong>S. Lee</strong>, & D. Shin</div>
                 <div class="venue">Findings of the Association for Computational Linguistics: EMNLP, 2026</div>
-                <div class="date"><a href="https://arxiv.org/abs/2608.29591" target="_blank">arXiv:2608.29591</a></div>
-                <div class="status"><span class="status-badge forthcoming">Forthcoming</span></div>
+                <div class="date"><a href="https://doi.org/10.18653/v1/2026.findings-emnlp.933" target="_blank">doi:10.18653/v1/2026.findings-emnlp.933</a></div>
+                <div class="status"><span class="status-badge published">Published</span></div>
             </div>
         </div>
     </section>

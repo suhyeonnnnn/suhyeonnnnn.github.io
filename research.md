@@ -16,8 +16,8 @@ title: "Research"
                 </div>
                 <div class="news-description">
                     Baek, J., <strong>S. Lee</strong>, & D. Shin<br>
-                    <em>Findings of the Association for Computational Linguistics: EMNLP</em>, 2026. <strong>(Forthcoming)</strong><br>
-                    <a href="https://arxiv.org/abs/2608.29591" target="_blank">arXiv:2608.29591</a>
+                    <em>Findings of the Association for Computational Linguistics: EMNLP</em>, 2026.<br>
+                    <a href="https://doi.org/10.18653/v1/2026.findings-emnlp.933" target="_blank">doi:10.18653/v1/2026.findings-emnlp.933</a>
                 </div>
             </div>
 
@@ -29,8 +29,8 @@ title: "Research"
                 </div>
                 <div class="news-description">
                     <strong>Lee, S.</strong>, J. Baek, J. Park, & D. Shin<br>
-                    <em>Findings of the Association for Computational Linguistics: EMNLP</em>, 2026. <strong>(Forthcoming)</strong><br>
-                    <a href="https://arxiv.org/abs/2608.22993" target="_blank">arXiv:2608.22993</a>
+                    <em>Findings of the Association for Computational Linguistics: EMNLP</em>, 2026.<br>
+                    <a href="https://doi.org/10.18653/v1/2026.findings-emnlp.810" target="_blank">doi:10.18653/v1/2026.findings-emnlp.810</a>
                 </div>
             </div>
 
@@ -93,7 +93,7 @@ title: "Research"
                     <em>with D. Shin & S. P. Han</em> &middot; In preparation for <em>Information Systems Research</em><br>
                     • Built a sandboxed e-commerce environment and collected roughly 23,000 agent purchases across commercial LLM agents, with attribute-matched fictional brands<br>
                     • Found that agents open only one or two of eight candidates before deciding, and that aggregated social proof moves them while scarcity and urgency do not<br>
-                    • Accepted for presentation at ICIS 2026 (Lisbon) and INFORMS CIST 2026 (San Francisco)
+                    • Presented at INFORMS CIST 2026 (San Francisco); accepted for presentation at ICIS 2026 (Lisbon)
                 </div>
             </div>
 
@@ -151,21 +151,21 @@ title: "Research"
                     Consumer-side versus seller-side shopping agents
                 </div>
                 <div class="news-description">
-                    <em>with J. Lee, Y. Lee, M. Kim, & D. Shin</em> &middot; Under review<br>
+                    <em>with J. Lee, Y. Lee, M. Kim, & D. Shin</em> &middot; In progress<br>
                     • Asking whether who an agent works for changes how much buying authority people are willing to hand it<br>
-                    • Title withheld while the paper is under anonymous review
+                    • Title withheld until the paper is public
                 </div>
             </div>
 
             <div class="news-item">
                 <div class="news-date">Ongoing</div>
                 <div class="news-title">
-                    Using synthetic persona populations to predict real purchases
+                    Toward Inferring Consumer Contexts: Evaluating Persona Profiles against Customer Behavior
                 </div>
                 <div class="news-description">
-                    <em>with M. Kwak & D. Shin</em> &middot; Under review<br>
+                    <em>with M. Kwak & D. Shin</em><br>
                     • Asking whether an outside population of generated profiles can stand in for the parts of a shopper's situation that transaction records never capture<br>
-                    • Title withheld while the paper is under anonymous review
+                    • Outstanding Paper Award, KMIS International Conference, 2026
                 </div>
             </div>
         </div>
@@ -184,6 +184,28 @@ title: "Research"
                     <em>(first author)</em><br>
                     • International Conference on Information Systems (ICIS), December 2026<br>
                     • INFORMS Conference on Information Systems and Technology (CIST), October 2026
+                </div>
+            </div>
+
+            <div class="news-item">
+                <div class="news-date">2026</div>
+                <div class="news-title">
+                    How You Ask Shapes What You Get: A Theory-Seeded Measurement of Articulation in Advice-Seeking LLM Conversations
+                </div>
+                <div class="news-description">
+                    <em>(second author)</em><br>
+                    • Workshop on Information Technologies and Systems (WITS), December 2026
+                </div>
+            </div>
+
+            <div class="news-item">
+                <div class="news-date">2026</div>
+                <div class="news-title">
+                    Toward Inferring Consumer Contexts: Evaluating Persona Profiles against Customer Behavior
+                </div>
+                <div class="news-description">
+                    <em>(second author)</em><br>
+                    • KMIS International Conference, November 2026 <em>(Outstanding Paper Award)</em>
                 </div>
             </div>
 
@@ -290,6 +312,14 @@ title: "Research"
                 <div class="news-title">Doctoral Student Research Grant</div>
                 <div class="news-description">
                     National Research Foundation of Korea. Principal Investigator.
+                </div>
+            </div>
+
+            <div class="news-item">
+                <div class="news-date">2026</div>
+                <div class="news-title">Outstanding Paper Award</div>
+                <div class="news-description">
+                    KMIS International Conference.
                 </div>
             </div>
 
